@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window  id="wAsingatarifa"  position="center" class="col-12 col-sm-12 col-md-5 col-lg-5" closable="true"  
+         apply="org.zkoss.bind.BindComposer" 
+         viewModel="@id('vm') @init('com.ec.controlador.AsignarTarifa')">
+    
+    <caption label="${labels.app.solicitudinsp}" style="font-weight:bold"/> 
+    <div  class="container-fluid" >
+        <div  class="row" >  
+            
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12  form-group "  >
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 "  >
+                    <label value="(*) " style="color:red;font-weight:bold" />${labels.app.formapago}
+                    <radiogroup selectedItem="@bind(vm.entidadSelected.solpFormaPago)"                   >
+                        <space bar="true"  />
+                        <radio label="EFECTIVO" value="EFECTIVO"/>
+                        <space bar="true"  /> 
+                        <radio label="TRANSFERENCIA" value="TRANSFERENCIA"/>       
+                        <space bar="true"  />          
+                        <radio label="CHEQUE" value="CHEQUE"/>                                    
+                           
+                    </radiogroup>  
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 "  >
+                    <label    value="(*) "  >${labels.app.tarifa}</label>
+          
+                    <combobox id="cmbCategoria"  model="@load(vm.listTarifa)"  
+                              width="100%"                             
+                              readonly="true"                                     
+                              selectedItem="@bind(vm.tarifaSelected)"
+                              value="@bind(vm.tarifaSelected.tarDescripcion)" >
+                        <template name="model">
+                            <comboitem  label="@bind(each.tarDescripcion)"
+                                        description="@bind(each.tarValor ne null ? 'Precio ($):= '.concat(each.tarValor) : '')" />
+                        </template>                                      
+                    </combobox>
+      
+
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12  "  >
+                    <label value="(*)" style="color:red;font-weight:bold"/>tarifa 
+                    <decimalbox format="####.##"  readonly="true"                           
+                                value="@bind(vm.tarifaSelected.tarValor)" 
+                                style="color:blue;font-size:2rem" 
+                                class="form-control"  />                                
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6  "  >
+                    <label value="(*)" style="color:red;font-weight:bold"/>${labels.app.valorImpuestoPre} 
+                    <textbox  maxlength="8"  constraint="/^[0-9]{1,9}(?:[.][0-9]{1,5})?$/:Ingrese solo numeros"
+                              onOK="@command('calcularValor')"
+                              onChange="@command('calcularValor')"
+                              value="@bind(vm.valorImpuesto)"  
+                              class="form-control"  />
+                 
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6  "  >
+                    <label value="Valor adicional " />
+                    <textbox  maxlength="8"  constraint="/^[0-9]{1,9}(?:[.][0-9]{1,5})?$/:Ingrese solo numeros"
+                              onOK="@command('calcularValor')"
+                              onChange="@command('calcularValor')"
+                              value="@bind(vm.valorAdicional)"  
+                              class="form-control"  />
+                 
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6  "  >
+                    <label value="Valor construccion " />
+                    <textbox  maxlength="8"  constraint="/^[0-9]{1,9}(?:[.][0-9]{1,5})?$/:Ingrese solo numeros"
+                              onOK="@command('calcularValor')"
+                              onChange="@command('calcularValor')"
+                              value="@bind(vm.valorConstruccion)"  
+                              class="form-control"  />
+                 
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12  "  >
+                    <label value="Detalle de valor adicional" />
+                    <textbox  onChange="self.setValue(self.getValue().toUpperCase())"
+                              value="@bind(vm.entidadSelected.solpDetValorAdicional)"  
+                              class="form-control"  />
+                 
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12  "  >
+                    <label value="(*)" style="color:red;font-weight:bold"/>Valor a cobrar por impuesto predial: 
+                    <decimalbox format="####.####"  readonly="true"                         
+                                value="@bind(vm.valorCobroImpuesto)"  
+                                class="form-control"  />                                
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12  "  >
+                    <label value="(*)" style="color:red;font-weight:bold"/>Valor total a cobrar: 
+                    <decimalbox format="####.##"  readonly="true"                           
+                                value="@bind(vm.totalCobrar)" 
+                                style="color:blue;font-size:2rem" 
+                                class="form-control"  />                                
+                </div>
+                
+                            
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12  " align="center"   >
+                    <button    iconSclass="z-icon-save"
+                               label="Guardar"
+                            
+                               class="btn btn-primary btn-xs "                                                               
+                               onClick="@command('guardar')"
+                               tooltiptext="GUARDAR"/>     
+                </div> 
+           
+            </div>
+   
+        </div>
+    </div>
+                    
+                  
+</window>

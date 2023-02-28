@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window  id="wCobroManualPer"  position="center" class="col-12 col-sm-12 col-md-5 col-lg-5" closable="true"  
+         apply="org.zkoss.bind.BindComposer" 
+         viewModel="@id('vm') @init('com.ec.controlador.CobroManualPer')">
+    
+    <caption label="${labels.app.newcobromanu}" style="font-weight:bold"/> 
+    <div  class="container-fluid" >
+        <div  class="row" >  
+            
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12  form-group "  >
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12  form-group "  >
+                    ${labels.app.cantidad}               
+                     <intbox value="@bind(vm.cantidadSolicitud)"  
+                            width="30%" 
+                            class="form-control" />  
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12  form-group "  >
+                    ${labels.app.descripcion}                 
+                    <textbox  maxlength="100" 
+                              onChange="self.setValue(self.getValue().toUpperCase())"
+                              value="@bind(vm.cobro.cobDetalle)" 
+                              class="form-control" />
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12  form-group "  >
+                    ${labels.app.valor} Total                                
+                    <textbox  maxlength="5" 
+                              width="30%"
+                              constraint="/^[0-9]{1,9}(?:[.][0-9]{1,5})?$/:Ingrese solo numeros"
+                              onChange="self.setValue(self.getValue().toUpperCase())"
+                              value="@bind(vm.cobro.cobValor)" 
+                              class="form-control" />
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12  " align="center" >
+                    <button    iconSclass="z-icon-save"
+                               label="Guardar"
+                               class="btn btn-primary btn-xs "                                                               
+                               onClick="@command('guardar',valor=each)"
+                               tooltiptext="Aprobar"/>    
+                </div> 
+            </div>                
+        </div>
+    </div>           
+</window>

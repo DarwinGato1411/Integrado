@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window  id="wOpcion"  position="center" class="col-12 col-sm-12 col-md-11 col-lg-11" closable="true"  
+         apply="org.zkoss.bind.BindComposer" 
+         viewModel="@id('vm') @init('com.ec.controlador.CargarArchivoPermiso')">
+    
+    <caption label="Cargar Archivo" style="font-weight:bold"/> 
+    <div  class="container-fluid" >
+        <div  class="row" >  
+            
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6  form-group "  >
+                <tabbox id="tboxPrincipal"  width="100%">
+                    <tabs>
+                        <tab label="Cargar archivos" sclass="menutabs " /> 
+                    </tabs>
+                    
+                    <tabpanels>
+                        <tabpanel  height="98%" width="99%"  >
+                             
+                            Seleccionar los archivos necesarios archivo:
+                            <button    style="width:30px;height:30px; background: blue" iconSclass="z-icon-edit "
+                                       class="btn btn-primary btn-xs"
+                                       onClick="@command('cargarArchivo')" 
+                                       tooltiptext="${labels.app.cargar}"/> 
+
+                            <listbox  width="99%"
+                                      model="@load(vm.listadoAdjuntos)" 
+                                      nonselectableTags="*" 
+                                      mold="paging" pageSize="20">
+                
+                                <custom-attributes org.zkoss.zul.listbox.rod="true"/>
+                
+                                <!--                                <auxhead>
+                                    <auxheader colspan="10" >  
+                                        <button    iconSclass="z-icon-plus-circle"
+                                                class="btn btn-primary btn-xs botongeneral"                                            
+                                                onClick="@command('agregarPermiso')" 
+                                                tooltiptext="${labels.app.permiso}"/>
+                                    </auxheader>
+                                </auxhead>-->
+                                <listhead sizable="false">
+                                    <listheader label="Solicitud"  align="left" hflex="3"></listheader>
+                                    <listheader label=""  align="left" width="33px"></listheader>
+                                    <listheader label=""  align="left" width="33px"></listheader>
+                                </listhead>
+                   
+                
+                                <template name="model">
+                                    <listitem  >
+                                        <listcell zclass = "mycss-listcell">
+                                            <label sclass="letraLisbox" 
+                                                   value="@bind(each.adjDescripcion)" style="font-weight:bold" 
+                                                   width="100%"/>
+                                        </listcell>  
+                                                                     
+                                        <listcell zclass = "mycss-listcell">
+                                                     
+                                            <button    style="width:30px;height:30px; background: green" iconSclass="z-icon-search"
+                                
+                                                       class="btn btn-primary btn-xs"
+                                                       onClick="@command('verArchivo',valor=each)" 
+                                                       tooltiptext="Ver"/> 
+                                    
+                                        </listcell>                                
+                                        <listcell zclass = "mycss-listcell">
+                                                     
+                                            <button    style="width:30px;height:30px; background: red" iconSclass="z-icon-times"
+                                
+                                                       class="btn btn-primary btn-xs"
+                                                       onClick="@command('EstadoArchivo',valor=each)" 
+                                                       tooltiptext="Eliminar"/> 
+                                    
+                                        </listcell>                                
+                                    </listitem>
+                                </template>   
+                            </listbox>
+                        </tabpanel>
+                    </tabpanels>
+                </tabbox>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6  form-group "  >
+                <iframe height="600px" class="col-12 col-sm-12 col-md-12 col-lg-12" id="reportframe1"                
+                        content="@bind(vm.fileContent)"/>
+            </div>
+        </div>
+    </div>
+    
+                  
+</window>

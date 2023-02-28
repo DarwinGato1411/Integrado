@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="../resources/css/boostrap/bootstrap.css"?>  
+<?link rel="stylesheet" type="text/css" href="../resources/css/style.css"?>
+<?init class="com.ec.seguridad.Autentificador"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/plantillaempresa/plantilla.zul"?>
+<div  self="@define(content)"   apply="org.zkoss.bind.BindComposer"  align="start" 
+      viewModel="@id('vm') @init('com.ec.controlador.Empresa')" >
+    <tabbox   width="100%">
+        <tabs>
+            <tab label="Empresa" sclass="menutabs" /> 
+        </tabs>
+        
+        <tabpanels>
+            <tabpanel  height="98%" width="99%"  >
+               
+            </tabpanel>
+        </tabpanels>
+    </tabbox>
+
+</div>
+
+
+

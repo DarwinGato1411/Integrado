@@ -1,0 +1,40 @@
+<?link rel="stylesheet" type="text/css" href="/resources/css/boostrap/bootstrap.css"?>   
+<?link rel="stylesheet" type="text/css" href="/resources/css/style.css"?>
+<?link rel="icon" type="image/x-icon" href="/iconos/deckxel.ico"?>  
+<?page title="Gestion Bomberos" contentType="text/html;charset=UTF-8"?>
+
+<zk contentStyle="overflow:auto" >
+
+   
+    <div class="container " id="loginWin" style="margin:1% auto;"   
+         apply="com.ec.controlador.LoginController" >
+ 
+    
+        <div class=" col-12 col-sm-8 col-md-6 col-lg-4 " >
+                
+        </div> 
+        <div class="row card" align="center" style="align-items: center;vertical-align: middle;border:2px">
+                 
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4 form-group card-img-top" style="align-items: center;vertical-align: middle;border:2px" align="center">
+ 
+                <image  src="/imagenes/LogoBomberosPVM.png" class="imgRedondaLogoLogin" width="100%" ></image>
+                <separator/>
+                <textbox id="account" type="text"  class="form-control glyphicon glyphicon-user"
+                         onCreate="self.focus()"
+                         placeholder="Ingrese el usuario"   />
+                <separator/>
+                <textbox id="password" type="password" 
+                         class="form-control" 
+                         placeholder="Ingrese la constraseña" />      
+  
+                <button id="buttonEntrar" style="height:50px;font-size:1em;color:white;"
+                        class="btn btn-lg btn-primary btn-block" label="Ingresar">
+                </button>   
+            </div>
+
+        </div>
+    
+    </div>
+  
+    
+</zk>

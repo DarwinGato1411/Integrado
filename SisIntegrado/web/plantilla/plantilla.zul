@@ -1,0 +1,22 @@
+<?init class="com.ec.seguridad.Autentificador"?>
+
+<zk  >
+    <borderlayout >
+        <north   border="none" height="7%" >
+            <include src="/plantilla/banner.zul"/>
+        </north>
+        <west  border="none" class="banner" autoscroll="true"  
+                       collapsible="true" splittable="true"  >
+            <include src="/plantilla/menuOpciones.zul"/>
+        </west>
+        <center  id="mainContentAsesor"  style="overflow-y: scroll;" self="@{insert(content)}">
+            
+        </center>
+        <south>
+            <div style="background:white; color:black; font-weight: bold" height="20px" align="center">
+                <image src="../imagenes/logosinfondo.png" height="28px" />   
+                <!--<label>DECKXEL </label>-->       
+            </div>
+        </south>
+    </borderlayout>
+</zk>
