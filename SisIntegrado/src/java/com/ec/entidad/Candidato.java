@@ -51,6 +51,8 @@ public class Candidato implements Serializable {
     private String canTelefono;
     @Column(name = "can_direccion")
     private String canDireccion;
+    @OneToMany(mappedBy = "idCandidato")
+    private Collection<Evaluacion> evaluacionCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "candidato")
     private Collection<CandidatoVacante> candidatoVacanteCollection;
     @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
@@ -118,6 +120,14 @@ public class Candidato implements Serializable {
 
     public void setCanDireccion(String canDireccion) {
         this.canDireccion = canDireccion;
+    }
+
+    public Collection<Evaluacion> getEvaluacionCollection() {
+        return evaluacionCollection;
+    }
+
+    public void setEvaluacionCollection(Collection<Evaluacion> evaluacionCollection) {
+        this.evaluacionCollection = evaluacionCollection;
     }
 
     public Collection<CandidatoVacante> getCandidatoVacanteCollection() {

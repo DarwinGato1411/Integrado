@@ -47,6 +47,8 @@ public class Empresa implements Serializable {
     @Column(name = "emp_estado")
     private Boolean empEstado;
     @OneToMany(mappedBy = "idEmpresa")
+    private Collection<Pregunta> preguntaCollection;
+    @OneToMany(mappedBy = "idEmpresa")
     private Collection<Vacante> vacanteCollection;
     @OneToMany(mappedBy = "idEmpresa")
     private Collection<Flor> florCollection;
@@ -110,6 +112,14 @@ public class Empresa implements Serializable {
 
     public void setEmpEstado(Boolean empEstado) {
         this.empEstado = empEstado;
+    }
+
+    public Collection<Pregunta> getPreguntaCollection() {
+        return preguntaCollection;
+    }
+
+    public void setPreguntaCollection(Collection<Pregunta> preguntaCollection) {
+        this.preguntaCollection = preguntaCollection;
     }
 
     public Collection<Vacante> getVacanteCollection() {
