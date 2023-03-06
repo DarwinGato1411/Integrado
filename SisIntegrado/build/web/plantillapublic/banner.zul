@@ -12,38 +12,25 @@
     </style> 
    
     <div class="fondoBanner"  id="loginWin"  width="100%"
-         apply="com.ec.controlador.LogoutController" >
+         apply="com.ec.controlador.MenuPublic" >
         <div class="row" >
            
             
-            <div class="col-12 col-sm-12 col-md-6 col-lg-6  " align="start">
-<!--                <button iconSclass="z-icon-home   " 
-                        id="btnHome" 
-                       
-                        label="Inicio"   >
-                </button>-->
-                <label value="Candidato " style="  color:white;font-size:20px" />
-<!--                 <label value="${sessionScope.usuario.usuarioSistema.usuNivel}" 
-                           style=" border-radius: 100%;color:red; background:transparent; font-size:20px" 
-                            if="${not sessionScope.userCredential.anonymous}" />-->
-            </div>
-<!--            <div class="col-12 col-sm-12 col-md-6 col-lg-6 " align="end" style="float: right; " >
-                <label value="Usuario: " 
-                       if="${not sessionScope.userCredential.anonymous}" 
-                       style=" border-radius: 100%;color:white; background:transparent; font-size:20px" />
-                <label value="${sessionScope.usuario.nombreUsuario}" 
-                       style=" border-radius: 100%;color:white; background:transparent; font-size:20px"
-                       if="${not sessionScope.userCredential.anonymous}" />
-     
-                <a sclass="logout labelLogout" id="logout" >  
-                    <label  value="Salir " 
-                            if="${not sessionScope.userCredential.anonymous}" 
+            <div class="row col-12 col-sm-12 col-md-12 col-lg-12  " align="start">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6  " align="start">
+                     <label value="Informacion " style="  color:white;font-size:20px" />
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6  " align="end">
+                   <a sclass="logout labelLogout" id="login" >  
+                    <label  value="Ingresar " 
                             sclass="labelLogout"/> 
-                    <image src="/iconos/logout-24.png"  />  
+                    <image src="/iconos/permission.png"  />  
                        
-                </a>
+                </a>    
+                </div>
                
-            </div>           -->
+        
+            </div>
         </div>
         
     </div>

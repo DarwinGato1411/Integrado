@@ -1,40 +1,83 @@
-<?link rel="stylesheet" type="text/css" href="/resources/css/boostrap/bootstrap.css"?>   
-<?link rel="stylesheet" type="text/css" href="/resources/css/style.css"?>
-<?link rel="icon" type="image/x-icon" href="/iconos/deckxel.ico"?>  
-<?page title="Gestion Bomberos" contentType="text/html;charset=UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="/css/app/landing/signin.css?v2"?>
+<?script src="https://kit.fontawesome.com/484b16c999.js"?>
+<?script src="./js/inicio.js?v1"?>
 
-<zk contentStyle="overflow:auto" >
+<?link rel="icon" type="image/x-icon" href="/iconos/defact.ico"?>  
+<?page title="Sistema integrado" contentType="text/html;charset=UTF-8"?>
 
-   
-    <div class="container " id="loginWin" style="margin:1% auto;"   
-         apply="com.ec.controlador.LoginController" >
- 
-    
-        <div class=" col-12 col-sm-8 col-md-6 col-lg-4 " >
-                
-        </div> 
-        <div class="row card" align="center" style="align-items: center;vertical-align: middle;border:2px">
-                 
-            <div class="col-12 col-sm-12 col-md-6 col-lg-4 form-group card-img-top" style="align-items: center;vertical-align: middle;border:2px" align="center">
- 
-                <image  src="/imagenes/LogoBomberosPVM.png" class="imgRedondaLogoLogin" width="100%" ></image>
-                <separator/>
-                <textbox id="account" type="text"  class="form-control glyphicon glyphicon-user"
-                         onCreate="self.focus()"
-                         placeholder="Ingrese el usuario"   />
-                <separator/>
-                <textbox id="password" type="password" 
-                         class="form-control" 
-                         placeholder="Ingrese la constraseña" />      
-  
-                <button id="buttonEntrar" style="height:50px;font-size:1em;color:white;"
-                        class="btn btn-lg btn-primary btn-block" label="Ingresar">
-                </button>   
+<zk >
+
+   <div class="login_container"  id="loginWin" apply="com.ec.controlador.LoginController">
+        <div class="wrapper_login">
+            <div class="container_img">
+                <image src="./imagenes/logodeckxel.png" class="logo"/>
+                <div class="wrapper_title">
+                    <span class="title">Sistema de Facturación Electrónica</span>
+                   
+                    <div class="desc">
+                        Estimado usuario envenido a nuestro sistema.
+                    </div>
+                    <div class="desc">
+                       Obten tu firma electronica con nosotros.
+                    </div>
+                    <div class="desc">
+                       Asesoramiento directo.
+                    </div>
+                    <div class="desc">DECKXEL</div>
+                   <div class="desc">099 742 8125   </div>
+                   <div class="desc">www.deckxel.com   </div>
+                    <!--<button class="btn btn_reg" id="btnRegistra" >Registro</button> -->
+                </div>
             </div>
+            <div class="container_signin">
+                <image src="./imagenes/pichincha/logo2.png" class="logo"/>
+                <span class="title" >Iniciar Sesión</span>
+                <span class="subtitle">Bienvenido su mejor opción en facturación electrónica</span> 
+                <div class="wrapper_all_inputs">
+                    <div class="wrapper_input">
+                        <span class="fas fa-user icon"></span>
+                        <textbox 
+                            type="text" 
+                            placeholder="Usuario" 
+                            class="input"
+                            id="account"
+                            onCreate="self.focus()"
+                        />
+                    </div>
+                    <div class="wrapper_input">
+                        <span class="fas fa-lock icon"></span>
+                        <textbox 
+                            type="password" 
+                            placeholder="Contraseña" 
+                             id="password"
+                            class="input input_password"
+                        />
+                        <span class="fa-solid fa-eye icon_eye icon"></span>
+                    </div>
+                </div>
 
+                <!--<span class="forgot_text" id="linkOlvideContrasena">Olvide mi contraseña</span>-->
+                
+                <div class="wrapper_buttons">
+                    <button 
+                        class="btn btn_sign" 
+                        id="buttonEntrar"
+                    >Iniciar Sesión
+                    </button>
+<!--                    <button 
+                        class="btn btn_sign_reg"
+                        id="btnRegistra"
+                    >Registro
+                    </button>-->
+                </div>
+                
+                
+            </div>
         </div>
-    
     </div>
-  
-    
+
+    <div class="wrapper_loading loading_inicio">
+        <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    </div>
+
 </zk>

@@ -1,7 +1,7 @@
 <?link rel="stylesheet" type="text/css" href="/resources/css/boostrap/bootstrap.css"?>   
 <?link rel="stylesheet" type="text/css" href="/resources/css/style.css"?>
 <?link rel="icon" type="image/x-icon" href="/iconos/deckxel.ico"?>  
-<?page title="Gestion Bomberos" contentType="text/html;charset=UTF-8"?>
+<?page title="Sistema integrado" contentType="text/html;charset=UTF-8"?>
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="/plantillapublic/plantilla.zul"?>
 <zk contentStyle="overflow:auto" >
 
