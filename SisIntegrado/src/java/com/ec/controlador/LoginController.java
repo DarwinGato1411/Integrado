@@ -8,8 +8,6 @@ import com.ec.seguridad.AutentificadorLogeo;
 import com.ec.seguridad.EnumSesion;
 import com.ec.seguridad.GrupoUsuarioEnum;
 import com.ec.seguridad.UserCredential;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
