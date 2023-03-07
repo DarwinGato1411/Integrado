@@ -4,6 +4,7 @@
  */
 package com.ec.servicio;
 
+import com.ec.entidad.Usuario;
 import com.ec.entidad.Vacante;
 import java.util.ArrayList;
 import java.util.List;
@@ -105,6 +106,31 @@ public class ServicioVacante {
         }
 
         return vacante;
+    }
+
+    public List<Vacante> findByUsuarioLike(String buscar,Usuario idUsuario) {
+
+        List<Vacante> listaDatos = new ArrayList<Vacante>();
+
+        try {
+            //Connection connection = em.unwrap(Connection.class);
+
+            em = HelperPersistencia.getEMF();
+            em.getTransaction().begin();
+            Query query = em.createQuery("SELECT u FROM Vacante u WHERE (u.vacNombre LIKE :buscar OR u.vacDescripcion LIKE :buscar ) and u.idEmpresa.idUsuario=:idUsuario");
+            query.setParameter("buscar", "%" + buscar + "%");
+            query.setParameter("idUsuario", idUsuario);
+            listaDatos = (List<Vacante>) query.getResultList();
+
+            em.getTransaction().commit();
+        } catch (Exception e) {
+
+            System.out.println("Error en lsa consulta vacante  findByUsuarioLike  " + e.getMessage());
+        } finally {
+            em.close();
+        }
+
+        return listaDatos;
     }
 
 }

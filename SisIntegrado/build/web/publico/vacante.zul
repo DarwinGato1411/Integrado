@@ -1,15 +1,90 @@
 <?link rel="stylesheet" type="text/css" href="/resources/css/boostrap/bootstrap.css"?>   
 <?link rel="stylesheet" type="text/css" href="/resources/css/style.css"?>
+<?link rel="stylesheet" type="text/css" href="/css/inicio.css"?>
 <?link rel="icon" type="image/x-icon" href="/iconos/deckxel.ico"?>  
 <?page title="Sistema integrado" contentType="text/html;charset=UTF-8"?>
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="/plantillapublic/plantilla.zul"?>
+
 <zk contentStyle="overflow:auto" >
 
    
     <div  self="@define(content)"  apply="org.zkoss.bind.BindComposer" width="100%" align="start" 
          viewModel="@id('vm') @init('com.ec.controlador.publico.VacanteController')" >
  
-        Contenido
+       <div class="contenedorPublico">
+        <div class="contenedorOpciones">
+            <div class="opcion nC">
+
+                <div class="texto">
+                    <div>
+                        <div class="tl">Candidatos</div>
+                        <div class="num">100000000</div>
+                    </div>
+                    <div class="imagens">img</div>
+                </div>
+                <div class="detalle">
+                    Ver Detalle
+                </div>
+
+
+            </div>
+            <div class="opcion nV">
+
+                <div class="texto">
+                    <div>
+                        <div class="tl">Vacantes</div>
+                        <div class="num">100000000</div>
+                    </div>
+                    <div class="imagens">img</div>
+                </div>
+                <div class="detalle">
+                    Ver Detalle
+                </div>
+
+
+            </div>
+            <div class="opcion nE">
+
+                <div class="texto">
+                    <div>
+                        <div class="tl">Empresas</div>
+                        <div class="num">100000000</div>
+                    </div>
+                    <div class="imagens">im</div>
+                </div>
+                <div class="detalle">
+                    Ver Detalle
+                </div>
+            </div>
+            <!-- <div>d</div> -->
+        </div>
+        <div class="contenedorVacantes">
+            <div class="ctn servicios">
+                <div class="titulo">Oferta de servicios</div>
+                <div class="contenedorOfe">
+                    <div class="servicio">oferta</div>
+                    <div class="servicio">oferta</div>
+                    <div class="servicio">oferta</div>
+                    <div class="servicio">oferta</div>
+                    <div class="servicio">oferta</div>
+                    <div class="servicio">oferta</div>
+                    <div class="servicio">oferta</div>
+                </div>
+            </div>
+            <div class="ctn ofertas">
+                <div class="titulo">Ofertas laborables</div>
+                <div class="contenedorOfe">
+                    <div class="oferta">oferta</div>
+                    <div class="oferta">oferta</div>
+                    <div class="oferta">oferta</div>
+                    <div class="oferta">oferta</div>
+                    <div class="servicio">oferta</div>
+                    <div class="servicio">oferta</div>
+                    <div class="servicio">oferta</div>
+                </div>
+            </div>
+        </div>
+    </div>
   
     </div>
 </zk>

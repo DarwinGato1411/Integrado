@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="/css/boostrap/bootstrap.css"?>  
+<?link rel="stylesheet" type="text/css" href="/css/style.css"?>
+<?init class="com.ec.seguridad.Autentificador"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/plantillaempresa/plantilla.zul"?>
+<?link rel="icon" type="image/x-icon" href="/iconos/deckxel.ico"?>
+<zk   with="100%" >
+    <hbox self="@define(content)" apply="org.zkoss.bind.BindComposer" 
+          viewModel="@id('vm') @init('com.ec.controlador.empresa.ArmarEvaluacion')" >
+        <tabbox id="tboxPrincipal"  width="100%">
+            <tabs >
+                <tab label="Armar Evaluacion " sclass="menutabs" /> 
+            </tabs>
+            <tabpanels >
+               
+                <tabpanel  height="98%" width="99%"  >                    
+                    <div  class=" row col-12 col-sm-12 col-md-12 col-lg-12 ">
+                        <div  class=" col-12 col-sm-12 col-md-4 col-lg-4 ">
+                            <listbox model="@load(vm.listaTest)" 
+                                     nonselectableTags="*"  mold="paging" pageSize="12"  >
+                                <custom-attributes org.zkoss.zul.listbox.rod="true"/>
+                                <auxhead>
+                                    <auxheader colspan="12" >  
+                                        <div class="row">                                    
+                                            <div  class="col-12 col-sm-12 col-md-3 col-lg-3 ">
+                                         
+                                                <button   image="/iconos/nuevo.png"  
+                                                          onClick="@command('nuevoTest')"  
+                                                          class="btn btn-primary btn-sm "
+                                                          tooltiptext="Buscar"/>
+                       
+                                            </div>
+                                        </div>
+                                
+                                    </auxheader>
+                                </auxhead>
+                       
+                                <listhead> 
+                                    <listheader width="90%"  label="Test" >
+                                    </listheader>                                  
+                                    <listheader width="15%"   tooltiptext="Editar" label="" align="center" />               
+                                    <listheader width="15%"   tooltiptext="Buscar" label="" align="center" />               
+                                </listhead>  
+                        
+                    
+                                <template name="model">                                                            
+                                    <listitem>
+                              
+                                        <listcell zclass = "mycss-listcell">
+                                            <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
+                                                     class="form-control form-control-sm" 
+                                                     value="@bind(each.testNombre)" />
+                                        </listcell>
+                                        <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">
+                                            <image  
+                                                height=" 30px" 
+                                                src="/iconos/editar.png"
+                                                class="btn btn btn-secondary btn-sm grow"
+                                                onClick="@command('modificarTest',valor=each)" 
+                                                tooltiptext="Modificar"/>
+                                   
+                                        </listcell>
+                                        <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">
+                                            <image  
+                                                height=" 30px" 
+                                                src="/iconos/selected.png"
+                                                class="btn btn btn-secondary btn-sm grow"
+                                                onClick="@command('buscarPreguntas',valor=each)" 
+                                                tooltiptext="Modificar"/>
+                                   
+                                        </listcell>
+                               
+                                
+                                
+                                    </listitem>
+                                </template>
+                            </listbox>
+                        </div>
+                        <div  class=" col-12 col-sm-12 col-md-4 col-lg-4 ">
+                            <listbox model="@load(vm.listaPreguntas)" 
+                                     nonselectableTags=""  mold="paging" pageSize="12"  >
+                                <custom-attributes org.zkoss.zul.listbox.rod="true"/>
+                                <auxhead>
+                                    <auxheader colspan="12" >  
+                                        <div class="row">                                    
+                                            <div  class="col-12 col-sm-12 col-md-3 col-lg-3 ">
+                                         
+                                                <button   image="/iconos/nuevo.png"  
+                                                          onClick="@command('nuevoPregunta')"  
+                                                          class="btn btn-primary btn-sm "
+                                                          tooltiptext="Buscar"/>
+                       
+                                            </div>
+                                        </div>
+                                
+                                    </auxheader>
+                                </auxhead>
+                       
+                                <listhead> 
+                                    <listheader width="90%"  label="@bind('PREGUNTAS: ('.concat(vm.testSelected.testNombre).concat(')'))" >
+                                    </listheader>                                  
+                                    <listheader width="15%"   tooltiptext="Editar" label="" align="center" />               
+                                    <listheader width="15%"   tooltiptext="Editar" label="" align="center" />               
+                                </listhead>  
+                        
+                    
+                                <template name="model">                                                            
+                                    <listitem>
+                              
+                                        <listcell zclass = "mycss-listcell">
+                                            <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
+                                                     class="form-control form-control-sm" 
+                                                     value="@bind(each.preNombre)"
+                                                     tooltiptext="@bind(each.preDescripcion)"
+                                            />
+                                        </listcell>
+                                        <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">
+                                            <image  
+                                                height=" 30px" 
+                                                src="/iconos/editar.png"
+                                                class="btn btn btn-secondary btn-sm grow"
+                                                onClick="@command('modificarPregunta',valor=each)" 
+                                                tooltiptext="Modificar"/>
+                                   
+                                        </listcell>
+                                        <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">
+                                            <image  
+                                                height=" 30px" 
+                                                src="/iconos/selected.png"
+                                                class="btn btn btn-secondary btn-sm grow"
+                                                onClick="@command('busacarRespuestas',valor=each)" 
+                                                tooltiptext="BuscarPrgunta"/>
+                                   
+                                        </listcell>
+                                
+                                
+                                    </listitem>
+                                </template>
+                            </listbox>
+                        </div>
+                        <div  class=" col-12 col-sm-12 col-md-4 col-lg-4 ">
+                            <listbox model="@load(vm.listaRespuestas)" 
+                                     nonselectableTags=""  mold="paging" pageSize="12"  >
+                                <custom-attributes org.zkoss.zul.listbox.rod="true"/>
+                                <auxhead>
+                                    <auxheader colspan="12" >  
+                                        <div class="row">                                    
+                                            <div  class="col-12 col-sm-12 col-md-3 col-lg-3 ">
+                                         
+                                                <button   image="/iconos/nuevo.png"  
+                                                          onClick="@command('nuevoRespuesta')"  
+                                                          class="btn btn-primary btn-sm "
+                                                          tooltiptext="Buscar"/>
+                       
+                                            </div>
+                                        </div>
+                                
+                                    </auxheader>
+                                </auxhead>
+                       
+                                <listhead> 
+                                    <listheader width="90%"  label="@bind('PREGUNTAS: ('.concat(vm.preguntaSelected.preNombre).concat(')'))" >
+                                    </listheader>                                  
+                                    <listheader width="15%"   tooltiptext="Editar" label="" align="center" />               
+                                </listhead>  
+                        
+                    
+                                <template name="model">                                                            
+                                    <listitem>
+                              
+                                        <listcell zclass = "mycss-listcell">
+                                            <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
+                                                     class="form-control form-control-sm" 
+                                                     value="@bind(each.resDescripcion)" />
+                                        </listcell>
+                                        <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">
+                                            <image  
+                                                height=" 30px" 
+                                                src="/iconos/editar.png"
+                                                class="btn btn btn-secondary btn-sm grow"
+                                                onClick="@command('modificarRespuesta',valor=each)" 
+                                                tooltiptext="Modificar"/>
+                                   
+                                        </listcell>
+                               
+                                
+                                
+                                    </listitem>
+                                </template>
+                            </listbox>
+                        </div>
+                    </div>
+                </tabpanel>
+                
+
+            </tabpanels>
+            
+        </tabbox>
+    </hbox>
+
+
+</zk>

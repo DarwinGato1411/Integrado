@@ -81,7 +81,7 @@ public class ServicioTipoContratacion {
 
     }
 
-    public TipoContratacion findAll() {
+    public List<TipoContratacion> findAll() {
 
         List<TipoContratacion> listaDatos = new ArrayList<TipoContratacion>();
         TipoContratacion tipoContratacion = null;
@@ -93,9 +93,7 @@ public class ServicioTipoContratacion {
             Query query = em.createQuery("SELECT u FROM TipoContratacion u ");
 //            query.setParameter("opcDescripcion", "%" + valor + "%");
             listaDatos = (List<TipoContratacion>) query.getResultList();
-            if (listaDatos.size() > 0) {
-                tipoContratacion = listaDatos.get(0);
-            }
+            
             em.getTransaction().commit();
         } catch (Exception e) {
 
@@ -104,7 +102,7 @@ public class ServicioTipoContratacion {
             em.close();
         }
 
-        return tipoContratacion;
+        return listaDatos;
     }
 
 }

@@ -5,6 +5,7 @@
 package com.ec.servicio;
 
 import com.ec.entidad.Pregunta;
+import com.ec.entidad.Test;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -105,6 +106,30 @@ public class ServicioPregunta {
         }
 
         return pregunta;
+    }
+
+    public List<Pregunta> findByTest(Test idTest) {
+
+        List<Pregunta> listaDatos = new ArrayList<Pregunta>();
+        Pregunta pregunta = null;
+        try {
+            //Connection connection = em.unwrap(Connection.class);
+
+            em = HelperPersistencia.getEMF();
+            em.getTransaction().begin();
+            Query query = em.createQuery("SELECT u FROM Pregunta u WHERE u.idTest=:idTest ");
+            query.setParameter("idTest", idTest);
+            listaDatos = (List<Pregunta>) query.getResultList();
+
+            em.getTransaction().commit();
+        } catch (Exception e) {
+
+            System.out.println("Error en lsa consulta pregunta  findAll  " + e.getMessage());
+        } finally {
+            em.close();
+        }
+
+        return listaDatos;
     }
 
 }

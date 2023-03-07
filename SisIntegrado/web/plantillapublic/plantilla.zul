@@ -2,7 +2,7 @@
 
 <zk  >
     <borderlayout >
-        <north   border="none" height="7%" >
+        <north   border="none" >
             <include src="/plantillapublic/banner.zul"/>
         </north>
 <!--        <west  border="none" class="banner" autoscroll="true"  
@@ -13,10 +13,10 @@
             
         </center>
         <south>
-            <div style="background:white; color:black; font-weight: bold" height="20px" align="center">
+           <!-- <div style="background:white; color:black; font-weight: bold" height="20px" align="center">
                 <image src="/imagenes/logosinfondo.png" height="28px" />   
                 <label>DECKXEL Desarrollo de software sobre medida </label>       
-            </div>
+            </div>-->
         </south>
     </borderlayout>
 </zk>

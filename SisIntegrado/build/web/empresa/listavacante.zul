@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="/css/boostrap/bootstrap.css"?>  
+<?link rel="stylesheet" type="text/css" href="/css/style.css"?>
+<?init class="com.ec.seguridad.Autentificador"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/plantillaempresa/plantilla.zul"?>
+<?link rel="icon" type="image/x-icon" href="/iconos/deckxel.ico"?>
+<zk  contentStyle="overflow:auto" with="100%" >
+    <hbox self="@define(content)" apply="org.zkoss.bind.BindComposer" 
+          viewModel="@id('vm') @init('com.ec.controlador.empresa.ListaVacante')" width="100%">
+        <tabbox id="tboxPrincipal"  width="100%">
+            <tabs >
+                <tab label="Mis vacantes" sclass="menutabs" /> 
+            </tabs>
+            <tabpanels >
+                
+                <tabpanel  height="98%" width="99%"  >                    
+                   
+                    <listbox model="@load(vm.listaVacantes)" 
+                             nonselectableTags=""  mold="paging" pageSize="12"  >
+                        <custom-attributes org.zkoss.zul.listbox.rod="true"/>
+                        <auxhead>
+                            <auxheader colspan="12" >  
+                                <div class="row">
+                                  
+                                    <div  class="col-12 col-sm-12 col-md-2 col-lg-2 ">
+                                        <label value="Inicio: "   />
+                                        <datebox   value="@bind(vm.inicio)" 
+                                                   readonly="true" style="font-weight:bold;"                                                                                                       
+                                                   buttonVisible="true" 
+                                                   lenient="true"  format="dd/MM/yyyy" 
+                                                   constraint="no empty: Ingrese de inicio de la busqueda"/> 
+                                    </div>
+                                    <div  class="col-12 col-sm-12 col-md-2 col-lg-2 ">
+                                        <label value="Fin: "  />
+                                        <datebox   value="@bind(vm.fin)" 
+                                                   readonly="true" style="font-weight:bold;" 
+                                                   onCreate="self.value = new Date()"                                                   
+                                                   buttonVisible="true" 
+                                                   lenient="true"  format="dd/MM/yyyy" 
+                                                   constraint="no empty: IBuscar por fecha fin de la busqueda"/> 
+                                        <button   image="/imagenes/buscar1.png"  
+                                                  onClick="@command('buscarLike')"  
+                                                  class="btn btn-primary btn-sm "
+                                                  tooltiptext="Buscar"/>
+                       
+                                    </div>
+                                    <div  class="col-12 col-sm-12 col-md-3 col-lg-3 ">
+                                         
+                                        <button   image="/iconos/nuevo.png"  
+                                                  onClick="@command('nuevo')"  
+                                                  class="btn btn-primary btn-sm "
+                                                  tooltiptext="Buscar"/>
+                       
+                                    </div>
+                                    <div  class="col-12 col-sm-12 col-md-5 col-lg-5 " align="end">
+                                        <button   image="/imagenes/excel.png" 
+                                                  label="Exportar" 
+                                                 
+                                                  onClick="@command('exportListboxToExcel')"  
+                                                  class="btn btn-primary btn-sm "
+                                                  tooltiptext="Exportar"/>
+
+                                    </div>
+
+                                </div>
+                                
+                            </auxheader>
+                        </auxhead>
+                       
+                        <listhead> 
+                            <listheader width="10%"  label="" >
+                                <textbox value="@bind(vm.buscar)"  
+                                         tooltiptext="Nombre o Descripcion"
+                                         class="form-control form-control-sm"                                         
+                                         placeholder="Nombre o Descripcion"
+                                         onOK="@command('buscarLike')"
+                                         onChange="self.setValue(self.getValue().toUpperCase());" />
+                            </listheader>
+                            <listheader width="45%"  label="Descripcion" >
+                            </listheader>  
+                            <listheader width="10%"  label="Inicio" />    
+                            <listheader width="10%"  label="Fin" />        
+                            <listheader width="10%"  label="Tipo Contratacion" />        
+                            <listheader width="10%"  label="Sueldo" />        
+                           
+                            <listheader width="5%"   tooltiptext="Editar" label="" align="center" />               
+                        </listhead>  
+                        
+                    
+                        <template name="model">                                                            
+                            <listitem>
+                              
+                                <listcell zclass = "mycss-listcell">
+                                    <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
+                                             class="form-control form-control-sm" 
+                                             value="@bind(each.vacNombre)" />
+                                </listcell>
+                                <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">
+                                    <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
+                                             class="form-control form-control-sm" 
+                                             value="@bind(each.vacDescripcion)" />
+                                    
+                                </listcell>
+                                <listcell zclass = "mycss-listcell">
+                                    <datebox compact="true" value="@bind(each.vacFechaInicio)" 
+                                             height=" 30px" 
+                                             buttonVisible="false" lenient="true" readonly="true"
+                                             format="medium" width="100%"  />
+                                </listcell>
+                                <listcell zclass = "mycss-listcell">
+                                    <datebox compact="true" value="@bind(each.vacFechaFin)" 
+                                             height=" 30px" 
+                                             buttonVisible="false" lenient="true" readonly="true"
+                                             format="medium" width="100%"  />
+                                </listcell>
+                                <listcell zclass = "mycss-listcell">
+                                    <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
+                                             class="form-control form-control-sm" 
+                                             value="@bind(each.idTipoContratacion.tipcNombre)" />
+                                </listcell>
+                                <listcell zclass = "mycss-listcell">
+                                 
+                                    <decimalbox format="###.##" readonly="true" 
+                                                style="font-size:12px;background:#EBF5FB"
+                                                class="form-control form-control-sm"  
+                                                value="@bind(each.vacSueldo)" width="100%"/>
+                                </listcell>
+                                <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">
+                                    <image  
+                                        height=" 30px" 
+                                        src="/iconos/editar.png"
+                                        class="btn btn btn-secondary btn-sm grow"
+                                        onClick="@command('modificar',valor=each)" 
+                                        tooltiptext="Modificar"/>
+                                   
+                                </listcell>
+                               
+                                
+                                
+                            </listitem>
+                        </template>
+                    </listbox>
+                
+                </tabpanel>
+                
+
+            </tabpanels>
+            
+        </tabbox>
+    </hbox>
+
+
+</zk>

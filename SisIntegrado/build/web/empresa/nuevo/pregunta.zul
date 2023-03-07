@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window  id="wPregunta"  position="center" closable="true"  
+         apply="org.zkoss.bind.BindComposer" 
+         viewModel="@id('vm') @init('com.ec.controlador.empresa.NuevoPregunta')">
+    
+    <caption label="Test" style="font-weight:bold"
+    /> 
+    
+
+    <div class="container_modal">
+
+        <div class="body">
+            <div class="container_row_input">
+              
+                <div class="wrapper_input_mod">
+                    <span>Pregunta: </span>
+                    <div class="wrapper_input_text">
+                        <div class="fa-solid fa-address-card icon"></div>
+                        <textbox  
+                            maxlength="100"    
+                            onChange="self.setValue(self.getValue().toUpperCase());"  
+                            value="@bind(vm.entidad.preNombre)" 
+                            class="input_text" 
+                        />
+                    </div>
+                </div>
+                <div class="wrapper_input_mod">
+                    <span>Descripcion </span>
+                    <div class="wrapper_input_text">
+                        <div class="fa-solid fa-address-card icon"></div>
+                        <textbox  
+                            maxlength="100"    
+                            onChange="self.setValue(self.getValue().toUpperCase());"  
+                            value="@bind(vm.entidad.preDescripcion)" 
+                            class="input_text" 
+                        />
+                    </div>
+                </div>
+                
+
+            </div>
+            
+            <div style="display:flex;justify-content:flex-end;">
+                <button class="btn_modal" style="width:300px" onClick="@command('guardar')">
+                    Guardar
+                </button>
+            </div>
+        </div>     
+    </div>     
+                  
+
+</window>

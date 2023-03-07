@@ -4,6 +4,7 @@
  */
 package com.ec.servicio;
 
+import com.ec.entidad.Pregunta;
 import com.ec.entidad.Respuesta;
 import java.util.ArrayList;
 import java.util.List;
@@ -105,6 +106,32 @@ public class ServicioRespuesta {
         }
 
         return respuesta;
+    }
+
+    public List<Respuesta> findByPregunta(Pregunta idPregunta) {
+
+        List<Respuesta> listaDatos = new ArrayList<Respuesta>();
+        Respuesta respuesta = null;
+        try {
+            //Connection connection = em.unwrap(Connection.class);
+
+            em = HelperPersistencia.getEMF();
+            em.getTransaction().begin();
+            Query query = em.createQuery("SELECT u FROM Respuesta u  WHERE u.idPregunta=:idPregunta");
+            query.setParameter("idPregunta", idPregunta);
+            listaDatos = (List<Respuesta>) query.getResultList();
+            if (listaDatos.size() > 0) {
+                respuesta = listaDatos.get(0);
+            }
+            em.getTransaction().commit();
+        } catch (Exception e) {
+
+            System.out.println("Error en lsa consulta respuesta  findAll  " + e.getMessage());
+        } finally {
+            em.close();
+        }
+
+        return listaDatos;
     }
 
 }

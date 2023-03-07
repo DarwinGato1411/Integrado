@@ -4,11 +4,18 @@
 <zk  >
  
     <div class="btn-group-vertical"    style="text-align:lefth;"
-         viewModel="@id('vm')"     apply="com.ec.controlador.MenuOpciones" >
+         viewModel="@id('vm')"     apply="com.ec.controlador.empresa.MenuOpciones" >
         <menubar id="menubar" orient="vertical"  autodrop="false" >
            
-              <menuitem label="Perfil" id="btnPerfil"/>
-              <menuitem label="Vacantes"  id="btnVacantes"/> 
+            <menuitem label="Perfil" id="btnPerfil"/>
+            <menuitem label="Vacantes"  id="btnVacantes"/>  
+            <menu label="Evaluacion" >
+                <menupopup> 
+                    <menuitem label="Mis evaluaciones" id="btnMisEval"  />
+                    <menuitem label="Armar evaluacion" id="btnArmEval"  />
+                    
+                </menupopup>
+            </menu> 
             
           
         </menubar>

@@ -14,13 +14,19 @@
                 
                 <div class="col-12 col-sm-12 col-md-4 col-lg-4  form-group " >
                   
+                       <image   content="@bind(vm.fotoGeneral)" width="200px" /> 
+                    
+                                   
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4  form-group " >
+                  
                     <div class="input-group "  >
                         <textbox value="@bind(vm.empresa.idUsuario.usuFoto)" 
                                  placeholder="Ingrese su logotipo"
                                  class="form-control form-control-sm"
                                  tooltiptext="Ingrese su logotipo " />
                         <image src="/iconos/photo.png"   
-                               onClick="@command('subirFirma')"  
+                               onClick="@command('subirLogotipo')"  
                                tooltiptext="Subir logotipo"
                                style="font-size:20px;font-weight:bold"/>
                     </div>      

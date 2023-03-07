@@ -106,5 +106,30 @@ public class ServicioParametrizar {
 
         return parametrizar;
     }
+    public Parametrizar findActivo() {
+
+        List<Parametrizar> listaDatos = new ArrayList<Parametrizar>();
+        Parametrizar parametrizar = null;
+        try {
+            //Connection connection = em.unwrap(Connection.class);
+
+            em = HelperPersistencia.getEMF();
+            em.getTransaction().begin();
+            Query query = em.createQuery("SELECT u FROM Parametrizar u WHERE u.parActivo=:parActivo ");
+            query.setParameter("parActivo",Boolean.TRUE);
+            listaDatos = (List<Parametrizar>) query.getResultList();
+            if (listaDatos.size() > 0) {
+                parametrizar = listaDatos.get(0);
+            }
+            em.getTransaction().commit();
+        } catch (Exception e) {
+
+            System.out.println("Error en lsa consulta parametrizar  findActivo  " + e.getMessage());
+        } finally {
+            em.close();
+        }
+
+        return parametrizar;
+    }
 
 }

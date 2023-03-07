@@ -14,6 +14,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -41,6 +43,9 @@ public class Respuesta implements Serializable {
     private Boolean resEstado;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "respuesta")
     private Collection<Evaluacion> evaluacionCollection;
+    @JoinColumn(name = "id_pregunta", referencedColumnName = "id_pregunta")
+    @ManyToOne
+    private Pregunta idPregunta;
 
     public Respuesta() {
     }
@@ -79,6 +84,14 @@ public class Respuesta implements Serializable {
 
     public void setEvaluacionCollection(Collection<Evaluacion> evaluacionCollection) {
         this.evaluacionCollection = evaluacionCollection;
+    }
+
+    public Pregunta getIdPregunta() {
+        return idPregunta;
+    }
+
+    public void setIdPregunta(Pregunta idPregunta) {
+        this.idPregunta = idPregunta;
     }
 
     @Override

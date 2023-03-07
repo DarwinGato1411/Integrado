@@ -1,9 +1,7 @@
 package com.ec.utilitario;
 
-import com.ec.entidad.Parametrizar;
 import com.ec.servicio.HelperPersistencia;
 import com.ec.servicio.ServicioParametrizar;
-import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 
 import java.io.BufferedReader;
@@ -34,8 +32,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.NamingException;
 import javax.persistence.EntityManager;
-import javax.print.PrintService;
-import javax.print.PrintServiceLookup;
 import javax.print.attribute.HashPrintRequestAttributeSet;
 import javax.print.attribute.PrintRequestAttributeSet;
 import javax.print.attribute.standard.Copies;
@@ -62,7 +58,6 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import net.sf.jasperreports.engine.JRExporterParameter;
-import net.sf.jasperreports.engine.JasperRunManager;
 import net.sf.jasperreports.engine.export.JRPrintServiceExporter;
 import net.sf.jasperreports.engine.export.JRPrintServiceExporterParameter;
 
@@ -729,4 +724,6 @@ public class ArchivoUtils {
         return calendar.getTime();
 
     }
+    
+    
 }

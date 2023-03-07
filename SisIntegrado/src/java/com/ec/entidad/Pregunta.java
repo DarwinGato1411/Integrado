@@ -43,11 +43,13 @@ public class Pregunta implements Serializable {
     private String preDescripcion;
     @Column(name = "pre_estado")
     private Boolean preEstado;
+   @JoinColumn(name = "id_test", referencedColumnName = "id_test")
+    @ManyToOne
+    private Test idTest;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pregunta")
     private Collection<Evaluacion> evaluacionCollection;
-    @JoinColumn(name = "id_empresa", referencedColumnName = "id_empresa")
-    @ManyToOne
-    private Empresa idEmpresa;
+    @OneToMany(mappedBy = "idPregunta")
+    private Collection<Respuesta> respuestaCollection;
 
     public Pregunta() {
     }
@@ -88,6 +90,17 @@ public class Pregunta implements Serializable {
         this.preEstado = preEstado;
     }
 
+    public Test getIdTest() {
+        return idTest;
+    }
+
+    public void setIdTest(Test idTest) {
+        this.idTest = idTest;
+    }
+
+  
+   
+
     public Collection<Evaluacion> getEvaluacionCollection() {
         return evaluacionCollection;
     }
@@ -96,12 +109,12 @@ public class Pregunta implements Serializable {
         this.evaluacionCollection = evaluacionCollection;
     }
 
-    public Empresa getIdEmpresa() {
-        return idEmpresa;
+    public Collection<Respuesta> getRespuestaCollection() {
+        return respuestaCollection;
     }
 
-    public void setIdEmpresa(Empresa idEmpresa) {
-        this.idEmpresa = idEmpresa;
+    public void setRespuestaCollection(Collection<Respuesta> respuestaCollection) {
+        this.respuestaCollection = respuestaCollection;
     }
 
     @Override

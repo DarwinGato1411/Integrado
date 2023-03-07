@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window  id="wVacante"  position="center" closable="true"  
+         apply="org.zkoss.bind.BindComposer" 
+         viewModel="@id('vm') @init('com.ec.controlador.empresa.NuevoVacante')">
+    
+    <caption label="Vacante" style="font-weight:bold"
+    /> 
+    
+
+    <div class="container_modal">
+
+        <div class="body">
+            <div class="container_row_input">
+                <div class="wrapper_input_mod">
+                    <span>Tipo contratacion: </span>
+                    <div class="wrapper_input_text">
+                        <div class="fa-solid fa-address-card icon"></div>
+                        <combobox  
+                            model="@load(vm.listaTipoContratacion)"  
+                            class="input_select"  
+                            selectedItem="@bind(vm.entidad.idTipoContratacion)"
+                            readonly="true" 
+                        >             
+                            <template name="model">
+                                <comboitem  label="@bind(each.tipcNombre)"/>
+                            </template>                                      
+                        </combobox>
+                        <div 
+                            class="fa-solid fa-chevron-down"
+                            style="position: absolute; right: 7px; top: 7px; color: #1247b9;font-size: 13px" 
+                        />
+                    </div>
+                </div>
+                <div class="wrapper_input_mod">
+                    <span>Nombre: </span>
+                    <div class="wrapper_input_text">
+                        <div class="fa-solid fa-address-card icon"></div>
+                        <textbox  
+                            maxlength="100"    
+                            onChange="self.setValue(self.getValue().toUpperCase());"  
+                            value="@bind(vm.entidad.vacNombre)" 
+                            class="input_text" 
+                        />
+                    </div>
+                </div>
+                <div class="wrapper_input_mod" style="flex:auto">
+                    <span style="margin:0 1em">Descripcion: </span>
+                    <div class="wrapper_input_text" style="width:100%">
+                        <div class="fa-solid fa-location-dot icon"></div>
+                        <textbox id="txtDireccion" maxlength="400" 
+                                 value="@bind(vm.entidad.vacDescripcion)" 
+                                 onChange="self.setValue(self.getValue().toUpperCase());"  
+                                 class="input_text" 
+                        />
+                    </div>
+                </div>
+
+            </div>
+            <div class="container_row_input">
+                <div class="wrapper_input_mod">
+                    <span>Fecha Inicio: </span>
+                    <div class="wrapper_input_text">
+                        <div class="fa-solid fa-calendar icon"></div>
+                        <datebox compact="true" 
+                                 value="@bind(vm.entidad.vacFechaInicio)" 
+                                 readonly="true"   
+                                 buttonVisible="true" 
+                                 lenient="true" 
+                                 format="dd/MM/yyyy"
+                                 class="input_date"
+                        />
+                    </div>
+                </div>
+                <div class="wrapper_input_mod">
+                    <span>Fecha fin: </span>
+                    <div class="wrapper_input_text">
+                        <div class="fa-solid fa-calendar icon"></div>
+                        <datebox compact="true" 
+                                 value="@bind(vm.entidad.vacFechaFin)" 
+                                 readonly="true"   
+                                 buttonVisible="true" 
+                                 lenient="true" 
+                                 format="dd/MM/yyyy"
+                                 class="input_date"
+                        />
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
+        <div class="body">
+            <div class="container_row_input">
+                <div class="wrapper_input_mod">
+                    <span>Sueldo: </span>
+                    <div class="wrapper_input_text">
+                        <div class="fa-solid fa-calendar icon"></div>
+                        <textbox  
+                            maxlength="100" 
+                            value="@bind(vm.entidad.vacSueldo)"
+                            class="input_text" 
+                        />
+                    </div>
+                </div>
+               
+                
+                
+            </div>
+           
+        </div>
+        <div style="display:flex;justify-content:flex-end;">
+            <button class="btn_modal" style="width:300px" onClick="@command('guardar')">
+                Guardar
+            </button>
+        </div>
+    </div>     
+                  
+
+</window>
