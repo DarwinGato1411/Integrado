@@ -5,6 +5,11 @@
  */
 package com.ec.entidad;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
@@ -22,6 +27,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+import org.zkoss.image.AImage;
 
 /**
  *
@@ -46,7 +53,7 @@ public class Usuario implements Serializable {
     @Column(name = "usu_login")
     private String usuLogin;
     @Column(name = "usu_password")
-        private String usuPassword;
+    private String usuPassword;
     @Column(name = "usu_correo")
     private String usuCorreo;
     @Column(name = "usu_nivel")
@@ -69,6 +76,8 @@ public class Usuario implements Serializable {
     private Collection<Candidato> candidatoCollection;
     @OneToMany(mappedBy = "idUsuario")
     private Collection<Empresa> empresaCollection;
+    @Transient
+    private AImage fotoGeneral = null;
 
     public Usuario() {
     }
@@ -197,6 +206,39 @@ public class Usuario implements Serializable {
         this.empresaCollection = empresaCollection;
     }
 
+    public AImage getFotoGeneral() {
+        try {
+            fotoGeneral = new AImage("fotoPedido", Imagen_A_Bytes(usuFoto));
+        } catch (Exception e) {
+            System.out.println("ERRO al cargar fotografia vacante " + e.getMessage());
+        }
+        return fotoGeneral;
+    }
+
+    public byte[] Imagen_A_Bytes(String pathImagen) throws FileNotFoundException {
+        String reportPath = "";
+        reportPath = pathImagen;
+        File file = new File(reportPath);
+
+        FileInputStream fis = new FileInputStream(file);
+        //create FileInputStream which obtains input bytes from a file in a file system
+        //FileInputStream is meant for reading streams of raw bytes such as image data. For reading streams of characters, consider using FileReader.
+
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        byte[] buf = new byte[1024];
+        try {
+            for (int readNum; (readNum = fis.read(buf)) != -1;) {
+                //Writes to this byte array output stream
+                bos.write(buf, 0, readNum);
+                System.out.println("read " + readNum + " bytes,");
+            }
+        } catch (IOException ex) {
+        }
+
+        byte[] bytes = bos.toByteArray();
+        return bytes;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -221,5 +263,5 @@ public class Usuario implements Serializable {
     public String toString() {
         return "com.ec.entidad.Usuario[ idUsuario=" + idUsuario + " ]";
     }
-    
+
 }

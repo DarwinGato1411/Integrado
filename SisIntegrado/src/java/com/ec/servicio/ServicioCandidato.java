@@ -81,21 +81,20 @@ public class ServicioCandidato {
 
     }
 
-    public Candidato findAll() {
+    public List<Candidato> findAll(String buscar) {
 
         List<Candidato> listaDatos = new ArrayList<Candidato>();
-        Candidato candidato = null;
+
         try {
             //Connection connection = em.unwrap(Connection.class);
 
             em = HelperPersistencia.getEMF();
             em.getTransaction().begin();
-            Query query = em.createQuery("SELECT u FROM Candidato u ");
-//            query.setParameter("opcDescripcion", "%" + valor + "%");
+            Query query = em.createQuery("SELECT u FROM Candidato u  WHERE (u.canDescripcion LIKE :canDescripcion  OR u.idUsuario.usuNombre LIKE :usuNombre)");
+            query.setParameter("canDescripcion", "%" + buscar + "%");
+            query.setParameter("usuNombre", "%" + buscar + "%");
             listaDatos = (List<Candidato>) query.getResultList();
-            if (listaDatos.size() > 0) {
-                candidato = listaDatos.get(0);
-            }
+
             em.getTransaction().commit();
         } catch (Exception e) {
 
@@ -104,7 +103,7 @@ public class ServicioCandidato {
             em.close();
         }
 
-        return candidato;
+        return listaDatos;
     }
 
 }

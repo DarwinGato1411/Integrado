@@ -9,82 +9,220 @@
 
    
     <div  self="@define(content)"  apply="org.zkoss.bind.BindComposer" width="100%" align="start" 
-         viewModel="@id('vm') @init('com.ec.controlador.publico.VacanteController')" >
+          viewModel="@id('vm') @init('com.ec.controlador.publico.VacanteController')" >
  
-       <div class="contenedorPublico">
-        <div class="contenedorOpciones">
-            <div class="opcion nC">
+        <div class="contenedorPublico">
+            <div class="contenedorOpciones">
+                <div class="opcion nC">
 
-                <div class="texto">
-                    <div>
-                        <div class="tl">Candidatos</div>
-                        <div class="num">100000000</div>
+                    <div class="texto">
+                        <div>
+                            <div class="tl">Candidatos</div>
+                            <div class="num"> 
+                                <label value="@bind(vm.totalCandidatos)" 
+                                       class="input_text"/>
+                            </div>
+                        </div>
+                        <div class="imagens">
+                             <image   src="/iconos/candidato.png"  /> 
+                        </div>
                     </div>
-                    <div class="imagens">img</div>
-                </div>
-                <div class="detalle">
-                    Ver Detalle
-                </div>
-
-
-            </div>
-            <div class="opcion nV">
-
-                <div class="texto">
-                    <div>
-                        <div class="tl">Vacantes</div>
-                        <div class="num">100000000</div>
+                    <div class="detalle">
+                      
                     </div>
-                    <div class="imagens">img</div>
+
+
                 </div>
-                <div class="detalle">
-                    Ver Detalle
-                </div>
+                <div class="opcion nV">
 
-
-            </div>
-            <div class="opcion nE">
-
-                <div class="texto">
-                    <div>
-                        <div class="tl">Empresas</div>
-                        <div class="num">100000000</div>
+                    <div class="texto">
+                        <div>
+                            <div class="tl">Vacantes</div>
+                            <div class="num">
+                                <label value="@bind(vm.totalVacantes)" 
+                                       class="input_text"/>
+                            </div>
+                        </div>
+                        <div class="imagens">
+                             <image   src="/iconos/vacante.png"  /> 
+                        </div>
                     </div>
-                    <div class="imagens">im</div>
+                    <div class="detalle">
+                        
+                    </div>
+
+
                 </div>
-                <div class="detalle">
-                    Ver Detalle
+                <div class="opcion nE">
+
+                    <div class="texto">
+                        <div>
+                            <div class="tl">Empresas</div>
+                            <div class="num">
+                                <label value="@bind(vm.totalEmpresas)" 
+                                       class="input_text"/>
+                                
+                            </div>
+                        </div>
+                        <div class="imagens">
+                              <image   src="/iconos/empresa.png"  /> 
+                        </div>
+                    </div>
+                    <div class="detalle">
+                       
+                    </div>
+                </div>
+                <!-- <div>d</div> -->
+            </div>
+            <div class="contenedorVacantes">
+                <div class="ctn servicios">
+                    <div class="titulo">Oferta de servicios</div>
+                    <div class="contenedorOfe">
+                        <listbox model="@load(vm.listaCandidato)" 
+                                 nonselectableTags=""  mold="paging" pageSize="12"  >
+                            <custom-attributes org.zkoss.zul.listbox.rod="true"/>
+                       
+                       
+                            <listhead> 
+                                <listheader width="10%"  label="" >
+                                    <textbox value="@bind(vm.buscar)"  
+                                             tooltiptext="Nombre o Descripcion"
+                                             class="form-control form-control-sm"                                         
+                                             placeholder="Nombre o Descripcion"
+                                             onOK="@command('buscarLike')"
+                                             onChange="self.setValue(self.getValue().toUpperCase());" />
+                                </listheader>
+                                    
+                            </listhead>  
+                        
+                    
+                            <template name="model">                                                            
+                                <listitem>
+                              
+                                    <listcell zclass = "mycss-listcell">
+                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4  form-group " >
+                  
+                                            <image   content="@bind(each.idUsuario.fotoGeneral)" width="200px" /> 
+                    
+                                   
+                                        </div>
+                                        Nombre:  <label  style="font-size:12px ;background:#EBF5FB"
+                                                         class="form-control form-control-sm" 
+                                                         value="@bind(each.idUsuario.usuNombre)" />
+                               
+                                        Descripcion: <label   style="font-size:12px ;background:#EBF5FB"
+                                                              class="form-control form-control-sm" 
+                                                              value="@bind(each.canDescripcion)" />
+                                    
+                             
+                                    
+                                
+                                        Telefono:   <label  style="font-size:12px ;background:#EBF5FB"
+                                                            class="form-control form-control-sm" 
+                                                            value="@bind(each.canTelefono)" />
+                               
+                                 
+                                        Direccio:  <label
+                                            style="font-size:12px;background:#EBF5FB"
+                                            class="form-control form-control-sm"  
+                                            value="@bind(each.canDireccion)" />
+                                        <a href="@bind(each.canHojaVida)">  
+                                            <label 
+                                                style="font-size:12px;background:#EBF5FB"
+                                                class="form-control form-control-sm"  
+                                                value="Descargar hoja vida" />
+                                        </a>
+                                        
+                                        <button   label="Enviar mensaje"  
+                                                  
+                                                  class="btn btn-primary btn-sm "
+                                                  tooltiptext="Escribir al Whatsapp"/>
+                                    </listcell>
+                                
+                               
+                                
+                                
+                                </listitem>
+                            </template>
+                        </listbox>
+                
+                    </div>
+                </div>
+                <div class="ctn ofertas">
+                    <div class="titulo">Ofertas laborables</div>
+                    <div class="contenedorOfe">
+                        <listbox model="@load(vm.listaVacantes)" 
+                                 nonselectableTags=""  mold="paging" pageSize="12"  >
+                            <custom-attributes org.zkoss.zul.listbox.rod="true"/>
+                       
+                       
+                            <listhead> 
+                                <listheader width="10%"  label="" >
+                                    <textbox value="@bind(vm.buscar)"  
+                                             tooltiptext="Nombre o Descripcion"
+                                             class="form-control form-control-sm"                                         
+                                             placeholder="Nombre o Descripcion"
+                                             onOK="@command('buscarLike')"
+                                             onChange="self.setValue(self.getValue().toUpperCase());" />
+                                </listheader>
+                                          
+                            </listhead>  
+                        
+                    
+                            <template name="model">                                                            
+                                <listitem>
+                              
+                                    <listcell zclass = "mycss-listcell">
+                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4  form-group " >
+                  
+                                            <image   content="@bind(each.fotoGeneral)" width="200px" /> 
+                    
+                                   
+                                        </div>
+                                        Nombre:  <label   style="font-size:12px ;background:#EBF5FB"
+                                                          class="form-control form-control-sm" 
+                                                          value="@bind(each.vacNombre)" />
+                               
+                                        Descripcion     <label   style="font-size:12px ;background:#EBF5FB"
+                                                                 class="form-control form-control-sm" 
+                                                                 value="@bind(each.vacDescripcion)" />
+                                    
+                             
+                                        Fecha Inicio  <datebox compact="true" value="@bind(each.vacFechaInicio)" 
+                                                               height=" 30px" 
+                                                               buttonVisible="false" lenient="true" readonly="true"
+                                                               format="medium"   />
+                              
+                                        Fecha expira:  <datebox compact="true" value="@bind(each.vacFechaFin)" 
+                                                                height=" 30px" 
+                                                                buttonVisible="false" lenient="true" readonly="true"
+                                                                format="medium"   />
+                                
+                                        Tipo contratacion:   <label   style="font-size:12px ;background:#EBF5FB"
+                                                                      class="form-control form-control-sm" 
+                                                                      value="@bind(each.idTipoContratacion.tipcNombre)" />
+                               
+                                 
+                                        Sueldo:  <decimalbox format="###.##" readonly="true" 
+                                                             style="font-size:12px;background:#EBF5FB"
+                                                             class="form-control form-control-sm"  
+                                                             value="@bind(each.vacSueldo)" />
+                                        <button   label="Enviar mensaje"  
+                                                  
+                                                  class="btn btn-primary btn-sm "
+                                                  tooltiptext="Escribir al Whatsapp"/>
+                                    </listcell>
+                                
+                               
+                                
+                                
+                                </listitem>
+                            </template>
+                        </listbox>
+                    </div>
                 </div>
             </div>
-            <!-- <div>d</div> -->
         </div>
-        <div class="contenedorVacantes">
-            <div class="ctn servicios">
-                <div class="titulo">Oferta de servicios</div>
-                <div class="contenedorOfe">
-                    <div class="servicio">oferta</div>
-                    <div class="servicio">oferta</div>
-                    <div class="servicio">oferta</div>
-                    <div class="servicio">oferta</div>
-                    <div class="servicio">oferta</div>
-                    <div class="servicio">oferta</div>
-                    <div class="servicio">oferta</div>
-                </div>
-            </div>
-            <div class="ctn ofertas">
-                <div class="titulo">Ofertas laborables</div>
-                <div class="contenedorOfe">
-                    <div class="oferta">oferta</div>
-                    <div class="oferta">oferta</div>
-                    <div class="oferta">oferta</div>
-                    <div class="oferta">oferta</div>
-                    <div class="servicio">oferta</div>
-                    <div class="servicio">oferta</div>
-                    <div class="servicio">oferta</div>
-                </div>
-            </div>
-        </div>
-    </div>
   
     </div>
 </zk>

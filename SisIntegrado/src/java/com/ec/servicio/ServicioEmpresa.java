@@ -82,10 +82,10 @@ public class ServicioEmpresa {
 
     }
 
-    public Empresa findAll() {
+    public List<Empresa> findAll() {
 
         List<Empresa> listaDatos = new ArrayList<Empresa>();
-        Empresa empresa = null;
+
         try {
             //Connection connection = em.unwrap(Connection.class);
 
@@ -94,9 +94,7 @@ public class ServicioEmpresa {
             Query query = em.createQuery("SELECT u FROM Empresa u ");
 //            query.setParameter("opcDescripcion", "%" + valor + "%");
             listaDatos = (List<Empresa>) query.getResultList();
-            if (listaDatos.size() > 0) {
-                empresa = listaDatos.get(0);
-            }
+
             em.getTransaction().commit();
         } catch (Exception e) {
 
@@ -105,10 +103,10 @@ public class ServicioEmpresa {
             em.close();
         }
 
-        return empresa;
+        return listaDatos;
     }
-    
-        public Empresa findByUsuario(Usuario idUsuario) {
+
+    public Empresa findByUsuario(Usuario idUsuario) {
 
         List<Empresa> listaDatos = new ArrayList<Empresa>();
         Empresa empresa = null;

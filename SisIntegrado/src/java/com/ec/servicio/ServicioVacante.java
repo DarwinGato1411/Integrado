@@ -82,7 +82,7 @@ public class ServicioVacante {
 
     }
 
-    public Vacante findAll() {
+    public List<Vacante> findAll(String buscar) {
 
         List<Vacante> listaDatos = new ArrayList<Vacante>();
         Vacante vacante = null;
@@ -91,8 +91,9 @@ public class ServicioVacante {
 
             em = HelperPersistencia.getEMF();
             em.getTransaction().begin();
-            Query query = em.createQuery("SELECT u FROM Vacante u ");
-//            query.setParameter("opcDescripcion", "%" + valor + "%");
+            Query query = em.createQuery("SELECT u FROM Vacante u WHERE u.vacEstado=:vacEstado and (u.vacNombre LIKE :buscar OR u.vacDescripcion LIKE :buscar )");
+            query.setParameter("vacEstado", Boolean.TRUE);
+            query.setParameter("buscar", "%" + buscar + "%");
             listaDatos = (List<Vacante>) query.getResultList();
             if (listaDatos.size() > 0) {
                 vacante = listaDatos.get(0);
@@ -105,10 +106,10 @@ public class ServicioVacante {
             em.close();
         }
 
-        return vacante;
+        return listaDatos;
     }
 
-    public List<Vacante> findByUsuarioLike(String buscar,Usuario idUsuario) {
+    public List<Vacante> findByUsuarioLike(String buscar, Usuario idUsuario) {
 
         List<Vacante> listaDatos = new ArrayList<Vacante>();
 
