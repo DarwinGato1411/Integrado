@@ -5,6 +5,7 @@
 package com.ec.servicio;
 
 import com.ec.entidad.Canton;
+import com.ec.entidad.Ciudad;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -81,7 +82,7 @@ public class ServicioCanton {
 
     }
 
-    public Canton findAll() {
+    public  List<Canton> findAll() {
 
         List<Canton> listaDatos = new ArrayList<Canton>();
         Canton canton = null;
@@ -93,9 +94,7 @@ public class ServicioCanton {
             Query query = em.createQuery("SELECT u FROM Canton u ");
 //            query.setParameter("opcDescripcion", "%" + valor + "%");
             listaDatos = (List<Canton>) query.getResultList();
-            if (listaDatos.size() > 0) {
-                canton = listaDatos.get(0);
-            }
+           
             em.getTransaction().commit();
         } catch (Exception e) {
 
@@ -104,7 +103,30 @@ public class ServicioCanton {
             em.close();
         }
 
-        return canton;
+        return listaDatos;
+    }
+    public  List<Canton> findByCiudad(Ciudad idCiudad) {
+
+        List<Canton> listaDatos = new ArrayList<Canton>();
+        Canton canton = null;
+        try {
+            //Connection connection = em.unwrap(Connection.class);
+
+            em = HelperPersistencia.getEMF();
+            em.getTransaction().begin();
+            Query query = em.createQuery("SELECT u FROM Canton u WHERE u.idCiudad=:idCiudad ");
+            query.setParameter("idCiudad", idCiudad);
+            listaDatos = (List<Canton>) query.getResultList();
+           
+            em.getTransaction().commit();
+        } catch (Exception e) {
+
+            System.out.println("Error en lsa consulta canton  findAll  " + e.getMessage());
+        } finally {
+            em.close();
+        }
+
+        return listaDatos;
     }
 
 }

@@ -81,7 +81,7 @@ public class ServicioPais {
 
     }
 
-    public Pais findAll() {
+    public List<Pais> findAll() {
 
         List<Pais> listaDatos = new ArrayList<Pais>();
         Pais pais = null;
@@ -93,9 +93,7 @@ public class ServicioPais {
             Query query = em.createQuery("SELECT u FROM Pais u ");
 //            query.setParameter("opcDescripcion", "%" + valor + "%");
             listaDatos = (List<Pais>) query.getResultList();
-            if (listaDatos.size() > 0) {
-                pais = listaDatos.get(0);
-            }
+            
             em.getTransaction().commit();
         } catch (Exception e) {
 
@@ -104,7 +102,7 @@ public class ServicioPais {
             em.close();
         }
 
-        return pais;
+        return listaDatos;
     }
 
 }

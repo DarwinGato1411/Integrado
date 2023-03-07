@@ -7,8 +7,8 @@
          viewModel="@id('vm')"     apply="com.ec.controlador.MenuOpciones" >
         <menubar id="menubar" orient="vertical"  autodrop="false" >
            
-              <menuitem label="Empresa" id="btnConfigurar"/>
-              <menuitem label="MIs vacantes"  id="btnConsultas"/> 
+              <menuitem label="Perfil" id="btnPerfil"/>
+              <menuitem label="Vacantes"  id="btnVacantes"/> 
             
           
         </menubar>

@@ -5,6 +5,7 @@
 package com.ec.servicio;
 
 import com.ec.entidad.Empresa;
+import com.ec.entidad.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -92,6 +93,32 @@ public class ServicioEmpresa {
             em.getTransaction().begin();
             Query query = em.createQuery("SELECT u FROM Empresa u ");
 //            query.setParameter("opcDescripcion", "%" + valor + "%");
+            listaDatos = (List<Empresa>) query.getResultList();
+            if (listaDatos.size() > 0) {
+                empresa = listaDatos.get(0);
+            }
+            em.getTransaction().commit();
+        } catch (Exception e) {
+
+            System.out.println("Error en lsa consulta empresa  findAll  " + e.getMessage());
+        } finally {
+            em.close();
+        }
+
+        return empresa;
+    }
+    
+        public Empresa findByUsuario(Usuario idUsuario) {
+
+        List<Empresa> listaDatos = new ArrayList<Empresa>();
+        Empresa empresa = null;
+        try {
+            //Connection connection = em.unwrap(Connection.class);
+
+            em = HelperPersistencia.getEMF();
+            em.getTransaction().begin();
+            Query query = em.createQuery("SELECT u FROM Empresa u WHERE u.idUsuario=:idUsuario ");
+            query.setParameter("idUsuario", idUsuario);
             listaDatos = (List<Empresa>) query.getResultList();
             if (listaDatos.size() > 0) {
                 empresa = listaDatos.get(0);

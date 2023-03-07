@@ -46,7 +46,7 @@ public class Usuario implements Serializable {
     @Column(name = "usu_login")
     private String usuLogin;
     @Column(name = "usu_password")
-    private String usuPassword;
+        private String usuPassword;
     @Column(name = "usu_correo")
     private String usuCorreo;
     @Column(name = "usu_nivel")

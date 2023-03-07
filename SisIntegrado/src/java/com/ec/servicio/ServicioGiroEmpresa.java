@@ -81,7 +81,7 @@ public class ServicioGiroEmpresa {
 
     }
 
-    public GiroEmpresa findAll() {
+    public List<GiroEmpresa> findAll() {
 
         List<GiroEmpresa> listaDatos = new ArrayList<GiroEmpresa>();
         GiroEmpresa giroEmpresa = null;
@@ -93,9 +93,6 @@ public class ServicioGiroEmpresa {
             Query query = em.createQuery("SELECT u FROM GiroEmpresa u ");
 //            query.setParameter("opcDescripcion", "%" + valor + "%");
             listaDatos = (List<GiroEmpresa>) query.getResultList();
-            if (listaDatos.size() > 0) {
-                giroEmpresa = listaDatos.get(0);
-            }
             em.getTransaction().commit();
         } catch (Exception e) {
 
@@ -104,7 +101,7 @@ public class ServicioGiroEmpresa {
             em.close();
         }
 
-        return giroEmpresa;
+        return listaDatos;
     }
 
 }

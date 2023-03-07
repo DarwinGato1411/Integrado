@@ -17,11 +17,7 @@
            
             
             <div class="col-12 col-sm-12 col-md-6 col-lg-6  " align="start">
-                <button iconSclass="z-icon-home   " 
-                        id="btnHome" 
-                       
-                        label="Inicio"   >
-                </button>
+              
                 <label value="Candidato " style="  color:white;font-size:20px" />
 <!--                 <label value="${sessionScope.usuario.usuarioSistema.usuNivel}" 
                            style=" border-radius: 100%;color:red; background:transparent; font-size:20px" 
