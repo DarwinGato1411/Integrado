@@ -986,8 +986,13 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${file.reference.javase-2.2.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${libs.eclipselink.classpath}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <copyfiles files="${libs.Jasper.classpath}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${libs.ZK7.0.0CE.classpath}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+=======
+        <copyfiles files="${libs.jasper.classpath}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${libs.ZK6.5.3CE.classpath}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+>>>>>>> 71fecfe049a9a57bc0e276befdd93287fe326008
 =======
         <copyfiles files="${libs.jasper.classpath}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${libs.ZK6.5.3CE.classpath}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
@@ -1000,8 +1005,13 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${file.reference.javase-2.2.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${libs.eclipselink.classpath}" todir="${build.web.dir}/WEB-INF/lib"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <copyfiles files="${libs.Jasper.classpath}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${libs.ZK7.0.0CE.classpath}" todir="${build.web.dir}/WEB-INF/lib"/>
+=======
+        <copyfiles files="${libs.jasper.classpath}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${libs.ZK6.5.3CE.classpath}" todir="${build.web.dir}/WEB-INF/lib"/>
+>>>>>>> 71fecfe049a9a57bc0e276befdd93287fe326008
 =======
         <copyfiles files="${libs.jasper.classpath}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${libs.ZK6.5.3CE.classpath}" todir="${build.web.dir}/WEB-INF/lib"/>
