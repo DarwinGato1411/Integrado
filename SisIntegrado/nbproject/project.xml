@@ -16,34 +16,10 @@
                 </library>
                 <library dirs="200">
                     <file>${libs.eclipselink.classpath}</file>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${libs.Jasper.classpath}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
                     <file>${libs.ZK7.0.0CE.classpath}</file>
-=======
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-=======
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
->>>>>>> 71fecfe049a9a57bc0e276befdd93287fe326008
-                    <file>${libs.jasper.classpath}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${libs.ZK6.5.3CE.classpath}</file>
-<<<<<<< HEAD
->>>>>>> 71fecfe049a9a57bc0e276befdd93287fe326008
-=======
->>>>>>> 71fecfe049a9a57bc0e276befdd93287fe326008
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>
