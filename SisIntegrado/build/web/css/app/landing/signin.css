@@ -137,7 +137,19 @@ body {
 }
 .login_container .wrapper_login .container_signin {
   width: 700px;
-  padding: 2em;
+  
+}
+
+.login_container .wrapper_login .container_signin .opcionesLogin{
+    display:grid;
+    grid-template-columns: 50% 50%;
+}
+
+.login_container .wrapper_login .container_signin .opcionesLogin .op{
+    background-color: black;
+    padding: 15px;
+    color:white;
+    text-align: center;
 }
 .login_container .wrapper_login .container_signin .logo {
   display: none;
@@ -272,7 +284,7 @@ body {
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .login_container .wrapper_login .container_signin {
     padding: unset;
-    padding: 0 15% !important;
+    
   }
   .login_container .wrapper_login .container_signin .logo {
     margin-top: 2em;
@@ -323,7 +335,7 @@ body {
   }
   .login_container .wrapper_login .container_signin {
     width: 600px;
-    padding: 2em;
+   
   }
 }
 .container_registro,

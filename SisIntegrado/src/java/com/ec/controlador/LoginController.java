@@ -45,6 +45,7 @@ public class LoginController extends SelectorComposer<Component> {
         if (servicioAuth.login(account.getValue(), password.getValue())) {
             Session sess = Sessions.getCurrent();
             UserCredential cre = (UserCredential) sess.getAttribute(EnumSesion.userCredential.getNombre());
+            System.out.println("ascacsa"+" "+cre.getNivelUsuario().intValue()+" "+GrupoUsuarioEnum.CANDIDATO.getCodigo());
             if (cre.getNivelUsuario().intValue() == GrupoUsuarioEnum.CANDIDATO.getCodigo()) {
                 Executions.sendRedirect("/candidato/candidato.zul");
 
