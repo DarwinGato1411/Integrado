@@ -24,7 +24,7 @@
                             </div>
                         </div>
                         <div class="imagens">
-                             <image   src="/iconos/candidato.png"  /> 
+                            <image   src="/iconos/candidato.png"  /> 
                         </div>
                     </div>
                     <div class="detalle">
@@ -44,7 +44,7 @@
                             </div>
                         </div>
                         <div class="imagens">
-                             <image   src="/iconos/vacante.png"  /> 
+                            <image   src="/iconos/vacante.png"  /> 
                         </div>
                     </div>
                     <div class="detalle">
@@ -65,7 +65,7 @@
                             </div>
                         </div>
                         <div class="imagens">
-                              <image   src="/iconos/empresa.png"  /> 
+                            <image   src="/iconos/empresa.png"  /> 
                         </div>
                     </div>
                     <div class="detalle">
