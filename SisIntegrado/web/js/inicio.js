@@ -63,13 +63,16 @@ const login = () => {
     const candidato = document.querySelector(".candidato");
 
     loginA.addEventListener("click", () => {
-
         empresa.style.display = "block";
         candidato.style.display = "none";
+        loginA.classList.add("opSelect");
+        loginB.classList.remove("opSelect");
     });
     loginB.addEventListener("click", () => {
         empresa.style.display = "none";
         candidato.style.display = "block";
+         loginA.classList.remove("opSelect");
+        loginB.classList.add("opSelect");
     });
 };
 

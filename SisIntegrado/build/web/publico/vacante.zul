@@ -122,7 +122,7 @@
                                                             value="@bind(each.canTelefono)" />
                                
                                  
-                                        Direccio:  <label
+                                        Direccion:  <label
                                             style="font-size:12px;background:#EBF5FB"
                                             class="form-control form-control-sm"  
                                             value="@bind(each.canDireccion)" />
