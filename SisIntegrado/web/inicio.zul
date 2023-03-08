@@ -69,11 +69,11 @@
                                 id="buttonEntrar"
                             >Iniciar Sesión
                             </button>
-                            <!--                        <button 
+                            <button 
                                 class="btn btn_sign_reg"
-                                id="btnRegistra"
+                                id="btnRegistraCan"
                             >Registro
-                            </button>-->
+                            </button>
                         </div>
                     </div>
                     <div style="display:none;"  class="candidato">
@@ -110,11 +110,11 @@
                                 id="buttonEntrar1"
                             >Iniciar Sesión
                             </button>
-                            <!--                        <button 
+                            <button 
                                 class="btn btn_sign_reg"
-                                id="btnRegistra1"
+                                id="btnRegistraEmp"
                             >Registro
-                            </button>-->
+                            </button>
                         </div>
                     </div> 
                 </div>
