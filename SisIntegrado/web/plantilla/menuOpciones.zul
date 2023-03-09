@@ -9,7 +9,7 @@
           
               <menuitem label="Candidato" id="btnCandidato"/>
               <menuitem label="Vacantes"  id="btnVacantes"/> 
-              <menuitem label="Postulaciones"  id="btnPostula"/> 
+              <menuitem label="Mis postulaciones"  id="btnPostula"/> 
             
           
         </menubar>

@@ -15,8 +15,8 @@ import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Session;
 import org.zkoss.zk.ui.Sessions;
+import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zul.Label;
-import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Window;
 
@@ -31,19 +31,24 @@ public class LoginController extends SelectorComposer<Component> {
     @Wire
     Textbox password;
     @Wire
+    Textbox account1;
+    @Wire
+    Textbox password1;
+    @Wire
     Label message;
 
     public void LoginController() {
     }
 
-    @Listen("onClick=#buttonEntrar; onOK=#loginWin")
+//    @Listen("onClick=#buttonEntrar; onOK=#loginWin")
+    @Listen("onClick=#buttonEntrar")
     public void doLogin() {
 
         AutentificadorLogeo servicioAuth = new AutentificadorLogeo();
         if (servicioAuth.login(account.getValue(), password.getValue())) {
             Session sess = Sessions.getCurrent();
             UserCredential cre = (UserCredential) sess.getAttribute(EnumSesion.userCredential.getNombre());
-            System.out.println("ascacsa"+" "+cre.getNivelUsuario().intValue()+" "+GrupoUsuarioEnum.CANDIDATO.getCodigo());
+            System.out.println("ascacsa" + " " + cre.getNivelUsuario().intValue() + " " + GrupoUsuarioEnum.CANDIDATO.getCodigo());
             if (cre.getNivelUsuario().intValue() == GrupoUsuarioEnum.CANDIDATO.getCodigo()) {
                 Executions.sendRedirect("/candidato/candidato.zul");
 
@@ -53,23 +58,49 @@ public class LoginController extends SelectorComposer<Component> {
                 Executions.sendRedirect("/empresa/empresa.zul");
             }
         } else {
-            Messagebox.show("Usuario o Contraseña incorrecto. \n Contactese con el administrador.", "Atención", Messagebox.OK, Messagebox.EXCLAMATION);
+
+            Clients.showNotification("Usuario o Contraseña incorrecto. \n Contactese con el administrador.",
+                        Clients.NOTIFICATION_TYPE_ERROR, null, "middle_center", 2000, true);
 
         }
 
     }
 
-    @Listen("onClick = #linkRegistrarme")
-    public void doRegistrarme() {
-        Window window = (Window) Executions.createComponents(
-                    "/celec/candidato/registrame.zul", null, null);
-        window.doModal();
+    @Listen("onClick=#buttonEntrar1")
+    public void doLoginCandidato() {
+
+        AutentificadorLogeo servicioAuth = new AutentificadorLogeo();
+        if (servicioAuth.login(account1.getValue(), password1.getValue())) {
+            Session sess = Sessions.getCurrent();
+            UserCredential cre = (UserCredential) sess.getAttribute(EnumSesion.userCredential.getNombre());
+            System.out.println("ascacsa" + " " + cre.getNivelUsuario().intValue() + " " + GrupoUsuarioEnum.CANDIDATO.getCodigo());
+            if (cre.getNivelUsuario().intValue() == GrupoUsuarioEnum.CANDIDATO.getCodigo()) {
+                Executions.sendRedirect("/candidato/candidato.zul");
+
+            } else if (cre.getNivelUsuario().intValue() == GrupoUsuarioEnum.EMPRESA.getCodigo()) {
+                Executions.sendRedirect("/empresa/empresa.zul");
+            } else {
+                Executions.sendRedirect("/empresa/empresa.zul");
+            }
+        } else {
+
+            Clients.showNotification("Usuario o Contraseña incorrecto. \n Contactese con el administrador.",
+                        Clients.NOTIFICATION_TYPE_ERROR, null, "middle_center", 2000, true);
+
+        }
+
     }
 
-    @Listen("onClick= #linkOlvideContrasena")
-    public void linkOlvideContrasena() {
+    @Listen("onClick = #btnRegistraCan")
+    public void btnRegistraCan() {
         Window window = (Window) Executions.createComponents(
-                    "/celec/candidato/olvideMiClave.zul", null, null);
+                    "/publico/nuevo/candidato.zul", null, null);
+        window.doModal();
+    }
+    @Listen("onClick = #btnRegistraEmp")
+    public void btnRegistraEmp() {
+        Window window = (Window) Executions.createComponents(
+                    "/publico/nuevo/empresa.zul", null, null);
         window.doModal();
     }
 

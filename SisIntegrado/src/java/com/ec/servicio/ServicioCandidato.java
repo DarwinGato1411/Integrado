@@ -5,6 +5,7 @@
 package com.ec.servicio;
 
 import com.ec.entidad.Candidato;
+import com.ec.entidad.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -104,6 +105,78 @@ public class ServicioCandidato {
         }
 
         return listaDatos;
+    }
+
+    public Candidato findByUsuario(Usuario buscar) {
+
+        List<Candidato> listaDatos = new ArrayList<Candidato>();
+
+        try {
+            //Connection connection = em.unwrap(Connection.class);
+
+            em = HelperPersistencia.getEMF();
+            em.getTransaction().begin();
+            Query query = em.createQuery("SELECT u FROM Candidato u  WHERE u.idUsuario =:idUsuario");
+            query.setParameter("idUsuario", buscar);
+            listaDatos = (List<Candidato>) query.getResultList();
+
+            em.getTransaction().commit();
+        } catch (Exception e) {
+
+            System.out.println("Error en lsa consulta candidato  findActivo  " + e.getMessage());
+        } finally {
+            em.close();
+        }
+
+        return listaDatos.isEmpty() ? null : listaDatos.get(0);
+    }
+
+    public Candidato findByRuc(String buscar) {
+
+        List<Candidato> listaDatos = new ArrayList<Candidato>();
+
+        try {
+            //Connection connection = em.unwrap(Connection.class);
+
+            em = HelperPersistencia.getEMF();
+            em.getTransaction().begin();
+            Query query = em.createQuery("SELECT u FROM Candidato u  WHERE u.idUsuario.usuRuc =:usuRuc");
+            query.setParameter("usuRuc", buscar);
+            listaDatos = (List<Candidato>) query.getResultList();
+
+            em.getTransaction().commit();
+        } catch (Exception e) {
+
+            System.out.println("Error en lsa consulta candidato  findActivo  " + e.getMessage());
+        } finally {
+            em.close();
+        }
+
+        return listaDatos.isEmpty() ? null : listaDatos.get(0);
+    }
+
+    public Candidato findByLogin(String usuLogin) {
+
+        List<Candidato> listaDatos = new ArrayList<Candidato>();
+
+        try {
+            //Connection connection = em.unwrap(Connection.class);
+
+            em = HelperPersistencia.getEMF();
+            em.getTransaction().begin();
+            Query query = em.createQuery("SELECT u FROM Candidato u  WHERE u.idUsuario.usuLogin=:usuLogin ");
+            query.setParameter("usuLogin", usuLogin);
+            listaDatos = (List<Candidato>) query.getResultList();
+
+            em.getTransaction().commit();
+        } catch (Exception e) {
+
+            System.out.println("Error en lsa consulta candidato  findActivo  " + e.getMessage());
+        } finally {
+            em.close();
+        }
+
+        return listaDatos.isEmpty() ? null : listaDatos.get(0);
     }
 
 }
