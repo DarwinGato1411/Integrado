@@ -1,7 +1,13 @@
+
 *{
     padding: 0px;
     margin: 0px;
+    font-family: "Source Sans Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 
+}
+
+body{
+    padding: 0;
 }
 element.style {
     overflow: hidden    ;
@@ -604,7 +610,7 @@ div.z-listbox-header th.z-listheader, div.z-listbox-header th.z-auxheader {
 div.z-listheader-cnt, div.z-listbox-header div.z-auxheader-cnt {
     font-weight: bold;
     padding: 8px 5px 7px;
-    
+
 }
 div.z-auxheader-cnt {
     font-weight: bold;
@@ -716,8 +722,8 @@ div.z-listfooter-cnt, div.z-listcell-cnt, div.z-listheader-cnt {
     width:150px;
     height:150px;
     border-radius:150px;
-     border:3px solid #0098d8;
-     background: #0098d8
+    border:3px solid #0098d8;
+    background: #0098d8
 }
 
 
@@ -726,12 +732,12 @@ div.z-listfooter-cnt, div.z-listcell-cnt, div.z-listheader-cnt {
     height:100%;
     border-radius:30px;
     border:0.5px solid #ffffff;
-     
+
 }
 .imgenesinputappend{
     text-align:end;
     align-self: flex-end;
-    
+
 }
 input, button, select, textarea {
     line-height: normal;
@@ -747,7 +753,7 @@ input, button, select, textarea {
     font-size: 11px;
     color: #363636;
     font-weight: normal;
-     position: initial ;
+    position: initial ;
     right: 8px;
     top: 10px;
 }     
@@ -772,4 +778,331 @@ input, button, select, textarea {
     height: 0px;
     left: 0;
     bottom: 0;
+}
+
+.ul, ol {
+    list-style:none;
+}
+.nav{
+    width: 100%;
+}
+.nav > .li {
+
+}
+
+.nav .li span {
+
+
+    padding: 20px;
+    display:block;
+    z-index: 2;
+    cursor: pointer
+}
+
+.nav .li .m1{
+    background: #343a40;
+    color:#fff;
+}
+
+
+
+.nav .li .s1{
+    background: #343a40;
+    color:#fff;
+}
+
+.nav .li span:hover {
+    background-color:black;
+}
+
+.nav .li .ul {
+    display:none;
+    position:absolute;
+    width: 200px;
+    z-index: 2;
+    cursor: pointer
+}
+
+.nav .li:hover > .ul {
+    display:block;
+    margin-left: 200px;
+    margin-top: -60px;
+    z-index: 2;
+}
+
+.nav .li .ul .li {
+    position:relative;
+    z-index: 2;
+}
+
+.nav .li .ul .li ul {
+    right:-140px;
+    top:0px;
+    z-index: 2;
+}
+
+.contenedorMC{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.mainContainer{
+    margin-left: 200px;
+
+    width: 100%;
+}
+
+.nav{
+    display: flex;
+    flex-direction: column;
+    background-color: #343a40;
+    width: 200px;
+    position: fixed;
+    height: 100vh;
+    z-index: 2;
+}
+
+.contenedorEmpresa {
+
+    margin: auto;
+}
+
+
+.contenedorEmpresa .contenedorInfo{
+    border:solid 1px black;
+    width: 70%;
+    margin: auto;
+    display: flex;
+    padding: 15px;
+    gap:10px;
+    border-radius: 10px;
+    background: url("https://img.freepik.com/vector-gratis/fondo-geometrico-plano_23-2148967370.jpg?w=2000");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+
+}
+
+.contenedorEmpresa .contenedorInfo .contenedorInfoInputs{
+
+    width: 100%;
+    display: grid;
+    gap:5px;
+    background: rgba(255,255,255,0.85);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.contenedorEmpresa .contenedorInfo .contenedorInfoInputs .inputGroup{
+
+    display: grid;
+    grid-template-columns:30% 70%;
+    gap:5px;
+
+}
+
+.contenedorEmpresa .contenedorInfo .contenedorInfoInputs .inputGroup input{
+    width: 80%;
+}
+
+
+
+.contenedorEmpresa .contenedorInfo .contenedorInfoInputs  .inputGroupBtn {
+    display: flex;
+    background: #007bff;
+    color: white;
+    width: 150px;
+    margin: auto;
+    padding: 5px;
+    border-radius: 10px;
+    align-items: center;
+    gap:20%;
+}
+
+.contenedorEmpresa .contenedorInfo .contenedorInfoInputs  .inputGroupBtn:hover {
+    background: #007bff;
+    background-color: #343a40;
+    cursor: pointer;
+}
+
+
+
+.contenedorEmpresa .contenedorInfo .inputGroupImg .btnSubirImg{
+
+    display: flex;
+    align-items: center;
+    background: #007bff;
+    color: white;
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    gap:18%;
+}
+
+.contenedorEmpresa .contenedorInfo .inputGroupImg .btnSubirImg:hover{
+    background: #007bff;
+    background-color: #343a40;
+    cursor: pointer;
+}
+
+
+.contenedorTest{
+    border:1px solid black;
+    padding: 20px;
+    background: #f4f6f9;
+    display: grid;
+    grid-template-columns:repeat(1,1fr);
+}
+
+/*.containerEva */
+.contenedorTest .containerEva {
+    border:1px solid black;
+    padding: 10px;
+
+}
+
+.contenedorTest .containerEva table{
+    display: block !important;  
+}
+
+.contenedorTest .containerEva table tbody,
+.contenedorTest .containerEva table tbody tr,
+.contenedorTest .containerEva table tbody tr th,
+.contenedorTest .containerEva table tbody td{
+    display: block;
+
+}
+
+
+
+.contenedorTest .containerEva .z-listbox{
+    border:1px solid black;
+    display: block;
+    width: 100%;
+}
+
+.contenedorTest .z-listbox .tblCabecera{
+
+
+    display: block;
+    width: 100%;
+}
+
+.contenedorTest .z-listbox .tblCabecera .z-listheader .z-listheader-cnt{
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.contenedorTest .containerEva .tblCuerpo{
+    display: grid;
+    grid-template-columns:80% 10% 10%;
+}
+
+/*.containerPreguntas */
+.contenedorTest .containerPreguntas{
+    border:1px solid black;
+    padding: 10px;
+}
+
+.contenedorTest .containerPreguntas {
+    border:1px solid black;
+    padding: 10px;
+
+}
+
+.contenedorTest .containerPreguntas table{
+    display: block !important;  
+}
+
+.contenedorTest .containerPreguntas table tbody,
+.contenedorTest .containerPreguntas table tbody tr,
+.contenedorTest .containerPreguntas table tbody tr th,
+.contenedorTest .containerPreguntas table tbody td{
+    display: block;
+
+}
+
+.contenedorTest .containerPreguntas .z-listbox{
+    border:1px solid black;
+    display: block;
+    width: 100%;
+}
+
+.contenedorTest .z-listbox .tblCabecera{
+
+
+    display: block;
+    width: 100%;
+}
+
+.contenedorTest .containerPreguntas .z-listbox .tblCabecera .z-listheader .z-listheader-cnt{
+    background: #28a745;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.contenedorTest .containerPreguntas .tblCuerpo{
+    display: grid;
+    grid-template-columns:80% 10% 10%;
+}
+
+/*.containerRespuestas */
+.contenedorTest .containerRespuestas{
+    border:1px solid black;
+    padding: 10px;
+}
+
+
+
+
+.contenedorTest .containerRespuestas {
+    border:1px solid black;
+    padding: 10px;
+
+}
+
+.contenedorTest .containerRespuestas table{
+    display: block !important;  
+}
+
+.contenedorTest .containerRespuestas table tbody,
+.contenedorTest .containerRespuestas table tbody tr,
+.contenedorTest .containerRespuestas table tbody tr th,
+.contenedorTest .containerRespuestas table tbody td{
+    display: block;
+
+}
+
+.contenedorTest .containerRespuestas .z-listbox{
+    border:1px solid black;
+    display: block;
+    width: 100%;
+}
+
+.contenedorTest .z-listbox .tblCabecera{
+    display: block;
+    width: 100%;
+}
+
+.contenedorTest .containerRespuestas .z-listbox .tblCabecera .z-listheader .z-listheader-cnt{
+    background: #17a2b8;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.contenedorTest .containerRespuestas .tblCuerpo{
+    display: grid;
+    grid-template-columns:80% 10% 10%;
+}
+
+@media only screen and (min-width: 1024px){
+    .contenedorTest{
+        grid-template-columns:repeat(3,1fr);
+    }
 }

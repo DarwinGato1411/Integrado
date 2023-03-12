@@ -5,46 +5,37 @@
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="/plantillaempresa/plantilla.zul"?>
 <?link rel="icon" type="image/x-icon" href="/iconos/deckxel.ico"?>
 <zk   with="100%" >
-    <hbox self="@define(content)" apply="org.zkoss.bind.BindComposer" 
+    <div self="@define(content)" apply="org.zkoss.bind.BindComposer" 
           viewModel="@id('vm') @init('com.ec.controlador.empresa.ArmarEvaluacion')" >
-        <tabbox id="tboxPrincipal"  width="100%">
+       <!-- <tabbox id="tboxPrincipal"  width="100%">
             <tabs >
                 <tab label="Armar Evaluacion " sclass="menutabs" /> 
             </tabs>
             <tabpanels >
                
-                <tabpanel  height="98%" width="99%"  >                    
-                    <div  class=" row col-12 col-sm-12 col-md-12 col-lg-12 ">
-                        <div  class=" col-12 col-sm-12 col-md-4 col-lg-4 ">
+                <tabpanel  height="98%" width="99%"  > -->                   
+                    <div  class="contenedorTest">
+                        <div  class="containerEva">
+                            <div class="">                                    
+                                <button   image="/iconos/nuevo.png"  
+                                          onClick="@command('nuevoTest')"  
+                                          class=""
+                                          tooltiptext="Buscar"/>
+                            </div>    
                             <listbox model="@load(vm.listaTest)" 
-                                     nonselectableTags="*"  mold="paging" pageSize="12"  >
+                                     nonselectableTags="*"  mold="paging" pageSize="5"  >
+                               
                                 <custom-attributes org.zkoss.zul.listbox.rod="true"/>
-                                <auxhead>
-                                    <auxheader colspan="12" >  
-                                        <div class="row">                                    
-                                            <div  class="col-12 col-sm-12 col-md-3 col-lg-3 ">
-                                         
-                                                <button   image="/iconos/nuevo.png"  
-                                                          onClick="@command('nuevoTest')"  
-                                                          class="btn btn-primary btn-sm "
-                                                          tooltiptext="Buscar"/>
-                       
-                                            </div>
-                                        </div>
                                 
-                                    </auxheader>
-                                </auxhead>
                        
-                                <listhead> 
-                                    <listheader width="90%"  label="Test" >
-                                    </listheader>                                  
-                                    <listheader width="15%"   tooltiptext="Editar" label="" align="center" />               
-                                    <listheader width="15%"   tooltiptext="Buscar" label="" align="center" />               
+                                <listhead class="tblCabecera"> 
+                                    <listheader label="Test" />                         
+                                                 
                                 </listhead>  
                         
                     
                                 <template name="model">                                                            
-                                    <listitem>
+                                    <listitem class="tblCuerpo">
                               
                                         <listcell zclass = "mycss-listcell">
                                             <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
@@ -76,36 +67,28 @@
                                 </template>
                             </listbox>
                         </div>
-                        <div  class=" col-12 col-sm-12 col-md-4 col-lg-4 ">
+                        <div  class="containerPreguntas">
+                            <div class="">                                    
+                                 <div  class="">
+                                   <button   image="/iconos/nuevo.png"  
+                                             onClick="@command('nuevoPregunta')"  
+                                             class=""
+                                             tooltiptext="Buscar"/>
+                       
+                                 </div>
+                            </div>
                             <listbox model="@load(vm.listaPreguntas)" 
-                                     nonselectableTags=""  mold="paging" pageSize="12"  >
+                                     nonselectableTags=""  mold="paging" pageSize="5"  >
                                 <custom-attributes org.zkoss.zul.listbox.rod="true"/>
-                                <auxhead>
-                                    <auxheader colspan="12" >  
-                                        <div class="row">                                    
-                                            <div  class="col-12 col-sm-12 col-md-3 col-lg-3 ">
-                                         
-                                                <button   image="/iconos/nuevo.png"  
-                                                          onClick="@command('nuevoPregunta')"  
-                                                          class="btn btn-primary btn-sm "
-                                                          tooltiptext="Buscar"/>
-                       
-                                            </div>
-                                        </div>
                                 
-                                    </auxheader>
-                                </auxhead>
                        
-                                <listhead> 
-                                    <listheader width="90%"  label="@bind('PREGUNTAS: ('.concat(vm.testSelected.testNombre).concat(')'))" >
-                                    </listheader>                                  
-                                    <listheader width="15%"   tooltiptext="Editar" label="" align="center" />               
-                                    <listheader width="15%"   tooltiptext="Editar" label="" align="center" />               
+                                <listhead class="tblCabecera"> 
+                                    <listheader label="@bind('PREGUNTAS: ('.concat(vm.testSelected.testNombre).concat(')'))" />                                           
                                 </listhead>  
                         
                     
                                 <template name="model">                                                            
-                                    <listitem>
+                                    <listitem class="tblCuerpo">
                               
                                         <listcell zclass = "mycss-listcell">
                                             <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
@@ -138,35 +121,28 @@
                                 </template>
                             </listbox>
                         </div>
-                        <div  class=" col-12 col-sm-12 col-md-4 col-lg-4 ">
+                        <div  class="containerRespuestas">
+                             <div class="">                                    
+                                <div  class="">    
+                                    <button   image="/iconos/nuevo.png"  
+                                            onClick="@command('nuevoRespuesta')"  
+                                            class=""
+                                            tooltiptext="Buscar"/>
+                                 </div>
+                            </div>
                             <listbox model="@load(vm.listaRespuestas)" 
-                                     nonselectableTags=""  mold="paging" pageSize="12"  >
+                                     nonselectableTags=""  mold="paging" pageSize="5"  >
                                 <custom-attributes org.zkoss.zul.listbox.rod="true"/>
-                                <auxhead>
-                                    <auxheader colspan="12" >  
-                                        <div class="row">                                    
-                                            <div  class="col-12 col-sm-12 col-md-3 col-lg-3 ">
-                                         
-                                                <button   image="/iconos/nuevo.png"  
-                                                          onClick="@command('nuevoRespuesta')"  
-                                                          class="btn btn-primary btn-sm "
-                                                          tooltiptext="Buscar"/>
-                       
-                                            </div>
-                                        </div>
                                 
-                                    </auxheader>
-                                </auxhead>
                        
-                                <listhead> 
-                                    <listheader width="90%"  label="@bind('PREGUNTAS: ('.concat(vm.preguntaSelected.preNombre).concat(')'))" >
-                                    </listheader>                                  
-                                    <listheader width="15%"   tooltiptext="Editar" label="" align="center" />               
+                                <listhead class="tblCabecera"> 
+                                    <listheader label="@bind('PREGUNTAS: ('.concat(vm.preguntaSelected.preNombre).concat(')'))" />                                  
+                                                
                                 </listhead>  
                         
                     
                                 <template name="model">                                                            
-                                    <listitem>
+                                    <listitem class="tblCuerpo">
                               
                                         <listcell zclass = "mycss-listcell">
                                             <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
@@ -190,13 +166,13 @@
                             </listbox>
                         </div>
                     </div>
-                </tabpanel>
+          <!--      </tabpanel>
                 
 
             </tabpanels>
             
-        </tabbox>
-    </hbox>
+        </tabbox>-->
+    </div>
 
 
 </zk>

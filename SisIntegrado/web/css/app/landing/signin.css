@@ -147,7 +147,8 @@ body {
 }
 
 .opSelect{
-    border-bottom: solid green 5px;
+    
+    background: black !important;
 }
 
 .login_container .wrapper_login .container_signin .opcionesLogin .op{

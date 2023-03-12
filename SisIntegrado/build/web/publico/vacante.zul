@@ -27,14 +27,10 @@
                             <image   src="/iconos/candidato.png"  /> 
                         </div>
                     </div>
-                    <div class="detalle">
-                      
+                    <div class="detalle">                     
                     </div>
-
-
                 </div>
                 <div class="opcion nV">
-
                     <div class="texto">
                         <div>
                             <div class="tl">Vacantes</div>
@@ -84,7 +80,7 @@
                        
                        
                             <listhead> 
-                                <listheader width="10%"  label="" >
+                                <listheader width="100%"  label="" >
                                     <textbox value="@bind(vm.buscar)"  
                                              tooltiptext="Nombre o Descripcion"
                                              class="form-control form-control-sm"                                         
@@ -97,46 +93,50 @@
                         
                     
                             <template name="model">                                                            
-                                <listitem>
+                                <listitem class="listadoServicios">
                               
-                                    <listcell zclass = "mycss-listcell">
-                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4  form-group " >
+                                    <listcell class = "servicio">
+                                        <div class="imgPerfil" >
                   
-                                            <image   content="@bind(each.idUsuario.fotoGeneral)" width="200px" /> 
-                    
-                                   
+                                            <image content="@bind(each.idUsuario.fotoGeneral)" /> 
+        
                                         </div>
-                                        Nombre:  <label  style="font-size:12px ;background:#EBF5FB"
-                                                         class="form-control form-control-sm" 
-                                                         value="@bind(each.idUsuario.usuNombre)" />
-                               
-                                        Descripcion: <label   style="font-size:12px ;background:#EBF5FB"
-                                                              class="form-control form-control-sm" 
-                                                              value="@bind(each.canDescripcion)" />
+                                        <div>
+                                            <div>
+                                                Nombre:  <label  
+                                                    class="" 
+                                                    value="@bind(each.idUsuario.usuNombre)" />
+                                            </div>
+                                            <div>
+                                                Descripcion: <label   
+                                                    class="" 
+                                                    value="@bind(each.canDescripcion)" />
                                     
-                             
+                                            </div>
                                     
-                                
-                                        Telefono:   <label  style="font-size:12px ;background:#EBF5FB"
-                                                            class="form-control form-control-sm" 
-                                                            value="@bind(each.canTelefono)" />
-                               
-                                 
-                                        Direccion:  <label
-                                            style="font-size:12px;background:#EBF5FB"
-                                            class="form-control form-control-sm"  
-                                            value="@bind(each.canDireccion)" />
-                                        <a href="@bind(each.canHojaVida)">  
-                                            <label 
-                                                style="font-size:12px;background:#EBF5FB"
-                                                class="form-control form-control-sm"  
-                                                value="Descargar hoja vida" />
-                                        </a>
+                                            <div>
+                                                Telefono: <label 
+                                                    class="" 
+                                                    value="@bind(each.canTelefono)" />
+                                            </div>
+                                            <div>
+                                                Direccion:  <label
+                                                    style=""
+                                                    class=""  
+                                                    value="@bind(each.canDireccion)" />
+                                            </div>
+                                            <a href="@bind(each.canHojaVida)">  
+                                                <label 
+                                                    style=""
+                                                    class="form-control form-control-sm"  
+                                                    value="Descargar hoja vida" />
+                                            </a>
                                         
-                                        <button   label="Enviar mensaje"  
+                                            <button   label="Enviar mensaje"  
                                                   
-                                                  class="btn btn-primary btn-sm "
-                                                  tooltiptext="Escribir al Whatsapp"/>
+                                                      class="btn btn-primary btn-sm "
+                                                      tooltiptext="Escribir al Whatsapp"/>
+                                        </div>
                                     </listcell>
                                 
                                
@@ -157,7 +157,7 @@
                        
                        
                             <listhead> 
-                                <listheader width="10%"  label="" >
+                                <listheader width="100%"  label="" >
                                     <textbox value="@bind(vm.buscar)"  
                                              tooltiptext="Nombre o Descripcion"
                                              class="form-control form-control-sm"                                         
@@ -170,47 +170,49 @@
                         
                     
                             <template name="model">                                                            
-                                <listitem>
+                                <listitem class="listadoLabo">
                               
-                                    <listcell zclass = "mycss-listcell">
-                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4  form-group " >
+                                    <listcell class = "servicio">
+                                        <div class="imgPerfil">
                   
-                                            <image   content="@bind(each.fotoGeneral)" width="200px" /> 
+                                            <image   content="@bind(each.fotoGeneral)" /> 
                     
                                    
                                         </div>
-                                        Nombre:  <label   style="font-size:12px ;background:#EBF5FB"
-                                                          class="form-control form-control-sm" 
+                                        <div>
+                                            Nombre:  <label   style="font-size:12px ;background:#EBF5FB"
+                                                          class="" 
                                                           value="@bind(each.vacNombre)" />
                                
-                                        Descripcion     <label   style="font-size:12px ;background:#EBF5FB"
-                                                                 class="form-control form-control-sm" 
+                                            Descripcion     <label   style="font-size:12px ;background:#EBF5FB"
+                                                                 class="" 
                                                                  value="@bind(each.vacDescripcion)" />
                                     
                              
-                                        Fecha Inicio  <datebox compact="true" value="@bind(each.vacFechaInicio)" 
+                                            Fecha Inicio  <datebox compact="true" value="@bind(each.vacFechaInicio)" 
                                                                height=" 30px" 
                                                                buttonVisible="false" lenient="true" readonly="true"
                                                                format="medium"   />
                               
-                                        Fecha expira:  <datebox compact="true" value="@bind(each.vacFechaFin)" 
+                                            Fecha expira:  <datebox compact="true" value="@bind(each.vacFechaFin)" 
                                                                 height=" 30px" 
                                                                 buttonVisible="false" lenient="true" readonly="true"
                                                                 format="medium"   />
                                 
-                                        Tipo contratacion:   <label   style="font-size:12px ;background:#EBF5FB"
-                                                                      class="form-control form-control-sm" 
+                                            Tipo contratacion:   <label   style="font-size:12px ;background:#EBF5FB"
+                                                                      class="" 
                                                                       value="@bind(each.idTipoContratacion.tipcNombre)" />
                                
                                  
-                                        Sueldo:  <decimalbox format="###.##" readonly="true" 
+                                            Sueldo:  <decimalbox format="###.##" readonly="true" 
                                                              style="font-size:12px;background:#EBF5FB"
-                                                             class="form-control form-control-sm"  
+                                                             class=""  
                                                              value="@bind(each.vacSueldo)" />
-                                        <button   label="Enviar mensaje"  
+                                            <button   label="Enviar mensaje"  
                                                   
-                                                  class="btn btn-primary btn-sm "
-                                                  tooltiptext="Escribir al Whatsapp"/>
+                                                    class=""
+                                                    tooltiptext="Escribir al Whatsapp"/>
+                                        </div>
                                     </listcell>
                                 
                                

@@ -17,21 +17,14 @@
            
             
             <div class="col-12 col-sm-12 col-md-6 col-lg-6  " align="start">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-              
-=======
-=======
->>>>>>> 71fecfe049a9a57bc0e276befdd93287fe326008
-=======
->>>>>>> 71fecfe049a9a57bc0e276befdd93287fe326008
+
+
                 <button  
                         id="btnHome" 
                        
                         label="Inicio"   >
                 </button>
->>>>>>> 71fecfe049a9a57bc0e276befdd93287fe326008
+
                 <label value="Candidato " style="  color:white;font-size:20px" />
 <!--                 <label value="${sessionScope.usuario.usuarioSistema.usuNivel}" 
                            style=" border-radius: 100%;color:red; background:transparent; font-size:20px" 
