@@ -5,14 +5,11 @@
 package com.ec.controlador.empresa;
 
 import com.ec.dao.PreguntaRespuesta;
-import com.ec.dao.PreguntaTest;
 import com.ec.entidad.Empresa;
-import com.ec.entidad.Pregunta;
 import com.ec.entidad.Respuesta;
 import com.ec.seguridad.EnumSesion;
 import com.ec.seguridad.UserCredential;
 import com.ec.servicio.ServicioEmpresa;
-import com.ec.servicio.ServicioPregunta;
 import com.ec.servicio.ServicioRespuesta;
 import org.zkoss.bind.annotation.AfterCompose;
 import org.zkoss.bind.annotation.Command;
@@ -59,6 +56,8 @@ public class NuevoRespuesta {
         } else {
             this.entidad = new Respuesta();
             entidad.setIdPregunta(valor.getPregunta());
+            entidad.setResCorrecta(Boolean.FALSE);
+            entidad.setResOpcionMultiple(Boolean.TRUE);
             accion = "create";
 
         }

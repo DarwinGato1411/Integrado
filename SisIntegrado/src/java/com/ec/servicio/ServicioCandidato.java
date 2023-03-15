@@ -5,6 +5,7 @@
 package com.ec.servicio;
 
 import com.ec.entidad.Candidato;
+import com.ec.entidad.Empresa;
 import com.ec.entidad.Usuario;
 import java.util.ArrayList;
 import java.util.List;
@@ -179,4 +180,29 @@ public class ServicioCandidato {
         return listaDatos.isEmpty() ? null : listaDatos.get(0);
     }
 
+    
+    public List<Candidato> findEmpresa(Empresa buscar) {
+
+        List<Candidato> listaDatos = new ArrayList<Candidato>();
+
+        try {
+            //Connection connection = em.unwrap(Connection.class);
+
+            em = HelperPersistencia.getEMF();
+            em.getTransaction().begin();
+            Query query = em.createQuery("SELECT u FROM Candidato u  WHERE (u.canDescripcion LIKE :canDescripcion  OR u.idUsuario.usuNombre LIKE :usuNombre)");
+            query.setParameter("canDescripcion", "%" + buscar + "%");
+            query.setParameter("usuNombre", "%" + buscar + "%");
+            listaDatos = (List<Candidato>) query.getResultList();
+
+            em.getTransaction().commit();
+        } catch (Exception e) {
+
+            System.out.println("Error en lsa consulta candidato  findActivo  " + e.getMessage());
+        } finally {
+            em.close();
+        }
+
+        return listaDatos;
+    }
 }

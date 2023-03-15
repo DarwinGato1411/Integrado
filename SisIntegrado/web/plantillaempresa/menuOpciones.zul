@@ -11,7 +11,8 @@
             <menuitem label="Vacantes"  id="btnVacantes"/>  
             <menu label="Evaluacion" >
                 <menupopup> 
-                    <menuitem label="Mis evaluaciones" id="btnMisEval"  />
+                    <menuitem label="Generar evaluaciones" id="btnGenEval"  />
+                    <menuitem label="Mis evaluados" id="btnMisEvaluados"  />
                     <menuitem label="Armar evaluacion" id="btnArmEval"  />
                     
                 </menupopup>
