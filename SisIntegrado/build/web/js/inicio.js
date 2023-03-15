@@ -1,11 +1,6 @@
 const deleteTags = (node) => {
-    /*
-     *  Se eliminan todas las etiquetas que contengan z-label
-     *    en el nodo padre pasado por argumento
-     */
 
     const container = document.querySelector(node);
-
     const list = Array.from(container.querySelectorAll(".z-label"));
     list.forEach((e) => e.classList.remove("z-label"));
 };
@@ -65,24 +60,45 @@ const login = () => {
     loginA.addEventListener("click", () => {
         empresa.style.display = "block";
         candidato.style.display = "none";
-        loginA.classList.add("opSelect");
-        loginB.classList.remove("opSelect");
     });
     loginB.addEventListener("click", () => {
         empresa.style.display = "none";
         candidato.style.display = "block";
-         loginA.classList.remove("opSelect");
+        loginA.classList.remove("opSelect");
         loginB.classList.add("opSelect");
     });
 };
 
+
+
+
+function addcl() {
+    let parent = this.parentNode.parentNode;
+    parent.classList.add("focus");
+}
+
+function remcl() {
+    let parent = this.parentNode.parentNode;
+    if (this.value == "") {
+        parent.classList.remove("focus");
+    }
+}
+
 (() => {
     zk.afterMount(function () {
-        setTimeout(() => {
-            deleteTags(".login_container"); //inicio.zul
-            showPassword();
-            stopLoading();
-            login();
-        }, 2000);
+
+//            deleteTags(".login_container"); //inicio.zul
+//            showPassword();
+//            stopLoading();
+        login();
+        const inputs = document.querySelectorAll(".input");
+        console.log(inputs);
+        inputs.forEach(input => {
+
+            input.addEventListener("focus", addcl);
+            input.addEventListener("blur", remcl);
+        });
+
+
     });
 })();

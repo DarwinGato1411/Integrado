@@ -18,7 +18,17 @@
             
             <div class="col-12 col-sm-12 col-md-6 col-lg-6  " align="start">
 
+<<<<<<< HEAD
               
+=======
+
+                <button  
+                        id="btnHome" 
+                       
+                        label="Inicio"   >
+                </button>
+
+>>>>>>> 9de3e59fbcf0c93914cdcb99872f463fa3ea987a
                 <label value="Candidato " style="  color:white;font-size:20px" />
 
             </div>

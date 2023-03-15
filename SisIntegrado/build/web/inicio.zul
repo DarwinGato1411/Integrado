@@ -6,29 +6,45 @@
 <?page title="Sistema integrado" contentType="text/html;charset=UTF-8"?>
 
 <zk >
-
-    <div class="login_container"  id="loginWin" apply="com.ec.controlador.LoginController">
-        <div class="wrapper_login">
-            <div class="container_img">
-                <image src="./imagenes/logodeckxel.png" class="logo"/>
-                <div class="wrapper_title">
-                    <span class="title">Sistema de Facturación Electrónica</span>
-                   
-                    <div class="desc">
-                        Estimado usuario envenido a nuestro sistema.
+    <image class="wave" src="imagenes/wave.png"/>
+    <div class="container" id="loginWin" apply="com.ec.controlador.LoginController">
+        <div class="img">
+            <image src="imagenes/job.png"/>
+        </div>
+        <div class="login-content">
+            <div class="login empresa" >
+                <image src="imagenes/empresa.png"/>
+                <span  class="title">Empresa</span>
+                <div class="input-div one">
+                    <div class="i">
+                        <!--<i class="fas fa-user"></i>-->
                     </div>
-                    <div class="desc">
-                        Obten tu firma electronica con nosotros.
+                    <div class="div">
+                        <span>Usuario</span>
+                        <textbox  
+                            class="input" 
+                            id="account"
+                            onCreate="self.focus()"/>
                     </div>
-                    <div class="desc">
-                        Asesoramiento directo.
-                    </div>
-                    <div class="desc">DECKXEL</div>
-                    <div class="desc">099 742 8125   </div>
-                    <div class="desc">www.deckxel.com   </div>
-                    <!--<button class="btn btn_reg" id="btnRegistra" >Registro</button> -->
                 </div>
+                <div class="input-div pass">
+                    <div class="i">
+                        <!--<i class="fas fa-lock"></i>-->
+                    </div>
+                    <div class="div">
+                        <span>Contraseña</span>
+                        <textbox 
+                            type="password" 
+                            class="input" 
+                            id="password"
+                        />
+                    </div>
+                </div>
+                <a class="op2" style="margin-bottom:20px;">Eres candidato? click aquí</a>
+                <a class="btn" style="color:#fff" id="buttonEntrar">Iniciar Sesión</a>
+                <a class="btn" style="color:#fff"  id="btnRegistraEmp">Registro</a>
             </div>
+<<<<<<< HEAD
             <div class="container_signin">
                 <div class="opcionesLogin ">
                     <div class="op op1 opSelect">Empresa</div>
@@ -117,18 +133,51 @@
                             </button>
                         </div>
                     </div> 
+=======
+            <div style="display:none;" class="login candidato" >
+                <image src="imagenes/candidato.png"/>
+                <span  class="title">Candidato</span>
+                <div class="input-div one">
+                    <div class="i">
+                        <!--<i class="fas fa-user"></i>-->
+                    </div>
+                    <div class="div">
+                        <span>Usuario</span>
+                        <textbox  
+                            class="input" 
+                            id="account1"
+                            onCreate="self.focus()"/>
+                    </div>
+>>>>>>> 9de3e59fbcf0c93914cdcb99872f463fa3ea987a
                 </div>
+                <div class="input-div pass">
+                    <div class="i">
+                        <!--<i class="fas fa-lock"></i>-->
+                    </div>
+                    <div class="div">
+                        <span>Contraseña</span>
+                        <textbox 
+                            type="password" 
+                            class="input" 
+                            id="password1"
+                        />
+                    </div>
+                </div>
+                <a class="op1" style="margin-bottom:20px;">Eres empreresa? click aquí</a>
+                <a class="btn" style="color:#fff" id="buttonEntrar1">Iniciar Sesión</a>
+                <a class="btn" style="color:#fff" id="btnRegistraCan">Registro</a>
             </div>
         </div>
     </div>
+    
 
-    <div class="wrapper_loading loading_inicio">
+    <!--<div class="wrapper_loading loading_inicio">
         <div class="lds-ring">
             <div></div>
             <div></div>
             <div></div>
             <div></div>
         </div>
-    </div>
+    </div>-->
 
 </zk>
