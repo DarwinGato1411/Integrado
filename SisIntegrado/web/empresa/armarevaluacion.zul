@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?link rel="stylesheet" type="text/css" href="/css/boostrap/bootstrap.css"?>  
 <?link rel="stylesheet" type="text/css" href="/css/style.css"?>
+<?link rel="stylesheet" type="text/css" href="/css/modales.css"?>
 <?init class="com.ec.seguridad.Autentificador"?>
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="/plantillaempresa/plantilla.zul"?>
 <?link rel="icon" type="image/x-icon" href="/iconos/deckxel.ico"?>
@@ -29,7 +30,7 @@
                                 
                        
                                 <listhead class="tblCabecera"> 
-                                    <listheader label="Test" />                         
+                                    <listheader label="EVALUACIÓN" />                         
                                                  
                                 </listhead>  
                         
@@ -136,7 +137,7 @@
                                 
                        
                                 <listhead class="tblCabecera"> 
-                                    <listheader label="@bind('PREGUNTAS: ('.concat(vm.preguntaSelected.preNombre).concat(')'))" />                                  
+                                    <listheader label="@bind('RESPUESTAS: ('.concat(vm.preguntaSelected.preNombre).concat(')'))" />                                  
                                                 
                                 </listhead>  
                         
