@@ -44,96 +44,6 @@
                 <a class="btn" style="color:#fff" id="buttonEntrar">Iniciar Sesión</a>
                 <a class="btn" style="color:#fff"  id="btnRegistraEmp">Registro</a>
             </div>
-<<<<<<< HEAD
-            <div class="container_signin">
-                <div class="opcionesLogin ">
-                    <div class="op op1 opSelect">Empresa</div>
-                    <div class="op op2">Candidatos</div>
-                </div>
-                <div class="contendedorLogins">
-                    <div class="empresa">
-                        <span class="title" >Iniciar Sesión Empresa</span>
-                    
-                        <div class="wrapper_all_inputs">
-                            <div class="wrapper_input">
-                                <span class="fas fa-user icon"></span>
-                                <textbox 
-                                    type="text" 
-                                    placeholder="Usuario" 
-                                    class="input"
-                                    id="account"
-                                    onCreate="self.focus()"
-                                />
-                            </div>
-                            <div class="wrapper_input">
-                                <span class="fas fa-lock icon"></span>
-                                <textbox 
-                                    type="password" 
-                                    placeholder="Contraseña" 
-                                    id="password"
-                                    class="input input_password"
-                                />
-                                <span class="fa-solid fa-eye icon_eye icon"></span>
-                            </div>
-                        </div>
-                       
-                        <vbox></vbox>
-                
-                        <div class="wrapper_buttons">
-                            <button 
-                                class="btn btn_sign" 
-                                id="buttonEntrar"
-                            >Iniciar Sesión
-                            </button>
-                            <button 
-                                class="btn btn_sign_reg"
-                                id="btnRegistraEmp"
-                            >Registro
-                            </button>
-                        </div>
-                    </div>
-                    <div style="display:none;"  class="candidato">
-                        <span class="title" >Iniciar Sesión</span>
-                    
-                        <div class="wrapper_all_inputs">
-                            <div class="wrapper_input">
-                                <span class="fas fa-user icon"></span>
-                                <textbox 
-                                    type="text" 
-                                    placeholder="Usuario" 
-                                    class="input"
-                                    id="account1"
-                                    onCreate="self.focus()"
-                                />
-                            </div>
-                            <div class="wrapper_input">
-                                <span class="fas fa-lock icon"></span>
-                                <textbox 
-                                    type="password" 
-                                    placeholder="Contraseña" 
-                                    id="password1"
-                                    class="input input_password"
-                                />
-                                <span class="fa-solid fa-eye icon_eye icon"></span>
-                            </div>
-                        </div>
-
-                        <!--<span class="forgot_text" id="linkOlvideContrasena">Olvide mi contraseña</span>-->
-                
-                        <div class="wrapper_buttons">
-                            <button 
-                                class="btn btn_sign" 
-                                id="buttonEntrar1"
-                            >Iniciar Sesión
-                            </button>
-                            <button 
-                                class="btn btn_sign_reg"
-                                id="btnRegistraCan"
-                            >Registro
-                            </button>
-                        </div>
-                    </div> 
-=======
             <div style="display:none;" class="login candidato" >
                 <image src="imagenes/candidato.png"/>
                 <span  class="title">Candidato</span>
@@ -148,8 +58,8 @@
                             id="account1"
                             onCreate="self.focus()"/>
                     </div>
->>>>>>> 9de3e59fbcf0c93914cdcb99872f463fa3ea987a
-                </div>
+
+                    </div>
                 <div class="input-div pass">
                     <div class="i">
                         <!--<i class="fas fa-lock"></i>-->
