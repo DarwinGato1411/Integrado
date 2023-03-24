@@ -2,9 +2,9 @@
 
 <zk  >
     <borderlayout >
-        <north   border="none" >
+<!--        <north   border="none" >
             <include src="/plantillapublic/banner.zul"/>
-        </north>
+        </north>-->
 <!--        <west  border="none" class="banner" autoscroll="true"  
                        collapsible="true" splittable="true"  >
             <include src="/plantilla/menuOpciones.zul"/>

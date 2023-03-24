@@ -4,6 +4,7 @@
  */
 package com.ec.servicio;
 
+import com.ec.entidad.Candidato;
 import com.ec.entidad.Empresa;
 import com.ec.entidad.Usuario;
 import java.util.ArrayList;
@@ -130,6 +131,54 @@ public class ServicioEmpresa {
         }
 
         return empresa;
+    }
+
+    public Empresa findByRuc(String buscar) {
+
+        List<Empresa> listaDatos = new ArrayList<Empresa>();
+
+        try {
+            //Connection connection = em.unwrap(Connection.class);
+
+            em = HelperPersistencia.getEMF();
+            em.getTransaction().begin();
+            Query query = em.createQuery("SELECT u FROM Empresa u  WHERE u.idUsuario.usuRuc =:usuRuc");
+            query.setParameter("usuRuc", buscar);
+            listaDatos = (List<Empresa>) query.getResultList();
+
+            em.getTransaction().commit();
+        } catch (Exception e) {
+
+            System.out.println("Error en lsa consulta candidato  findActivo  " + e.getMessage());
+        } finally {
+            em.close();
+        }
+
+        return listaDatos.isEmpty() ? null : listaDatos.get(0);
+    }
+
+    public Empresa findByLogin(String usuLogin) {
+
+        List<Empresa> listaDatos = new ArrayList<Empresa>();
+
+        try {
+            //Connection connection = em.unwrap(Connection.class);
+
+            em = HelperPersistencia.getEMF();
+            em.getTransaction().begin();
+            Query query = em.createQuery("SELECT u FROM Empresa u  WHERE u.idUsuario.usuLogin=:usuLogin ");
+            query.setParameter("usuLogin", usuLogin);
+            listaDatos = (List<Empresa>) query.getResultList();
+
+            em.getTransaction().commit();
+        } catch (Exception e) {
+
+            System.out.println("Error en lsa consulta candidato  findActivo  " + e.getMessage());
+        } finally {
+            em.close();
+        }
+
+        return listaDatos.isEmpty() ? null : listaDatos.get(0);
     }
 
 }

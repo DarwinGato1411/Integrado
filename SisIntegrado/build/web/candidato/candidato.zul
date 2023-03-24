@@ -6,13 +6,161 @@
 
 <?init class="com.ec.seguridad.Autentificador"?>
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="/plantilla/plantilla.zul"?>
-<div  self="@define(content)"   apply="org.zkoss.bind.BindComposer"  align="start" 
-      viewModel="@id('vm') @init('com.ec.controlador.Candidato')" >
-    <tabbox  width="100%">
-        <tabs>
-            <tab label="Candidato" sclass="menutabs" /> 
-        </tabs>
+<zk class="border border-primary">
+
+    <div  self="@define(content)"  apply="org.zkoss.bind.BindComposer" 
+          viewModel="@id('vm') @init('com.ec.controlador.CandidatoCtr')" >
+        <div  class="container" >
+            <div  class="row border border-primary" >
+               
+                
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4  form-group " >
+                  
+                       <image   content="@bind(vm.fotoGeneral)" width="200px" /> 
+                    
+                                   
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4  form-group " >
+                  
+                    <div class="input-group "  >
+                        <textbox value="@bind(vm.candidato.idUsuario.usuFoto)" 
+                                 placeholder="Ingrese su logotipo"
+                                 class="form-control form-control-sm"
+                                 tooltiptext="Ingrese su logotipo " />
+                        <image src="/iconos/photo.png"   
+                               onClick="@command('subirLogotipo')"  
+                               tooltiptext="Subir logotipo"
+                               style="font-size:20px;font-weight:bold"/>
+                    </div>      
+                    
+                                   
+                </div>
+                
+                
+                <div class="col-12 col-sm-12 col-md-3 col-lg-3  form-group"  >
+                    <label value="Pais:"/>
+                    <combobox  model="@load(vm.listaPais)" readonly="false" 
+                     onSelect="@command('buscarCiudad')"  
+                               selectedItem="@bind(vm.paisSelected)"
+                               tooltiptext="Giro de negocio " >
+                                          
+                        <template name="model">
+                            <comboitem  label="@bind(each.paisNombre)"/>
+                        </template>                                       
+                    </combobox> 
+                    
+                    
+                               
+                </div>  
+                <div class="col-12 col-sm-12 col-md-3 col-lg-3  form-group"  >
+                    <label value="Ciudad:"/>
+                    <combobox  model="@load(vm.listaCiudad)" readonly="false" 
+                     onSelect="@command('buscarCanton')"  
+                               selectedItem="@bind(vm.ciudadSeleted)"
+                               tooltiptext="Giro de negocio " >
+                                          
+                        <template name="model">
+                            <comboitem  label="@bind(each.ciuNombre)"/>
+                        </template>                                       
+                    </combobox> 
+                    
+                    
+                               
+                </div>  
+                <div class="col-12 col-sm-12 col-md-3 col-lg-3  form-group"  >
+                    <label value="Canton:"/>
+                    <combobox  model="@load(vm.listaCanton)" readonly="false" 
+                   
+                               selectedItem="@bind(vm.candidato.idUsuario.idCanton)"
+                               tooltiptext="Giro de negocio " >
+                                          
+                        <template name="model">
+                            <comboitem  label="@bind(each.canNombre)"/>
+                        </template>                                       
+                    </combobox> 
+                    
+                    
+                               
+                </div>  
+                <div class="col-12 col-sm-12 col-md-3 col-lg-3  form-group "  >
+                    
+                    <textbox value="@bind(vm.candidato.idUsuario.usuRuc)" 
+                             placeholder="RUC"
+                             class="form-control form-control-sm"
+                             tooltiptext="Ruc (1718264839001)" />
+                </div> 
+                <div class="col-12 col-sm-12 col-md-3 col-lg-3  form-group "  >
+                    
+                    <textbox value="@bind(vm.candidato.idUsuario.usuNombre)" 
+                             placeholder="Nombre candidato"
+                             onOK="@command('buscarCatastro')"
+                             class="form-control form-control-sm"
+                             tooltiptext="Nombre candidato" />
+                </div>
+                <div class="col-12 col-sm-12 col-md-3 col-lg-3  form-group "  >
+                   
+                    <textbox value="@bind(vm.candidato.canDireccion)" 
+                             placeholder="Dirección"
+                             class="form-control form-control-sm"
+                             tooltiptext="Dirección" />
+                </div>
+                <div class="col-12 col-sm-12 col-md-3 col-lg-3  form-group "  >
+                    
+                    <textbox value="@bind(vm.candidato.canTelefono)" 
+                             placeholder="Telefono"
+                             class="form-control form-control-sm"
+                             tooltiptext="Telefono" />
+                </div>     
+                <div class="col-12 col-sm-12 col-md-3 col-lg-3  form-group "  >
+                    
+                    <textbox value="@bind(vm.candidato.idUsuario.usuCorreo)" 
+                             placeholder="Correo"
+                             class="form-control form-control-sm"
+                             tooltiptext="Correo" />
+                </div>     
+                <div class="col-12 col-sm-12 col-md-3 col-lg-3  form-group "  >
+                    
+                    <textbox value="@bind(vm.candidato.canDescripcion)" 
+                             placeholder="Descripcion servicio"
+                             class="form-control form-control-sm"
+                             tooltiptext="Correo" />
+                </div>     
+                  
+                <div class="col-12 col-sm-12 col-md-3 col-lg-3  form-group "  >
+                    
+                    <textbox value="@bind(vm.candidato.idUsuario.usuLogin)" 
+                             placeholder="Login"
+                             class="form-control form-control-sm"
+                             tooltiptext="Nombre Comercial" />
+                </div>     
+                <div class="col-12 col-sm-12 col-md-3 col-lg-3  form-group "  >
+                    
+                    <textbox value="@bind(vm.candidato.idUsuario.usuPassword)" 
+                             placeholder="Password"
+                             class="form-control form-control-sm"
+                             tooltiptext="Nombre Comercial" />
+                </div>     
+                 
+                   
+              
+               
+                
+               
+                
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12  form-group" align="center" >
+                    
+                    <button src="/iconos/guardar.png"  
+                    label="Guardar"
+                            class="btn btn btn-secondary btn-sm "
+                            onClick="@command('guardar')"
+                            tooltiptext="Guardar informacion"/>
+ 
+
+                </div> 
+            </div>
+        </div>
         
+<<<<<<< HEAD
         <tabpanels>
             <tabpanel  width="100%"  >
 
@@ -21,6 +169,11 @@
     </tabbox>
 
 </div>
+=======
+    </div>
+</zk>
+
+>>>>>>> ef614025cacff400a0fad3821d39aaa9079bd448
 
 
 

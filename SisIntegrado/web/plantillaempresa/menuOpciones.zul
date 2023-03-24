@@ -33,5 +33,20 @@
                 </div>
             </div>
         </div>
+
+        <!-- <menubar id="menubar" orient="vertical"  autodrop="false" > 
+            <menuitem label="Perfil" id="btnPerfil"/>
+            <menuitem label="Vacantes"  id="btnVacantes"/>  
+            <menu label="Evaluacion" >
+                <menupopup> 
+                    <menuitem label="Generar evaluaciones" id="btnGenEval"  />
+                    <menuitem label="Mis evaluados" id="btnMisEvaluados"  />
+                    <menuitem label="Armar evaluacion" id="btnArmEval"  />
+                    
+                </menupopup>
+            </menu>        
+        </menubar>-->
+       
+
     </div>  
 </zk>

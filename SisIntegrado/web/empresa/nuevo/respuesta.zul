@@ -25,6 +25,26 @@
                         />
                     </div>
                 </div>
+                <div class="wrapper_input_mod">
+                    <span> </span>
+                    <div class="wrapper_input_text">
+                      
+                       <checkbox 
+                        label="Respuesta correcta" 
+                        checked="@bind(vm.entidad.resCorrecta)" 
+                    />
+                    </div>
+                </div>
+                <div class="wrapper_input_mod">
+                    <span> </span>
+                    <div class="wrapper_input_text">
+                      
+                       <checkbox 
+                        label="Opcion multiple" 
+                        checked="@bind(vm.entidad.resOpcionMultiple)" 
+                    />
+                    </div>
+                </div>
                 
                 
 

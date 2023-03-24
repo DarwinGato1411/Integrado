@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ec.controlador.empresa;
+package com.ec.controlador;
 
+import com.ec.entidad.Candidato;
 import com.ec.entidad.Canton;
 import com.ec.entidad.Ciudad;
 import com.ec.entidad.Empresa;
@@ -14,6 +15,7 @@ import com.ec.entidad.Parametrizar;
 import com.ec.entidad.Usuario;
 import com.ec.seguridad.EnumSesion;
 import com.ec.seguridad.UserCredential;
+import com.ec.servicio.ServicioCandidato;
 import com.ec.servicio.ServicioCanton;
 import com.ec.servicio.ServicioCiudad;
 import com.ec.servicio.ServicioEmpresa;
@@ -50,16 +52,15 @@ import org.zkoss.zul.Messagebox;
  *
  * @author Darwin
  */
-public class EmpresaCtr {
+public class CandidatoCtr {
 
-    private Empresa empresa;
+    private Candidato candidato;
     private Usuario usuario;
     ServicioUsuario servicioUsuario = new ServicioUsuario();
-    ServicioEmpresa servicioEmpresa = new ServicioEmpresa();
+    ServicioCandidato servicioCandidato = new ServicioCandidato();
     UserCredential credential = new UserCredential();
 
-    ServicioGiroEmpresa servicioGiroEmpresa = new ServicioGiroEmpresa();
-    private List<GiroEmpresa> listaGiro = new ArrayList<GiroEmpresa>();
+
 
     ServicioPais servicioPais = new ServicioPais();
     private List<Pais> listaPais = new ArrayList<Pais>();
@@ -76,14 +77,14 @@ public class EmpresaCtr {
     private String filePath;
     byte[] buffer = new byte[1024 * 1024];
     private AImage fotoGeneral = null;
-
+    
     @AfterCompose
     public void afterCompose(@ExecutionArgParam("img") String recibido, @ContextParam(ContextType.VIEW) Component view) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException, JRException, IOException {
         Selectors.wireComponents(view, this, false);
-        if (empresa.getIdUsuario().getUsuFoto() != null) {
+        if (candidato.getIdUsuario().getUsuFoto() != null) {
             try {
-                System.out.println("PATH" + empresa.getIdUsuario().getUsuFoto());
-                fotoGeneral = new AImage("fotoPedido", Imagen_A_Bytes(empresa.getIdUsuario().getUsuFoto()));
+//                System.out.println("PATH" + candidato.getIdUsuario().getUsuFoto());
+                fotoGeneral = new AImage("fotoPedido", Imagen_A_Bytes(candidato.getIdUsuario().getUsuFoto()));
 //                Imagen_A_Bytes(empresa.getIdUsuario().getUsuFoto());
             } catch (FileNotFoundException e) {
                 System.out.println("error imagen " + e.getMessage());
@@ -91,13 +92,14 @@ public class EmpresaCtr {
         }
     }
 
-    public EmpresaCtr() {
+    public CandidatoCtr() {
+
         Session sess = Sessions.getCurrent();
         credential = (UserCredential) sess.getAttribute(EnumSesion.userCredential.getNombre());
-        empresa = servicioEmpresa.findByUsuario(credential.getUsuarioSistema());
-        if (empresa.getIdUsuario().getIdCanton() != null) {
-            paisSelected = empresa.getIdUsuario().getIdCanton().getIdCiudad().getIdPais();
-            ciudadSeleted = empresa.getIdUsuario().getIdCanton().getIdCiudad();
+        candidato = servicioCandidato.findByUsuario(credential.getUsuarioSistema());
+        if (candidato.getIdUsuario().getIdCanton() != null) {
+            paisSelected = candidato.getIdUsuario().getIdCanton().getIdCiudad().getIdPais();
+            ciudadSeleted = candidato.getIdUsuario().getIdCanton().getIdCiudad();
 //            paisSelected=empresa.getIdUsuario().getIdCanton();
             buscarCanton();
         }
@@ -106,19 +108,7 @@ public class EmpresaCtr {
         parametrizar = servicioParametrizar.findActivo();
     }
 
-    @Command
-    public void guardar() {
-
-//        empresa.setIdGiroEmpresa(giroEmpresaSeleted);
-        servicioEmpresa.modificar(empresa);
-        usuario = empresa.getIdUsuario();
-        servicioUsuario.modificar(usuario);
-        Clients.showNotification("Guardado correctamente... ",
-                    Clients.NOTIFICATION_TYPE_INFO, null, "end_center", 3000, true);
-    }
-
     private void cargarDatos() {
-        listaGiro = servicioGiroEmpresa.findAll();
         listaPais = servicioPais.findAll();
         paisSelected = listaPais.get(0);
         listaCiudad = servicioCiudad.findByPais(paisSelected);
@@ -159,7 +149,7 @@ public class EmpresaCtr {
             }
             Files.copy(new File(filePath + File.separator + media.getName()),
                         media.getStreamData());
-            Usuario usuFoto = empresa.getIdUsuario();
+            Usuario usuFoto = candidato.getIdUsuario();
             usuFoto.setUsuFoto(filePath + File.separator + media.getName());
             System.out.println("PATH SUBIR " + filePath + File.separator + media.getName());
             fotoGeneral = new AImage("fotoPedido", Imagen_A_Bytes(filePath + File.separator + media.getName()));
@@ -167,20 +157,55 @@ public class EmpresaCtr {
         }
     }
 
-    public Empresa getEmpresa() {
-        return empresa;
+    public byte[] Imagen_A_Bytes(String pathImagen) throws FileNotFoundException {
+        String reportPath = "";
+        reportPath = pathImagen;
+        File file = new File(reportPath);
+
+        FileInputStream fis = new FileInputStream(file);
+        //create FileInputStream which obtains input bytes from a file in a file system
+        //FileInputStream is meant for reading streams of raw bytes such as image data. For reading streams of characters, consider using FileReader.
+
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        byte[] buf = new byte[1024];
+        try {
+            for (int readNum; (readNum = fis.read(buf)) != -1;) {
+                //Writes to this byte array output stream
+                bos.write(buf, 0, readNum);
+//                System.out.println("read " + readNum + " bytes,");
+            }
+        } catch (IOException ex) {
+        }
+
+        byte[] bytes = bos.toByteArray();
+        return bytes;
     }
 
-    public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
+    @Command
+    public void guardar() {
+
+//        empresa.setIdGiroEmpresa(giroEmpresaSeleted);
+        servicioCandidato.modificar(candidato);
+        usuario = candidato.getIdUsuario();
+        servicioUsuario.modificar(usuario);
+        Clients.showNotification("Guardado correctamente... ",
+                    Clients.NOTIFICATION_TYPE_INFO, null, "end_center", 3000, true);
     }
 
-    public List<GiroEmpresa> getListaGiro() {
-        return listaGiro;
+    public Candidato getCandidato() {
+        return candidato;
     }
 
-    public void setListaGiro(List<GiroEmpresa> listaGiro) {
-        this.listaGiro = listaGiro;
+    public void setCandidato(Candidato candidato) {
+        this.candidato = candidato;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public List<Pais> getListaPais() {
@@ -230,28 +255,7 @@ public class EmpresaCtr {
     public void setFotoGeneral(AImage fotoGeneral) {
         this.fotoGeneral = fotoGeneral;
     }
-
-    public byte[] Imagen_A_Bytes(String pathImagen) throws FileNotFoundException {
-        String reportPath = "";
-        reportPath = pathImagen;
-        File file = new File(reportPath);
-
-        FileInputStream fis = new FileInputStream(file);
-        //create FileInputStream which obtains input bytes from a file in a file system
-        //FileInputStream is meant for reading streams of raw bytes such as image data. For reading streams of characters, consider using FileReader.
-
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        byte[] buf = new byte[1024];
-        try {
-            for (int readNum; (readNum = fis.read(buf)) != -1;) {
-                //Writes to this byte array output stream
-                bos.write(buf, 0, readNum);
-//                System.out.println("read " + readNum + " bytes,");
-            }
-        } catch (IOException ex) {
-        }
-
-        byte[] bytes = bos.toByteArray();
-        return bytes;
-    }
+    
+    
+    
 }
