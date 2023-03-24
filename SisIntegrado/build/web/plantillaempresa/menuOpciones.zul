@@ -8,24 +8,18 @@
    
             <div class="li">
                 <label class="m1" value="Perfil" id="btnPerfil"/>
-                <!--<div class="ul">
-                    <div class="li">
-                        <label class="s1" value="Descargar compras desde el SRI" id="btnListaComprasSRI"  />
-                    </div>
-                    <div class="li">
-                        <label class="s1" value="Clasificar productos" id="btnReporteDetallado"  />
-                    </div>
-           
-                </div>-->
             </div>
-            <div class="li">
+<!--            <div class="li">
                 <label class="m1" value="Vacantes" id="btnVacantes"/>
+            </div>-->
+            <div class="li">
+                <label class="m1" value="Evaluaciones realizadas" id="btnEvalRealizadas"/>
             </div>
             <div class="li">
                 <label class="m1" value="Evaluación" id="btnAdministarVenta"  />
                 <div class="ul">
                     <div class="li">
-                        <label class="s1" value="Mis evaluaciones" id="btnMisEval"  />
+                        <label class="s1" value="Generar y enviar evaluaciones" id="btnMisEval"  />
                     </div>
                     <div class="li">
                         <label class="s1" value="Armar evaluación" id="btnArmEval"  />
