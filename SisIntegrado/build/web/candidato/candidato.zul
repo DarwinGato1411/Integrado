@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?link rel="stylesheet" type="text/css" href="../resources/css/boostrap/bootstrap.css"?>  
-<?link rel="stylesheet" type="text/css" href="../resources/css/style.css"?>
+
+<?link rel="stylesheet" type="text/css" href="/css/style.css"?>
+<?link rel="stylesheet" type="text/css" href="/css/modales.css"?>
+
 <?init class="com.ec.seguridad.Autentificador"?>
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="/plantilla/plantilla.zul"?>
 <zk class="border border-primary">
@@ -157,9 +160,20 @@
             </div>
         </div>
         
+<<<<<<< HEAD
+        <tabpanels>
+            <tabpanel  width="100%"  >
+
+            </tabpanel>
+        </tabpanels>
+    </tabbox>
+
+</div>
+=======
     </div>
 </zk>
 
+>>>>>>> ef614025cacff400a0fad3821d39aaa9079bd448
 
 
 

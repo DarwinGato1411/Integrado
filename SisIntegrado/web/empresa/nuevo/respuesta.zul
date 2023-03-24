@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window  id="wPregunta"  position="center" closable="true"  
          apply="org.zkoss.bind.BindComposer" 
-         viewModel="@id('vm') @init('com.ec.controlador.empresa.NuevoRespuesta')">
+         viewModel="@id('vm') @init('com.ec.controlador.empresa.NuevoRespuesta')"
+        class="modalRespuesta modalAll">
     
-    <caption label="Test" style="font-weight:bold"
-    /> 
+    <caption label="Respuestas " style="font-weight:bold" class="titulo"/> 
     
 
     <div class="container_modal">
 
-        <div class="body">
+        <div class="bodyModal">
             <div class="container_row_input">
               
                 <div class="wrapper_input_mod">
@@ -21,6 +21,7 @@
                             onChange="self.setValue(self.getValue().toUpperCase());"  
                             value="@bind(vm.entidad.resDescripcion)" 
                             class="input_text" 
+                            rows="10"
                         />
                     </div>
                 </div>
@@ -50,9 +51,9 @@
             </div>
             
             <div style="display:flex;justify-content:flex-end;">
-                <button class="btn_modal" style="width:300px" onClick="@command('guardar')">
+                <a class="btn_modal"  onClick="@command('guardar')">
                     Guardar
-                </button>
+                </a>
             </div>
         </div>     
     </div>     

@@ -30,30 +30,23 @@
                     <div class="li">
                         <label class="s1" value="Armar evaluación" id="btnArmEval"  />
                     </div>
-           
                 </div>
             </div>
-            
         </div>
+
         <!-- <menubar id="menubar" orient="vertical"  autodrop="false" > 
             <menuitem label="Perfil" id="btnPerfil"/>
             <menuitem label="Vacantes"  id="btnVacantes"/>  
             <menu label="Evaluacion" >
                 <menupopup> 
-<<<<<<< HEAD
                     <menuitem label="Generar evaluaciones" id="btnGenEval"  />
                     <menuitem label="Mis evaluados" id="btnMisEvaluados"  />
                     <menuitem label="Armar evaluacion" id="btnArmEval"  />
                     
-=======
-                    <menuitem label="Mis evaluaciones" id="btnMisEval"  />
-                    <menuitem label="Armar evaluacion" id="btnArmEval"  />                    
->>>>>>> 9de3e59fbcf0c93914cdcb99872f463fa3ea987a
                 </menupopup>
             </menu>        
         </menubar>-->
        
+
     </div>  
-     
-                       
 </zk>
