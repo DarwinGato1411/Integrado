@@ -30,23 +30,8 @@
                     <div class="li">
                         <label class="s1" value="Armar evaluación" id="btnArmEval"  />
                     </div>
-           
                 </div>
             </div>
-            
         </div>
-        <!-- <menubar id="menubar" orient="vertical"  autodrop="false" > 
-            <menuitem label="Perfil" id="btnPerfil"/>
-            <menuitem label="Vacantes"  id="btnVacantes"/>  
-            <menu label="Evaluacion" >
-                <menupopup> 
-                    <menuitem label="Mis evaluaciones" id="btnMisEval"  />
-                    <menuitem label="Armar evaluacion" id="btnArmEval"  />                    
-                </menupopup>
-            </menu>        
-        </menubar>-->
-       
     </div>  
-     
-                       
 </zk>

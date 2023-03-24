@@ -1,18 +1,29 @@
 <?init class="com.ec.seguridad.Autentificador"?>
-<?link rel="stylesheet" type="text/css" href="../resources/css/boostrap/bootstrap.css"?>  
-<?link rel="stylesheet" type="text/css" href="../resources/css/style.css"?>
+
 <zk  >
  
-    <div class="btn-group-vertical"    style="text-align:lefth;"
-         viewModel="@id('vm')"     apply="com.ec.controlador.MenuOpciones" >
-        <menubar id="menubar" orient="vertical"  autodrop="false" >
+    <div class="" viewModel="@id('vm')" apply="com.ec.controlador.MenuOpciones" >
+        
+         <div class="nav ul">
+   
+            <div class="li">
+                <label class="m1" value="Candidato" id="btnCandidato"/>
+            </div>
+            <div class="li">
+                <label class="m1" value="Vacantes"  id="btnVacantes"/>
+            </div>
+            <div class="li">
+                <label class="m1" value="Postulaciones"  id="btnPostula"  />  
+            </div>
+        </div>   
+<!--<menubar id="menubar" orient="vertical"  autodrop="false" >
           
               <menuitem label="Candidato" id="btnCandidato"/>
               <menuitem label="Vacantes"  id="btnVacantes"/> 
               <menuitem label="Postulaciones"  id="btnPostula"/> 
             
           
-        </menubar>
+        </menubar>-->
        
     </div>  
      
