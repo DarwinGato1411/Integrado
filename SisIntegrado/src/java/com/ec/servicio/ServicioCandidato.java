@@ -132,6 +132,30 @@ public class ServicioCandidato {
         return listaDatos.isEmpty() ? null : listaDatos.get(0);
     }
 
+    public Candidato findByCandidatoCedula(String cedula) {
+
+        List<Candidato> listaDatos = new ArrayList<Candidato>();
+
+        try {
+            //Connection connection = em.unwrap(Connection.class);
+
+            em = HelperPersistencia.getEMF();
+            em.getTransaction().begin();
+            Query query = em.createQuery("SELECT u FROM Candidato u  WHERE u.idUsuario.usuRuc =:usuRuc");
+            query.setParameter("usuRuc", cedula);
+            listaDatos = (List<Candidato>) query.getResultList();
+
+            em.getTransaction().commit();
+        } catch (Exception e) {
+
+            System.out.println("Error en lsa consulta candidato  findActivo  " + e.getMessage());
+        } finally {
+            em.close();
+        }
+
+        return listaDatos.isEmpty() ? null : listaDatos.get(0);
+    }
+
     public Candidato findByRuc(String buscar) {
 
         List<Candidato> listaDatos = new ArrayList<Candidato>();
@@ -180,7 +204,6 @@ public class ServicioCandidato {
         return listaDatos.isEmpty() ? null : listaDatos.get(0);
     }
 
-    
     public List<Candidato> findEmpresa(Empresa buscar) {
 
         List<Candidato> listaDatos = new ArrayList<Candidato>();
@@ -205,4 +228,29 @@ public class ServicioCandidato {
 
         return listaDatos;
     }
+
+//     public List<Candidato> findCandidatoEmpresa(String busqueda,Empresa buscar) {
+//
+//        List<Candidato> listaDatos = new ArrayList<Candidato>();
+//
+//        try {
+//            //Connection connection = em.unwrap(Connection.class);
+//
+//            em = HelperPersistencia.getEMF();
+//            em.getTransaction().begin();
+//            Query query = em.createQuery("SELECT u FROM Candidato u  WHERE (u.idUsuario.usuRuc LIKE :busqueda  OR u.idUsuario.usuNombre LIKE :busqueda) AND u.");
+//            query.setParameter("canDescripcion", "%" + buscar + "%");
+//            query.setParameter("usuNombre", "%" + buscar + "%");
+//            listaDatos = (List<Candidato>) query.getResultList();
+//
+//            em.getTransaction().commit();
+//        } catch (Exception e) {
+//
+//            System.out.println("Error en lsa consulta candidato  findActivo  " + e.getMessage());
+//        } finally {
+//            em.close();
+//        }
+//
+//        return listaDatos;
+//    }
 }

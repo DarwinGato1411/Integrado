@@ -15,7 +15,7 @@
                 
                 <tabpanel  height="98%" width="99%"  >                    
                    
-                    <listbox model="@load(vm.listaVacantes)" 
+                    <listbox model="@load(vm.listaEvaluaciones)" 
                              nonselectableTags=""  mold="paging" pageSize="12"  >
                         <custom-attributes org.zkoss.zul.listbox.rod="true"/>
                         <auxhead>
@@ -25,13 +25,15 @@
                                     
                                     <div  class="col-12 col-sm-12 col-md-3 col-lg-3 ">
                                          
-                                        <button   image="/iconos/add-group.png" 
-                                                  label="Buscar candidados"  
-                                                  onClick="@command('nuevo')"  
-                                                  class="btn btn-primary btn-sm "
-                                                  tooltiptext="Buscar candidados"/>
-                                        <button   image="/imagenes/xls.png" 
-                                                  label="Subir candidatos" 
+                                        <button  label="Plantilla evaluados"  
+                                                 onClick="@command('emportarPlantillaEvaluados')"  
+                                                 class="btn btn-primary btn-sm "
+                                                 tooltiptext="Buscar candidados"/>
+                                        <button  label="Subir evaluados"  
+                                                 onClick="@command('exportarPlantillaEvaluados')"  
+                                                 class="btn btn-primary btn-sm "
+                                                 tooltiptext="Buscar candidados"/>
+                                        <button   label="Subir candidatos" 
                                                   onClick="@command('exportListboxToExcel')"  
                                                   class="btn btn-primary btn-sm "
                                                   tooltiptext="Subir candidatos"/>
@@ -54,18 +56,17 @@
                         <listhead> 
                             <listheader width="10%"  label="" >
                                 <textbox value="@bind(vm.buscar)"  
-                                         tooltiptext="Nombre o Descripcion"
+                                         tooltiptext="Nombre o Cedula"
                                          class="form-control form-control-sm"                                         
                                          placeholder="Nombre o Descripcion"
                                          onOK="@command('buscarLike')"
                                          onChange="self.setValue(self.getValue().toUpperCase());" />
                             </listheader>
-                            <listheader width="45%"  label="Descripcion" >
+                            <listheader width="45%"  label="Nombre" >
                             </listheader>  
-                            <listheader width="10%"  label="Inicio" />    
-                            <listheader width="10%"  label="Fin" />        
-                            <listheader width="10%"  label="Tipo Contratacion" />        
-                            <listheader width="10%"  label="Sueldo" />        
+                            <listheader width="20%"  label="Correo" />    
+                            <listheader width="25%"  label="Direccion" />        
+                                   
                            
                             <listheader width="5%"   tooltiptext="Editar" label="" align="center" />               
                         </listhead>  
@@ -77,38 +78,27 @@
                                 <listcell zclass = "mycss-listcell">
                                     <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
                                              class="form-control form-control-sm" 
-                                             value="@bind(each.vacNombre)" />
+                                             value="@bind(each.idCandidato.idUsuario.usuRuc)" />
                                 </listcell>
                                 <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">
                                     <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
                                              class="form-control form-control-sm" 
-                                             value="@bind(each.vacDescripcion)" />
+                                             value="@bind(each.idCandidato.idUsuario.usuNombre)" />
                                     
                                 </listcell>
-                                <listcell zclass = "mycss-listcell">
-                                    <datebox compact="true" value="@bind(each.vacFechaInicio)" 
-                                             height=" 30px" 
-                                             buttonVisible="false" lenient="true" readonly="true"
-                                             format="medium" width="100%"  />
-                                </listcell>
-                                <listcell zclass = "mycss-listcell">
-                                    <datebox compact="true" value="@bind(each.vacFechaFin)" 
-                                             height=" 30px" 
-                                             buttonVisible="false" lenient="true" readonly="true"
-                                             format="medium" width="100%"  />
-                                </listcell>
-                                <listcell zclass = "mycss-listcell">
+                                <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">
                                     <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
                                              class="form-control form-control-sm" 
-                                             value="@bind(each.idTipoContratacion.tipcNombre)" />
+                                             value="@bind(each.idCandidato.idUsuario.usuCorreo)" />
+                                    
                                 </listcell>
-                                <listcell zclass = "mycss-listcell">
-                                 
-                                    <decimalbox format="###.##" readonly="true" 
-                                                style="font-size:12px;background:#EBF5FB"
-                                                class="form-control form-control-sm"  
-                                                value="@bind(each.vacSueldo)" width="100%"/>
+                                <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">
+                                    <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
+                                             class="form-control form-control-sm" 
+                                             value="@bind(each.idCandidato.canDireccion)" />
+                                    
                                 </listcell>
+                                
                                 <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">
                                     <image  
                                         height=" 30px" 

@@ -19,7 +19,7 @@
                 <label class="m1" value="Evaluación" id="btnAdministarVenta"  />
                 <div class="ul">
                     <div class="li">
-                        <label class="s1" value="Generar y enviar evaluaciones" id="btnMisEval"  />
+                        <label class="s1" value="Generar y enviar " id="btnArmarEnviar"  />
                     </div>
                     <div class="li">
                         <label class="s1" value="Armar evaluación" id="btnArmEval"  />
