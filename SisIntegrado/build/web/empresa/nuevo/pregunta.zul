@@ -4,7 +4,7 @@
          viewModel="@id('vm') @init('com.ec.controlador.empresa.NuevoPregunta')" 
          class="modalPregunta modalAll">
     
-    <caption label="Pregunta" style="font-weight:bold"/> 
+    <caption label="Pregunta" style="font-weight:bold" class="titulo"/> 
     
 
     <div class="container_modal">

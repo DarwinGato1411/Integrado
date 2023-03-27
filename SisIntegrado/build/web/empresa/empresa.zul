@@ -10,133 +10,136 @@
     <div  self="@define(content)" class="contenedorEmpresa"  apply="org.zkoss.bind.BindComposer" 
           viewModel="@id('vm') @init('com.ec.controlador.empresa.EmpresaCtr')" > 
         <div  class="contenedorInfo" >
-            <div class="inputGroupImg" >
-                <image   content="@bind(vm.fotoGeneral)" width="200px" />
-                <div class="btnSubirImg" onClick="@command('subirLogotipo')" >                 
-                    
-                    <!--<textbox value="@bind(vm.empresa.idUsuario.usuFoto)" 
-                    placeholder="Ingrese su logotipo"
-                    class="form-control form-control-sm"
-                    tooltiptext="Ingrese su logotipo " />-->
-                    <image src="/iconos/photo.png" tooltiptext="Subir logotipo"/>
-                    <label value="Subir imagen"/>
-                    
-                                           
-                </div>                           
+            <div class="titulo">
+                Perfil Empresa
             </div>
-            <div  class="contenedorInfoInputs">
-                <div class="inputGroup"  >
-                    <label value="Giro de negocio:"/>
-                    <combobox  model="@load(vm.listaGiro)" readonly="false" 
-                               selectedItem="@bind(vm.empresa.idGiroEmpresa)"
-                               tooltiptext="Giro de negocio " >                    
-                        <template name="model">
-                            <comboitem  label="@bind(each.girNombre)"/>
-                        </template>                                       
-                    </combobox>               
-                </div>  
-                <div class="inputGroup"  >
-                    <label value="Pais:"/>
-                    <combobox  model="@load(vm.listaPais)" readonly="false" 
-                               onSelect="@command('buscarCiudad')"  
-                               selectedItem="@bind(vm.paisSelected)"
-                               tooltiptext="Giro de negocio " >
+            <div class="infoEmpresa">
+                <div class="inputGroupImg" >
+                    <image   content="@bind(vm.fotoGeneral)" width="200px" />
+                    <button 
+                        class="btnSubirImg"
+                        onClick="@command('subirLogotipo')" 
+                        iconSclass="z-icon-plus"
+                        tooltiptext="Buscar">
+                        Subir Imagen
+                    </button>                               
+                </div>
+                <div  class="contenedorInfoInputs">
+                    <div class="inputGroup"  >
+                        <label value="Giro de negocio:"/>
+                        <combobox  model="@load(vm.listaGiro)" readonly="false" 
+                                   selectedItem="@bind(vm.empresa.idGiroEmpresa)"
+                                   tooltiptext="Giro de negocio " >                    
+                            <template name="model">
+                                <comboitem  label="@bind(each.girNombre)"/>
+                            </template>                                       
+                        </combobox>               
+                    </div>  
+                    <div class="inputGroup"  >
+                        <label value="Pais:"/>
+                        <combobox  model="@load(vm.listaPais)" readonly="false" 
+                                   onSelect="@command('buscarCiudad')"  
+                                   selectedItem="@bind(vm.paisSelected)"
+                                   tooltiptext="Giro de negocio " >
                                           
-                        <template name="model">
-                            <comboitem  label="@bind(each.paisNombre)"/>
-                        </template>                                       
-                    </combobox>              
-                </div>  
-                <div class="inputGroup"  >
-                    <label value="Ciudad:"/>
-                    <combobox  model="@load(vm.listaCiudad)" readonly="false" 
-                               onSelect="@command('buscarCanton')"  
-                               selectedItem="@bind(vm.ciudadSeleted)"
-                               tooltiptext="Giro de negocio " >
+                            <template name="model">
+                                <comboitem  label="@bind(each.paisNombre)"/>
+                            </template>                                       
+                        </combobox>              
+                    </div>  
+                    <div class="inputGroup"  >
+                        <label value="Ciudad:"/>
+                        <combobox  model="@load(vm.listaCiudad)" readonly="false" 
+                                   onSelect="@command('buscarCanton')"  
+                                   selectedItem="@bind(vm.ciudadSeleted)"
+                                   tooltiptext="Giro de negocio " >
                                           
-                        <template name="model">
-                            <comboitem  label="@bind(each.ciuNombre)"/>
-                        </template>                                       
-                    </combobox>                  
-                </div>  
-                <div class="inputGroup"  >
-                    <label value="Canton:"/>
-                    <combobox  model="@load(vm.listaCanton)" readonly="false" 
+                            <template name="model">
+                                <comboitem  label="@bind(each.ciuNombre)"/>
+                            </template>                                       
+                        </combobox>                  
+                    </div>  
+                    <div class="inputGroup"  >
+                        <label value="Canton:"/>
+                        <combobox  model="@load(vm.listaCanton)" readonly="false" 
                    
-                               selectedItem="@bind(vm.empresa.idUsuario.idCanton)"
-                               tooltiptext="Giro de negocio " >
+                                   selectedItem="@bind(vm.empresa.idUsuario.idCanton)"
+                                   tooltiptext="Giro de negocio " >
                                           
-                        <template name="model">
-                            <comboitem  label="@bind(each.canNombre)"/>
-                        </template>                                       
-                    </combobox>               
-                </div>  
-                <div class="inputGroup"  >
-                    <label value="RUC:"/>
-                    <textbox value="@bind(vm.empresa.idUsuario.usuRuc)" 
-                             placeholder="RUC"
-                             class="form-control form-control-sm"
-                             tooltiptext="Ruc (1718264839001)"
-                             width="90%"                    />
-                </div> 
-                <div class="inputGroup"  >
-                    <label value="Nombre empresa:"/>
-                    <textbox value="@bind(vm.empresa.empNombre)" 
-                             placeholder="Nombre empresa"
-                             onOK="@command('buscarCatastro')"
-                             class="form-control form-control-sm"
-                             tooltiptext="Nombre empresa"
-                             width="90%"                    />
-                </div>
-                <div class="inputGroup"  >
-                    <label value="Dirección:"/>
-                    <textbox value="@bind(vm.empresa.empDireccion)" 
-                             placeholder="Dirección"
-                             class="form-control form-control-sm"
-                             tooltiptext="Dirección"
-                             width="90%"                    />
-                </div>
-                <div class="inputGroup"  > 
-                    <label value="Teléfono:"/>
-                    <textbox value="@bind(vm.empresa.empTelefono)" 
-                             placeholder="Telefono"
-                             class="form-control form-control-sm"
-                             tooltiptext="Telefono"
-                             width="90%"                    />
-                </div>     
-                <div class="inputGroup"  > 
-                    <label value="Correo:"/>
-                    <textbox value="@bind(vm.empresa.empCorreo)" 
-                             placeholder="Correo"
-                             class="form-control form-control-sm"
-                             tooltiptext="Correo"
-                             width="90%"
-                    />
-                </div>     
+                            <template name="model">
+                                <comboitem  label="@bind(each.canNombre)"/>
+                            </template>                                       
+                        </combobox>               
+                    </div>  
+                    <div class="inputGroup"  >
+                        <label value="RUC:"/>
+                        <textbox value="@bind(vm.empresa.idUsuario.usuRuc)" 
+                                 placeholder="RUC"
+                                 class="form-control form-control-sm"
+                                 tooltiptext="Ruc (1718264839001)"
+                                 width="90%"                    />
+                    </div> 
+                    <div class="inputGroup"  >
+                        <label value="Nombre empresa:"/>
+                        <textbox value="@bind(vm.empresa.empNombre)" 
+                                 placeholder="Nombre empresa"
+                                 onOK="@command('buscarCatastro')"
+                                 class="form-control form-control-sm"
+                                 tooltiptext="Nombre empresa"
+                                 width="90%"                    />
+                    </div>
+                    <div class="inputGroup"  >
+                        <label value="Dirección:"/>
+                        <textbox value="@bind(vm.empresa.empDireccion)" 
+                                 placeholder="Dirección"
+                                 class="form-control form-control-sm"
+                                 tooltiptext="Dirección"
+                                 width="90%"                    />
+                    </div>
+                    <div class="inputGroup"  > 
+                        <label value="Teléfono:"/>
+                        <textbox value="@bind(vm.empresa.empTelefono)" 
+                                 placeholder="Telefono"
+                                 class="form-control form-control-sm"
+                                 tooltiptext="Telefono"
+                                 width="90%"                    />
+                    </div>     
+                    <div class="inputGroup"  > 
+                        <label value="Correo:"/>
+                        <textbox value="@bind(vm.empresa.empCorreo)" 
+                                 placeholder="Correo"
+                                 class="form-control form-control-sm"
+                                 tooltiptext="Correo"
+                                 width="90%"
+                        />
+                    </div>     
                   
-                <div class="inputGroup"  > 
-                    <label value="RUC:"/>        
-                    <textbox value="@bind(vm.empresa.idUsuario.usuLogin)" 
-                             placeholder="Login"
-                             class="form-control form-control-sm"
-                             tooltiptext="Nombre Comercial"
-                             width="90%" />
-                </div>     
-                <div class="inputGroup">
-                    <label value="RUC:"/>
-                    <textbox value="@bind(vm.empresa.idUsuario.usuPassword)" 
-                             placeholder="Password"
-                             class="form-control form-control-sm"
-                             tooltiptext="Nombre Comercial" 
-                             width="90%"/>
-                </div>            
-                <div class="inputGroupBtn" onClick="@command('guardar')">   
+                    <div class="inputGroup"  > 
+                        <label value="RUC:"/>        
+                        <textbox value="@bind(vm.empresa.idUsuario.usuLogin)" 
+                                 placeholder="Login"
+                                 class="form-control form-control-sm"
+                                 tooltiptext="Nombre Comercial"
+                                 width="90%" />
+                    </div>     
+                    <div class="inputGroup">
+                        <label value="RUC:"/>
+                        <textbox value="@bind(vm.empresa.idUsuario.usuPassword)" 
+                                 placeholder="Password"
+                                 class="form-control form-control-sm"
+                                 tooltiptext="Nombre Comercial" 
+                                 width="90%"/>
+                    </div>            
+                  
                     
-                    <image src="/iconos/guardar.png" tooltiptext="Subir logotipo"/>
-                    <label value="Guardar"/>
-                   
-                   
-                </div> 
+                    <button 
+                        class="inputGroupBtn"
+                        onClick="@command('guardar')"
+                        iconSclass="z-icon-save"
+                        tooltiptext="Buscar">
+                        Guardar Perfil
+                    </button>      
+                </div>
             </div>
         </div>
         

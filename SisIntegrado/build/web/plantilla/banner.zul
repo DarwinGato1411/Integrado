@@ -9,6 +9,8 @@
 
 
                 <label value="Candidato " style="  color:white;font-size:20px" />
+
+
             </div>
             <div class="">
                 <label value="Usuario: " 
