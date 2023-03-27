@@ -18,48 +18,42 @@
                     <div  class="contenedorTest">
                         <div  class="containerEva">
                             <div class="">                                    
-                                <button   image="/iconos/nuevo.png"  
+                                <button    
+                                          iconSclass="z-icon-plus"
                                           onClick="@command('nuevoTest')"  
-                                          class=""
-                                          tooltiptext="Buscar"/>
+                                          class="fa fa-plus"
+                                    tooltiptext="Buscar">Agregar Evaluación</button>
                             </div>    
-                            <listbox model="@load(vm.listaTest)" 
+                            <listbox class="tabla" model="@load(vm.listaTest)" 
                                      nonselectableTags="*"  mold="paging" pageSize="5"  >
                                
-                                <custom-attributes org.zkoss.zul.listbox.rod="true"/>
-                                
-                       
+                                <custom-attributes org.zkoss.zul.listbox.rod="true"/>                       
                                 <listhead class="tblCabecera"> 
-                                    <listheader label="EVALUACIÓN" />                         
-                                                 
+                                    <listheader label="EVALUACIÓN" />                                                                         
                                 </listhead>  
-                        
-                    
                                 <template name="model">                                                            
-                                    <listitem class="tblCuerpo">
+                                    <listitem class="tblCuerpo" >
                               
-                                        <listcell zclass = "mycss-listcell">
+                                        <listcell zclass = "mycss-listcell" style="width:100%;">
                                             <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
                                                      class="form-control form-control-sm" 
                                                      value="@bind(each.testNombre)" />
                                         </listcell>
-                                        <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">
-                                            <image  
-                                                height=" 30px" 
-                                                src="/iconos/editar.png"
-                                                class="btn btn btn-secondary btn-sm grow"
+                                        <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">                                  
+                                            <button 
+                                                iconSclass="z-icon-pencil"
                                                 onClick="@command('modificarTest',valor=each)" 
-                                                tooltiptext="Modificar"/>
-                                   
+                                                tooltiptext="Modificar">
+                                                Modificar
+                                            </button>                                      
                                         </listcell>
-                                        <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">
-                                            <image  
-                                                height=" 30px" 
-                                                src="/iconos/selected.png"
-                                                class="btn btn btn-secondary btn-sm grow"
-                                                onClick="@command('buscarPreguntas',valor=each)" 
-                                                tooltiptext="Modificar"/>
-                                   
+                                        <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">     
+                                            <button 
+                                                iconSclass="z-icon-hand-o-up" 
+                                                tooltiptext="Modificar"
+                                                onClick="@command('buscarPreguntas',valor=each)">
+                                                Seleccionar
+                                            </button>   
                                         </listcell>
                                
                                 
@@ -71,14 +65,16 @@
                         <div  class="containerPreguntas">
                             <div class="">                                    
                                  <div  class="">
-                                   <button   image="/iconos/nuevo.png"  
+                                   <button   
                                              onClick="@command('nuevoPregunta')"  
-                                             class=""
-                                             tooltiptext="Buscar"/>
+                                             iconSclass="z-icon-plus"
+                                       tooltiptext="Buscar">
+                                       Agregar Preguntas
+                                   </button>
                        
                                  </div>
                             </div>
-                            <listbox model="@load(vm.listaPreguntas)" 
+                            <listbox class="tabla" model="@load(vm.listaPreguntas)" 
                                      nonselectableTags=""  mold="paging" pageSize="5"  >
                                 <custom-attributes org.zkoss.zul.listbox.rod="true"/>
                                 
@@ -91,7 +87,7 @@
                                 <template name="model">                                                            
                                     <listitem class="tblCuerpo">
                               
-                                        <listcell zclass = "mycss-listcell">
+                                        <listcell zclass = "mycss-listcell" style="width:100%;">
                                             <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
                                                      class="form-control form-control-sm" 
                                                      value="@bind(each.preNombre)"
@@ -99,21 +95,25 @@
                                             />
                                         </listcell>
                                         <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">
-                                            <image  
-                                                height=" 30px" 
-                                                src="/iconos/editar.png"
-                                                class="btn btn btn-secondary btn-sm grow"
+                                            
+                                            
+                                             <button 
+                                                iconSclass="z-icon-pencil"
                                                 onClick="@command('modificarPregunta',valor=each)" 
-                                                tooltiptext="Modificar"/>
+                                                tooltiptext="Modificar">
+                                                Modificar
+                                            </button>   
                                    
                                         </listcell>
                                         <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">
-                                            <image  
-                                                height=" 30px" 
-                                                src="/iconos/selected.png"
-                                                class="btn btn btn-secondary btn-sm grow"
-                                                onClick="@command('busacarRespuestas',valor=each)" 
-                                                tooltiptext="BuscarPrgunta"/>
+                                            
+                                            
+                                             <button 
+                                                iconSclass="z-icon-hand-o-up" 
+                                                tooltiptext="Modificar"
+                                                onClick="@command('busacarRespuestas',valor=each)" >
+                                                Seleccionar
+                                            </button>   
                                    
                                         </listcell>
                                 
@@ -125,13 +125,15 @@
                         <div  class="containerRespuestas">
                              <div class="">                                    
                                 <div  class="">    
-                                    <button   image="/iconos/nuevo.png"  
+                                    <button 
                                             onClick="@command('nuevoRespuesta')"  
-                                            class=""
-                                            tooltiptext="Buscar"/>
+                                            iconSclass="z-icon-plus"
+                                        tooltiptext="Buscar">
+                                        Agregar Respuestas
+                                    </button>
                                  </div>
                             </div>
-                            <listbox model="@load(vm.listaRespuestas)" 
+                            <listbox class="tabla" model="@load(vm.listaRespuestas)" 
                                      nonselectableTags=""  mold="paging" pageSize="5"  >
                                 <custom-attributes org.zkoss.zul.listbox.rod="true"/>
                                 
@@ -145,23 +147,19 @@
                                 <template name="model">                                                            
                                     <listitem class="tblCuerpo">
                               
-                                        <listcell zclass = "mycss-listcell">
+                                        <listcell zclass = "mycss-listcell" style="width:100%;">
                                             <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
                                                      class="form-control form-control-sm" 
                                                      value="@bind(each.resDescripcion)" />
                                         </listcell>
-                                        <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">
-                                            <image  
-                                                height=" 30px" 
-                                                src="/iconos/editar.png"
-                                                class="btn btn btn-secondary btn-sm grow"
-                                                onClick="@command('modificarRespuesta',valor=each)" 
-                                                tooltiptext="Modificar"/>
-                                   
+                                        <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">                       
+                                            <button 
+                                                iconSclass="z-icon-pencil"
+                                                onClick="@command('modificarRespuesta',valor=each)"  
+                                                tooltiptext="Modificar">
+                                                Modificar
+                                            </button> 
                                         </listcell>
-                               
-                                
-                                
                                     </listitem>
                                 </template>
                             </listbox>

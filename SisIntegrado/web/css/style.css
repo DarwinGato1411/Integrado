@@ -3024,22 +3024,30 @@ input, button, select, textarea {
 }
 
 
-.contenedorEmpresa .contenedorInfo{
-    border:solid 1px black;
+.contenedorEmpresa .contenedorInfo {
+    border: solid 1px black;
     width: 70%;
     margin: auto;
-    display: flex;
-    padding: 15px;
-    gap:10px;
+    /*background-image: linear-gradient(315deg, #97e4ff 0, #2073db 50%, #00123c 100%);*/
     border-radius: 10px;
-    background: url("https://img.freepik.com/vector-gratis/fondo-geometrico-plano_23-2148967370.jpg?w=2000");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
+    /* background: url(https://img.freepik.com/vector-gratis/fondo-geometrico-plano_23-2148967370.jpg?w=2000); */
+    margin-top: 20px;
 
 }
 
+.contenedorEmpresa .contenedorInfo .titulo {
+    padding: 10px;
+    background: #007bff;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    color:white;
+}
+.contenedorEmpresa .infoEmpresa{
+    padding: 20px;
+    background:#eee;
+    display: flex;
+    flex-direction: column;
+}
 .contenedorEmpresa .contenedorInfo .contenedorInfoInputs{
 
     width: 100%;
@@ -3065,15 +3073,15 @@ input, button, select, textarea {
 
 
 .contenedorEmpresa .contenedorInfo .contenedorInfoInputs  .inputGroupBtn {
-    display: flex;
-    background: #007bff;
+
+    background: #03C03C;
     color: white;
     width: 150px;
     margin: auto;
-    padding: 5px;
+    padding: 10px;
     border-radius: 10px;
     align-items: center;
-    gap:20%;
+
 }
 
 .contenedorEmpresa .contenedorInfo .contenedorInfoInputs  .inputGroupBtn:hover {
@@ -3082,18 +3090,26 @@ input, button, select, textarea {
     cursor: pointer;
 }
 
+.contenedorEmpresa .contenedorInfo .inputGroupImg{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
 
 
 .contenedorEmpresa .contenedorInfo .inputGroupImg .btnSubirImg{
 
-    display: flex;
-    align-items: center;
+
     background: #007bff;
     color: white;
     margin-top: 10px;
     padding: 5px;
     border-radius: 10px;
     gap:18%;
+    width: 200px;
+
 }
 
 .contenedorEmpresa .contenedorInfo .inputGroupImg .btnSubirImg:hover{
@@ -3120,6 +3136,12 @@ input, button, select, textarea {
 
 }
 
+.contenedorTest  .tabla {
+    background: #eee;
+    border-radius: 10px;
+}
+
+
 .contenedorTest .containerEva table{
     display: block !important;
 }
@@ -3135,7 +3157,7 @@ input, button, select, textarea {
 
 
 .contenedorTest .containerEva .z-listbox{
-    border:1px solid black;
+
     display: block;
     width: 100%;
 }
@@ -3147,16 +3169,23 @@ input, button, select, textarea {
     width: 100%;
 }
 
-.contenedorTest .z-listbox .tblCabecera .z-listheader .z-listheader-cnt{
+.contenedorTest .z-listbox .tblCabecera .z-listheader {
     background: #007bff;
     color: white;
-    padding: 10px;
+    padding: 5px;
     text-align: center;
+    color:white;
+    border-radius: 10px 10px 0 0;
+}
+.contenedorTest .z-listbox .tblCabecera .z-listheader .z-listheader-content{
+    color: white;
 }
 
+/*.containerRespuestas */
+
 .contenedorTest .containerEva .tblCuerpo{
-    display: grid;
-    grid-template-columns:80% 10% 10%;
+    display: flex;
+
 }
 
 /*.containerPreguntas */
@@ -3181,7 +3210,7 @@ input, button, select, textarea {
 }
 
 .contenedorTest .containerPreguntas .z-listbox{
-    border:1px solid black;
+
     display: block;
     width: 100%;
 }
@@ -3193,16 +3222,17 @@ input, button, select, textarea {
     width: 100%;
 }
 
-.contenedorTest .containerPreguntas .z-listbox .tblCabecera .z-listheader .z-listheader-cnt{
+.contenedorTest .containerPreguntas .z-listbox .tblCabecera .z-listheader {
     background: #28a745;
     color: white;
     padding: 10px;
     text-align: center;
+    border-radius: 10px 10px 0 0;
 }
 
 .contenedorTest .containerPreguntas .tblCuerpo{
-    display: grid;
-    grid-template-columns:80% 10% 10%;
+    display: flex;
+
 }
 
 /*.containerRespuestas */
@@ -3227,7 +3257,7 @@ input, button, select, textarea {
 }
 
 .contenedorTest .containerRespuestas .z-listbox{
-    border:1px solid black;
+
     display: block;
     width: 100%;
 }
@@ -3237,16 +3267,17 @@ input, button, select, textarea {
     width: 100%;
 }
 
-.contenedorTest .containerRespuestas .z-listbox .tblCabecera .z-listheader .z-listheader-cnt{
+.contenedorTest .containerRespuestas .z-listbox .tblCabecera .z-listheader{
     background: #17a2b8;
     color: white;
     padding: 10px;
     text-align: center;
+    border-radius: 10px 10px 0 0;
 }
 
 .contenedorTest .containerRespuestas .tblCuerpo{
-    display: grid;
-    grid-template-columns:80% 10% 10%;
+    display: flex;
+
 }
 
 @media only screen and (min-width: 1024px){

@@ -60,6 +60,8 @@ const login = () => {
     loginA.addEventListener("click", () => {
         empresa.style.display = "block";
         candidato.style.display = "none";
+        loginA.classList.add("opSelect");
+        loginB.classList.remove("opSelect");
     });
     loginB.addEventListener("click", () => {
         empresa.style.display = "none";
@@ -94,7 +96,6 @@ function remcl() {
         const inputs = document.querySelectorAll(".input");
         console.log(inputs);
         inputs.forEach(input => {
-
             input.addEventListener("focus", addcl);
             input.addEventListener("blur", remcl);
         });

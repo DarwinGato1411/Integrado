@@ -24,8 +24,9 @@
     display: none;
 }
 
-.modalAll .titulo{
+.modalAll .titulo .z-caption-content{
     text-align: center;
+    padding: 10px;
 }
 
 .modalAll .z-window-modal-hl,
@@ -77,30 +78,38 @@
     padding: 5px;
 }
 
+.modalTest, .modalTest .z-window-content{
+     padding: 0;
+     margin:0;
+}
 
+.modalTest .z-window-header
 
-.modalTest .z-window-modal-hl,
-.modalTest .z-window-modal-hl .z-window-modal-hr,
-.modalTest .z-window-modal-hl .z-window-modal-hr .z-window-modal-header
 {
     color: white;
     background: #007bff;
     
 }
+.modalRespuesta,.modalRespuesta .z-window-content{
+     padding: 0;
+     margin:0;
+}
 
-.modalRespuesta .z-window-modal-hl,
-.modalRespuesta .z-window-modal-hl .z-window-modal-hr,
-.modalRespuesta .z-window-modal-hl .z-window-modal-hr .z-window-modal-header
+.modalRespuesta .z-window-header
+
 {
     color: white;
     background: #17a2b8;
     
 }
 
+.modalPregunta , .modalPregunta .z-window-content{
+     padding: 0;
+     margin:0;
+}
 
-.modalPregunta .z-window-modal-hl,
-.modalPregunta .z-window-modal-hl .z-window-modal-hr,
-.modalPregunta .z-window-modal-hl .z-window-modal-hr .z-window-modal-header
+.modalPregunta .z-window-header
+
 {
     color: white;
     background: #28a745;
