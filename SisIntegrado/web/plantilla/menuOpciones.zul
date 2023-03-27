@@ -10,11 +10,14 @@
                 <label class="m1" value="Candidato" id="btnCandidato"/>
             </div>
             <div class="li">
+                <label class="m1" value="Mis evaluaciones" id="btnMisEvaluaciones"/>
+            </div>
+<!--            <div class="li">
                 <label class="m1" value="Vacantes"  id="btnVacantes"/>
             </div>
             <div class="li">
                 <label class="m1" value="Postulaciones"  id="btnPostula"  />  
-            </div>
+            </div>-->
         </div>   
 <!--<menubar id="menubar" orient="vertical"  autodrop="false" >
           
