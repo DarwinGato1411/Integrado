@@ -363,6 +363,7 @@ public class GenerarEvaluacion {
             HSSFCell chfe = r.createCell(0);
             chfe.setCellValue(new HSSFRichTextString("Cédula"));
             chfe.setCellStyle(estiloCelda);
+//            chfe.setCellType(chfe.CELL_TYPE_STRING);
 
             HSSFCell ch1 = r.createCell(j++);
             ch1.setCellValue(new HSSFRichTextString("Nombre"));
@@ -415,7 +416,7 @@ public class GenerarEvaluacion {
                 HSSFCell cell;
                 HSSFRow row;
 
-                System.out.println("Apunto de entrar a loops");
+                System.out.println("antes de entrar a loops");
 
                 System.out.println("" + sheet.getLastRowNum());
                 Candidato candidato = new Candidato();
@@ -423,32 +424,35 @@ public class GenerarEvaluacion {
                 for (int i = 1; i < sheet.getLastRowNum() + 1; i++) {
                     row = sheet.getRow(i);
 //                    for (int j = 0; j < row.getLastCellNum(); j++) {
-                    for (int j = 0; j < 6; j++) {
-                        Candidato candidatoRecup = servicioCandidato.findByCandidatoCedula(String.valueOf(row.getCell(0)));
-                        if (candidatoRecup != null) {
-                            cell = row.getCell(j);
-                            candidato = new Candidato();
-                            usuario = new Usuario();
 
-                            candidato = new Candidato();
-                            candidato.setCanDireccion(String.valueOf(row.getCell(3)));
-                            usuario.setUsuRuc(String.valueOf(row.getCell(0)));
-                            usuario.setUsuNombre(String.valueOf(row.getCell(1)));
-                            usuario.setUsuCorreo(String.valueOf(row.getCell(2)));
-                            usuario.setUsuLogin(String.valueOf(row.getCell(0)));
-                            usuario.setUsuPassword(String.valueOf(row.getCell(0)));
-                            usuario.setUsuNivel(1);
-                            usuario.setUsuTipoUsuario("CANDIDATO");
-                            servicioUsuario.crear(usuario);
-                            //*asigna el usuario al candidato*/
-                            candidato.setIdUsuario(usuario);
-                            servicioCandidato.crear(candidato);
-                            System.out.println("Valor: " + cell.toString());
-                        } else {
+                    HSSFCell ss = row.getCell(0);
+                    String cedula = String.valueOf(new BigDecimal(row.getCell(0).getNumericCellValue()));
+                    System.out.println("cedula " + cedula);
 
-                        }
+                    Candidato candidatoRecup = servicioCandidato.findByCandidatoCedula(cedula);
+                    if (candidatoRecup == null) {
+//                            cell = row.getCell(j);
+                        candidato = new Candidato();
+                        usuario = new Usuario();
+
+                        candidato = new Candidato();
+                        candidato.setCanDireccion(String.valueOf(row.getCell(3)));
+                        usuario.setUsuRuc(cedula);
+                        usuario.setUsuNombre(String.valueOf(row.getCell(1)));
+                        usuario.setUsuCorreo(String.valueOf(row.getCell(2)));
+                        usuario.setUsuLogin(cedula);
+                        usuario.setUsuPassword(cedula);
+                        usuario.setUsuNivel(1);
+                        usuario.setUsuTipoUsuario("CANDIDATO");
+                        servicioUsuario.crear(usuario);
+                        //*asigna el usuario al candidato*/                    
+                        candidato.setIdUsuario(usuario);
+                        servicioCandidato.crear(candidato);
+//                            System.out.println("Valor: " + cell.toString());
+                    } else {
 
                     }
+
                 }
                 System.out.println("Finalizado");
 

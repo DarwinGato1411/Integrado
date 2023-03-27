@@ -30,7 +30,7 @@
                                                  class="btn btn-primary btn-sm "
                                                  tooltiptext="Buscar candidados"/>
                                         <button  label="Subir evaluados"  
-                                                 onClick="@command('exportarPlantillaEvaluados')"  
+                                                 onClick="@command('cargarEvaluados')"  
                                                  class="btn btn-primary btn-sm "
                                                  tooltiptext="Buscar candidados"/>
                                         <button   label="Subir candidatos" 
