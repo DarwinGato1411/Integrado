@@ -8,9 +8,12 @@ package com.ec.entidad;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import javax.persistence.Basic;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -30,45 +33,53 @@ import javax.persistence.TemporalType;
 public class Evaluacion implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @EmbeddedId
-    protected EvaluacionPK evaluacionPK;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id_evaluacion")
+    private Integer idEvaluacion;
     @Column(name = "eva_fecha")
     @Temporal(TemporalType.DATE)
     private Date evaFecha;
+    @Column(name = "eva_caduca")
+    @Temporal(TemporalType.DATE)
+    private Date evaCaduca;
     @Column(name = "eva_afirmativa")
     private Boolean evaAfirmativa;
+    @Column(name = "eva_respuesta_bool")
+    private Boolean evaRespuestaBool;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "eva_valor")
     private BigDecimal evaValor;
     @Column(name = "eva_respuesta")
     private String evaRespuesta;
+    @Column(name = "eva_version")
+    private String evaVersion;
+    @Column(name = "version_test")
+    private Integer versionTest;
     @JoinColumn(name = "id_candidato", referencedColumnName = "id_candidato")
     @ManyToOne
     private Candidato idCandidato;
-    @JoinColumn(name = "id_pregunta", referencedColumnName = "id_pregunta", insertable = false, updatable = false)
+    @JoinColumn(name = "id_pregunta", referencedColumnName = "id_pregunta")
     @ManyToOne(optional = false)
-    private Pregunta pregunta;
-    @JoinColumn(name = "id_respuesta", referencedColumnName = "id_respuesta", insertable = false, updatable = false)
+    private Pregunta idPregunta;
+    @JoinColumn(name = "id_respuesta", referencedColumnName = "id_respuesta")
     @ManyToOne(optional = false)
-    private Respuesta respuesta;
+    private Respuesta idRespuesta;
 
     public Evaluacion() {
     }
 
-    public Evaluacion(EvaluacionPK evaluacionPK) {
-        this.evaluacionPK = evaluacionPK;
+    public Evaluacion(Integer idEvaluacion) {
+        this.idEvaluacion = idEvaluacion;
     }
 
-    public Evaluacion(int idRespuesta, int idPregunta) {
-        this.evaluacionPK = new EvaluacionPK(idRespuesta, idPregunta);
+    public Integer getIdEvaluacion() {
+        return idEvaluacion;
     }
 
-    public EvaluacionPK getEvaluacionPK() {
-        return evaluacionPK;
-    }
-
-    public void setEvaluacionPK(EvaluacionPK evaluacionPK) {
-        this.evaluacionPK = evaluacionPK;
+    public void setIdEvaluacion(Integer idEvaluacion) {
+        this.idEvaluacion = idEvaluacion;
     }
 
     public Date getEvaFecha() {
@@ -111,26 +122,60 @@ public class Evaluacion implements Serializable {
         this.idCandidato = idCandidato;
     }
 
-    public Pregunta getPregunta() {
-        return pregunta;
+    public Pregunta getIdPregunta() {
+        return idPregunta;
     }
 
-    public void setPregunta(Pregunta pregunta) {
-        this.pregunta = pregunta;
+    public void setIdPregunta(Pregunta idPregunta) {
+        this.idPregunta = idPregunta;
     }
 
-    public Respuesta getRespuesta() {
-        return respuesta;
+    public Respuesta getIdRespuesta() {
+        return idRespuesta;
     }
 
-    public void setRespuesta(Respuesta respuesta) {
-        this.respuesta = respuesta;
+    public void setIdRespuesta(Respuesta idRespuesta) {
+        this.idRespuesta = idRespuesta;
     }
+
+    public Date getEvaCaduca() {
+        return evaCaduca;
+    }
+
+    public void setEvaCaduca(Date evaCaduca) {
+        this.evaCaduca = evaCaduca;
+    }
+
+    public Boolean getEvaRespuestaBool() {
+        return evaRespuestaBool;
+    }
+
+    public void setEvaRespuestaBool(Boolean evaRespuestaBool) {
+        this.evaRespuestaBool = evaRespuestaBool;
+    }
+
+    public String getEvaVersion() {
+        return evaVersion;
+    }
+
+    public void setEvaVersion(String evaVersion) {
+        this.evaVersion = evaVersion;
+    }
+
+    public Integer getVersionTest() {
+        return versionTest;
+    }
+
+    public void setVersionTest(Integer versionTest) {
+        this.versionTest = versionTest;
+    }
+    
+    
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (evaluacionPK != null ? evaluacionPK.hashCode() : 0);
+        hash += (idEvaluacion != null ? idEvaluacion.hashCode() : 0);
         return hash;
     }
 
@@ -141,7 +186,7 @@ public class Evaluacion implements Serializable {
             return false;
         }
         Evaluacion other = (Evaluacion) object;
-        if ((this.evaluacionPK == null && other.evaluacionPK != null) || (this.evaluacionPK != null && !this.evaluacionPK.equals(other.evaluacionPK))) {
+        if ((this.idEvaluacion == null && other.idEvaluacion != null) || (this.idEvaluacion != null && !this.idEvaluacion.equals(other.idEvaluacion))) {
             return false;
         }
         return true;
@@ -149,7 +194,7 @@ public class Evaluacion implements Serializable {
 
     @Override
     public String toString() {
-        return "com.ec.entidad.Evaluacion[ evaluacionPK=" + evaluacionPK + " ]";
+        return "com.ec.entidad.Evaluacion[ idEvaluacion=" + idEvaluacion + " ]";
     }
     
 }

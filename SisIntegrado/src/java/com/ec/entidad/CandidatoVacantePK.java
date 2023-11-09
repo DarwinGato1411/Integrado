@@ -47,6 +47,8 @@ public class CandidatoVacantePK implements Serializable {
     public void setIdCandidato(int idCandidato) {
         this.idCandidato = idCandidato;
     }
+    
+    
 
     @Override
     public int hashCode() {

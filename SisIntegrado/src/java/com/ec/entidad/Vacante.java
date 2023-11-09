@@ -5,11 +5,6 @@
  */
 package com.ec.entidad;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Collection;
@@ -29,9 +24,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
-import org.zkoss.image.AImage;
-import org.zkoss.util.media.AMedia;
 
 /**
  *
@@ -82,8 +74,6 @@ public class Vacante implements Serializable {
     private TipoContratacion idTipoContratacion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacante")
     private Collection<CandidatoVacante> candidatoVacanteCollection;
-    @Transient
-    private AImage fotoGeneral = null;
 
     public Vacante() {
     }
@@ -172,6 +162,14 @@ public class Vacante implements Serializable {
         this.vacEstado = vacEstado;
     }
 
+    public String getVacFoto() {
+        return vacFoto;
+    }
+
+    public void setVacFoto(String vacFoto) {
+        this.vacFoto = vacFoto;
+    }
+
     public Empresa getIdEmpresa() {
         return idEmpresa;
     }
@@ -194,14 +192,6 @@ public class Vacante implements Serializable {
 
     public void setCandidatoVacanteCollection(Collection<CandidatoVacante> candidatoVacanteCollection) {
         this.candidatoVacanteCollection = candidatoVacanteCollection;
-    }
-
-    public String getVacFoto() {
-        return vacFoto;
-    }
-
-    public void setVacFoto(String vacFoto) {
-        this.vacFoto = vacFoto;
     }
 
     @Override
@@ -228,37 +218,5 @@ public class Vacante implements Serializable {
     public String toString() {
         return "com.ec.entidad.Vacante[ idVacante=" + idVacante + " ]";
     }
-
-    public AImage getFotoGeneral() {
-        try {
-            fotoGeneral = new AImage("fotoPedido", Imagen_A_Bytes(vacFoto));
-        } catch (Exception e) {
-            System.out.println("ERRO al cargar fotografia vacante "+e.getMessage());
-        }
-        return fotoGeneral;
-    }
-
-    public byte[] Imagen_A_Bytes(String pathImagen) throws FileNotFoundException {
-        String reportPath = "";
-        reportPath = pathImagen;
-        File file = new File(reportPath);
-
-        FileInputStream fis = new FileInputStream(file);
-        //create FileInputStream which obtains input bytes from a file in a file system
-        //FileInputStream is meant for reading streams of raw bytes such as image data. For reading streams of characters, consider using FileReader.
-
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        byte[] buf = new byte[1024];
-        try {
-            for (int readNum; (readNum = fis.read(buf)) != -1;) {
-                //Writes to this byte array output stream
-                bos.write(buf, 0, readNum);
-                System.out.println("read " + readNum + " bytes,");
-            }
-        } catch (IOException ex) {
-        }
-
-        byte[] bytes = bos.toByteArray();
-        return bytes;
-    }
+    
 }

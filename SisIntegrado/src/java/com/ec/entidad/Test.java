@@ -82,7 +82,6 @@ public class Test implements Serializable {
     public void setPreguntaCollection(Collection<Pregunta> preguntaCollection) {
         this.preguntaCollection = preguntaCollection;
     }
-    
 
     @Override
     public int hashCode() {
@@ -108,6 +107,5 @@ public class Test implements Serializable {
     public String toString() {
         return "com.ec.entidad.Test[ idTest=" + idTest + " ]";
     }
-
     
 }

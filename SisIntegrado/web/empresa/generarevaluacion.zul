@@ -12,108 +12,226 @@
                 <tab label="Generar evaluaciones" sclass="menutabs" /> 
             </tabs>
             <tabpanels >
-                
+               
                 <tabpanel  height="98%" width="99%"  >                    
-                   
-                    <listbox model="@load(vm.listaEvaluaciones)" 
-                             nonselectableTags=""  mold="paging" pageSize="12"  >
-                        <custom-attributes org.zkoss.zul.listbox.rod="true"/>
-                        <auxhead>
-                            <auxheader colspan="12" >  
-                                <div class="row">
+                    <div  class=" row ">
+                        <div  class=" row col-12 col-sm-12 col-md-3 col-lg-3 ">
+                            <listbox model="@load(vm.listaTestModel)" 
+                                     nonselectableTags="" checkmark="true" 
+                                      onSelect="@command('seleccionarTest')"     
+                                     mold="paging" pageSize="12"  >
+                                <custom-attributes org.zkoss.zul.listbox.rod="true"/>
+                                <auxhead>
+                                   
+                                    <auxheader colspan="12" >  
+                                        <div class="row">
                                   
                                     
-                                    <div  class="col-12 col-sm-12 col-md-3 col-lg-3 ">
-                                         
-                                        <button  label="Plantilla evaluados"  
-                                                 onClick="@command('emportarPlantillaEvaluados')"  
-                                                 class="btn btn-primary btn-sm "
-                                                 tooltiptext="Buscar candidados"/>
-                                        <button  label="Subir evaluados"  
-                                                 onClick="@command('cargarEvaluados')"  
-                                                 class="btn btn-primary btn-sm "
-                                                 tooltiptext="Buscar candidados"/>
-                                        <button   label="Subir candidatos" 
-                                                  onClick="@command('exportListboxToExcel')"  
-                                                  class="btn btn-primary btn-sm "
-                                                  tooltiptext="Subir candidatos"/>
-                       
-                                    </div>
-                                    <div  class="col-12 col-sm-12 col-md-5 col-lg-5 " align="end">
-                                        
-                                        <button   image="/imagenes/xls.png" 
-                                                  label="Descargar"                                                  
-                                                  onClick="@command('exportListboxToExcel')"  
-                                                  class="btn btn-primary btn-sm "
-                                                  tooltiptext="Exportar"/>
-                                    </div>
+                                            <div  class="col-12 col-sm-12 col-md-12 col-lg-12 ">
+                                                Seleccione el Test
+                                            </div>
+                                            
 
-                                </div>
+                                        </div>
                                 
-                            </auxheader>
-                        </auxhead>
+                                    </auxheader>
+                                </auxhead>
                        
-                        <listhead> 
-                            <listheader width="10%"  label="" >
-                                <textbox value="@bind(vm.buscar)"  
-                                         tooltiptext="Nombre o Cedula"
-                                         class="form-control form-control-sm"                                         
-                                         placeholder="Nombre o Descripcion"
-                                         onOK="@command('buscarLike')"
-                                         onChange="self.setValue(self.getValue().toUpperCase());" />
-                            </listheader>
-                            <listheader width="45%"  label="Nombre" >
-                            </listheader>  
-                            <listheader width="20%"  label="Correo" />    
-                            <listheader width="25%"  label="Direccion" />        
-                                   
-                           
-                            <listheader width="5%"   tooltiptext="Editar" label="" align="center" />               
-                        </listhead>  
+                                <listhead> 
+                                    <listheader width="30px"  label="" >
+                                       
+                                    </listheader>
+                                    <listheader width="100%"  label="" >
+                                        <textbox value="@bind(vm.buscarTest)"  
+                                                 tooltiptext="Nombre test"
+                                                 class="form-control form-control-sm"                                         
+                                                 placeholder="Nombre test"
+                                                 onOK="@command('buscarTest')"
+                                                 onChange="self.setValue(self.getValue().toUpperCase());" />
+                                    </listheader>  
+                                    <!--<listheader width="5%"   tooltiptext="Editar" label="" align="center" />-->               
+                                </listhead>  
                         
                     
-                        <template name="model">                                                            
-                            <listitem>
+                                <template name="model">                                                            
+                                    <listitem>
                               
-                                <listcell zclass = "mycss-listcell">
-                                    <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
-                                             class="form-control form-control-sm" 
-                                             value="@bind(each.idCandidato.idUsuario.usuRuc)" />
-                                </listcell>
-                                <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">
-                                    <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
-                                             class="form-control form-control-sm" 
-                                             value="@bind(each.idCandidato.idUsuario.usuNombre)" />
-                                    
-                                </listcell>
-                                <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">
-                                    <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
-                                             class="form-control form-control-sm" 
-                                             value="@bind(each.idCandidato.idUsuario.usuCorreo)" />
-                                    
-                                </listcell>
-                                <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">
-                                    <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
-                                             class="form-control form-control-sm" 
-                                             value="@bind(each.idCandidato.canDireccion)" />
-                                    
-                                </listcell>
+                                        <listcell zclass = "mycss-listcell">
+                                            
+                                        </listcell>
+                                        <listcell zclass = "mycss-listcell">
+                                            <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
+                                                     class="form-control form-control-sm" 
+                                                     value="@bind(each.testNombre)" />
+                                        </listcell>
+                                        
                                 
-                                <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">
-                                    <image  
-                                        height=" 30px" 
-                                        src="/iconos/editar.png"
-                                        class="btn btn btn-secondary btn-sm grow"
-                                        onClick="@command('modificar',valor=each)" 
-                                        tooltiptext="Modificar"/>
+                                    </listitem>
+                                </template>
+                            </listbox>
+                    
+                        </div>
+                        <div  class=" row col-12 col-sm-12 col-md-4 col-lg-4 ">
+                            <listbox model="@load(vm.listaCandidatoModel)" 
+                                     nonselectableTags="" checkmark="true" 
+                                      onSelect="@command('seleccionarCandidato')"     
+                                     mold="paging" pageSize="12"  >
+                                <custom-attributes org.zkoss.zul.listbox.rod="true"/>
+                                <auxhead>
                                    
-                                </listcell>
+                                    <auxheader colspan="12" >  
+                                        <div  class="col-12 col-sm-12 col-md-12 col-lg-12 ">
+                                             
+                                            <button onClick="@command('emportarPlantillaEvaluados')"  
+                                                        iconSclass="z-icon-file-text-o  "
+                                                        class="btn btn-primary btn-sm "
+                                                        tooltiptext="Descargar plantilla"/>
+                                            <button  iconSclass="z-icon-upload"
+                                                         onClick="@command('cargarEvaluados')"  
+                                                         class="btn btn-primary btn-sm "
+                                                         tooltiptext="Subir candidatos desde una plantilla"/>
+                                            <button iconSclass="z-icon-group"
+                                                        onClick="@command('buscarCandidatoBaseLista')"  
+                                                        class="btn btn-primary btn-sm "
+                                                        tooltiptext="Subir de la base de datos"/>
+                                            <button iconSclass="z-icon-gears"
+                                                                onClick="@command('generarEvaluacion')"  
+                                                                class="btn btn-primary btn-sm "
+                                                                tooltiptext="Generar evaluacion de los candidatos cargados"/>
+                                            Version:   
+                                            <combobox  model="@load(vm.listaVersiones)" 
+                                                                   readonly="false" 
+                                                                   width="100px"
+                                                                   onSelect="@command('buscarCandidatoTestSeleccionado')"  
+                                                                   selectedItem="@bind(vm.versionSelected)"
+                                                                   tooltiptext="Giro de negocio " >                    
+                                                <template name="model">
+                                                    <comboitem  label="@bind(each)"/>
+                                                </template>                                       
+                                            </combobox>   
+                                            <checkbox label="Nueva version" 
+                                            onClick="@command('verificarVersion')" 
+                                                checked="@bind(vm.nuevaVersion)" 
+                                            />
+                                        </div>
+                                
+                                    </auxheader>
+                                </auxhead>
+                       
+                                <listhead> 
+                                    <listheader width="35px"  label="" >
+                                         <button iconSclass="z-icon-times "  
+                                                onClick="@command('eliminarCandidatosSeleccionados')"  
+                                                class="btn btn btn-secondary btn-sm "
+                                                tooltiptext="Eliminar registros seleccionados"/>
+                                    </listheader>
+                                    <listheader width="25%"  label="Cedula" >
+                                   </listheader>
+                                    <listheader width="75%"  label="Nombre" >
+                                    </listheader>  
+                                </listhead>  
+                        
+                    
+                                <template name="model">                                                            
+                                    <listitem>
+                              
+                                        <listcell zclass = "mycss-listcell"></listcell>
+                                        <listcell zclass = "mycss-listcell">
+                                            <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
+                                                     class="form-control form-control-sm" 
+                                                     value="@bind(each.idUsuario.usuRuc)" />
+                                        </listcell>
+                                        <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">
+                                            <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
+                                                     class="form-control form-control-sm" 
+                                                     value="@bind(each.idUsuario.usuNombre)" />
+                                    
+                                        </listcell>
+                                        
+                                    </listitem>
+                                </template>
+                            </listbox>
+                    
+                        </div>
+                        <div  class=" row col-12 col-sm-12 col-md-5 col-lg-5 ">
+                            <listbox model="@load(vm.candidatosTestSeleccion)" 
+                                     nonselectableTags=""  mold="paging" pageSize="12" >
+                                <custom-attributes org.zkoss.zul.listbox.rod="true"/>
+                                <auxhead>
+                                   
+                                    <auxheader colspan="12" >  
+                                        <div class="row">
+                                  
+                                    
+                                            <div  class="col-12 col-sm-12 col-md-12 col-lg-12 ">
+                                                Candidatos a evaluar
+                                            
+                                            </div>
+
+                                        </div>
+                                
+                                    </auxheader>
+                                </auxhead>
+                       
+                                <listhead> 
+                                    <listheader width="20%"  label="" >
+                                        <textbox value="@bind(vm.buscar)"  
+                                                 tooltiptext="Nombre o Cedula"
+                                                 class="form-control form-control-sm"                                         
+                                                 placeholder="Nombre o Descripcion"
+                                                 onOK="@command('buscarLike')"
+                                                 onChange="self.setValue(self.getValue().toUpperCase());" />
+                                    </listheader>
+                                    <listheader width="30%"  label="Nombre" >
+                                    </listheader>  
+                                    <listheader width="40%"  label="Correo" />    
+                                    <listheader width="20%"  label="Correo" />    
+                                    
+                                </listhead>  
+                        
+                    
+                                <template name="model">                                                            
+                                    <listitem>
+                              
+                                        <listcell zclass = "mycss-listcell">
+                                            <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
+                                                     class="form-control form-control-sm" 
+                                                     value="@bind(each.usuRuc)" />
+                                        </listcell>
+                                        <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">
+                                            <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
+                                                     class="form-control form-control-sm" 
+                                                     value="@bind(each.nombre)" />
+                                    
+                                        </listcell>
+                                        <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">
+                                            <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
+                                                     class="form-control form-control-sm" 
+                                                     value="@bind(each.correo)" />
+                                    
+                                        </listcell>
+                                
+                                        <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">
+                                              <button 
+                                                iconSclass="z-icon-times  "
+                                                onClick="@command('eliminarEvaluado',valor=each)" 
+                                                tooltiptext="Eliminar evaluado">
+                                                Eliminar
+                                            </button> 
+                                   
+                                        </listcell>
                                
                                 
                                 
-                            </listitem>
-                        </template>
-                    </listbox>
+                                    </listitem>
+                                </template>
+                            </listbox>
+                    
+                        </div>
+                        
+                    </div>
+                    
+                    
                 
                 </tabpanel>
                 

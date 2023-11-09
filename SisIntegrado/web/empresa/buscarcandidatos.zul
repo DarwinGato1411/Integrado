@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="/css/boostrap/bootstrap.css"?>  
+<?link rel="stylesheet" type="text/css" href="/css/style.css"?>
+<?link rel="stylesheet" type="text/css" href="/css/modales.css"?>
+<window  id="wBuscarCandidato"  position="center" class="col-12 col-sm-12 col-md-11 col-lg-11" closable="true"  
+         apply="org.zkoss.bind.BindComposer" contentStyle="overflow:auto"
+         viewModel="@id('vm') @init('com.ec.controlador.empresa.GenerarEvaluacion')">
+    
+    <caption label="Seleccionar cliente" style="font-weight:bold"/> 
+   
+    <listbox model="@load(vm.listaCandidatoBaseModel)" 
+             nonselectableTags="" checkmark="true" 
+             onSelect="@command('seleccionarBuscarCandidato')"     
+             mold="paging" pageSize="12"  >
+        <custom-attributes org.zkoss.zul.listbox.rod="true"/>
+                                
+                       
+        <listhead> 
+            <listheader width="35px"  label="" >
+            </listheader>
+            <listheader width="25%"  label="" >
+                <textbox value="@bind(vm.buscarCandidatoBase)"  
+                         tooltiptext="Nombre o Cedula"
+                         class="form-control form-control-sm"                                         
+                         placeholder="Nombre o Cedula"
+                         onOK="@command('buscarCandidatoBase')"
+                         onChange="self.setValue(self.getValue().toUpperCase());" />
+            </listheader>
+            <listheader width="75%"  label="Nombre" >
+            </listheader>  
+        </listhead>  
+                        
+                    
+        <template name="model">                                                            
+            <listitem>
+                              
+                <listcell zclass = "mycss-listcell"></listcell>
+                <listcell zclass = "mycss-listcell">
+                    <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
+                             class="form-control form-control-sm" 
+                             value="@bind(each.idUsuario.usuRuc)" />
+                </listcell>
+                <listcell zclass = "mycss-listcell" style="font-size:12px;background:#F8F9F9">
+                    <textbox readonly="true"  style="font-size:12px ;background:#EBF5FB"
+                             class="form-control form-control-sm" 
+                             value="@bind(each.idUsuario.usuNombre)" />
+                                    
+                </listcell>
+                                        
+            </listitem>
+        </template>
+    </listbox>
+    <div align="center">
+     
+        <button onClick="@command('seleccionarRegistrosCandidatoBase')"  
+                 iconSclass="z-icon-file-text-o  "
+                 label="Agregar"
+                 class="btn btn-primary btn-sm "
+                 tooltiptext="Agregar candidatos"/>
+    </div>                 
+                  
+</window>

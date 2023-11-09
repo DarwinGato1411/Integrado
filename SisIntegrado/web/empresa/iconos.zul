@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="../resources/css/boostrap/bootstrap.css"?>  
+<?link rel="stylesheet" type="text/css" href="../resources/css/style.css"?>
+<!--<?init class="org.zkoss.zk.ui.util.Composition" arg0="/plantilla/plantilla.zul"?>-->
+  
+<zk class="col-12 col-sm-12 col-md-12 col-lg-12 ">
+   
+    <window self="@define(content)" 
+            apply="org.zkoss.bind.BindComposer"
+           
+            class="col-12 col-sm-12 col-md-12 col-lg-12 ">
+  
+       <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-glass		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-music		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-search		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-envelope-o	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-heart		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-star		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-star-o		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-user" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-film		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-th-large	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-th			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-th-list		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-check		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-times		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-search-plus	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-search-minus" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-power-off	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-signal		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-gear		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-trash-o		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-home		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-file-o		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-clock-o		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-road		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-download			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-arrow-circle-o-down			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-arrow-circle-o-up			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-inbox			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-play-circle-o			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-rotate-right			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-repeat		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-refresh			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-list-alt			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-lock			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-flag		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-headphones	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-volume-off	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-volume-down	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-volume-up	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-qrcode		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-barcode		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-tag			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-tags		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-book		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-bookmark	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-print			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-camera			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-font			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-bold			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-italic			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-text-height		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-text-width		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-align-left		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-align-center	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-align-right		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-align-justify	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-list			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-dedent			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-outdent			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-indent			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-video-camera	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-picture-o		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-pencil			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-map-marker		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-adjust			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-tint			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-edit			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-pencil-square-o	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-share-square-o			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-check-square-o			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-move			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-step-backward			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-fast-backward			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-backward			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-play			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-pause			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-stop			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-forward			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-fast-forward	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-step-forward	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-eject			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-chevron-left	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-chevron-right	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-plus-circle		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-minus-circle	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-times-circle	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-check-circle	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-question-circle			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-info-circle			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-crosshairs			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-times-circle-o			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-check-circle-o			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-ban			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-arrow-left			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-arrow-right			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-arrow-up			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-arrow-down			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-mail-forward			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-share		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-resize-full			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-resize-small		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-plus			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-minus			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-asterisk			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-exclamation-circle			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-gift		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-leaf		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-fire		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-eye			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-eye-slash	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-warning			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-exclamation-triangl" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-plane			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-calendar		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-random			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-comment			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-magnet			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-chevron-up		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-chevron-down	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-retweet			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-shopping-cart	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-folder			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-folder-open		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-resize-vertical	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-resize-horizontal" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-bar-chart-o		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-twitter-square	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-facebook-square	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-camera-retro	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-key			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-gears			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-cogs			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-comments		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-thumbs-o-up		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-thumbs-o-down	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-star-half		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-heart-o			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-sign-out		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-linkedin-square	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-thumb-tack		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-external-link	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-sign-in			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-trophy			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-github-square	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-upload			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-lemon-o			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-phone			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-square-o		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-bookmark-o		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-phone-square	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-twitter			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-facebook		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-github			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-unlock			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-credit-card		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-rss			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-hdd-o			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-bullhorn		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-bell			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-certificate		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-hand-o-right	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-hand-o-left		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-hand-o-up		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-hand-o-down		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-arrow-circle-left		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-arrow-circle-right		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-arrow-circle-up			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-arrow-circle-down		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-globe			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-wrench			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-tasks			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-filter			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-briefcase		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-fullscreen		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-group			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-chain			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-link			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-cloud			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-flask			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-cut			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-scissors		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-copy			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-files-o			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-paperclip		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-save			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-floppy-o		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-square			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-reorder			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-list-ul			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-list-ol			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-strikethrough	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-underline		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-table			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-magic			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-truck			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-pinterest		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-pinterest-square			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-google-plus-square			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-google-plus			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-money			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-caret-down			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-caret-up			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-caret-left			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-caret-right			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-columns			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-unsorted			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-sort			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-sort-down			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-sort-asc		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-sort-up			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-sort-desc			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-envelope			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-linkedin			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-rotate-left			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-undo			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-legal			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-gavel			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-dashboard			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-tachometer		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-comment-o			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-comments-o			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-flash			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-bolt			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-sitemap			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-umbrella			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-paste			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-clipboard			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-lightbulb-o			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-exchange			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-cloud-download		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-cloud-upload		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-user-md			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-stethoscope			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-suitcase			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-bell-o			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-coffee			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-cutlery			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-file-text-o		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-building		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-hospital		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-ambulance		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-medkit			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-fighter-jet		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-beer			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-h-square			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-plus-square			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-angle-double-left	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-angle-double-right	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-angle-double-up		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-angle-double-down	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-angle-left			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-angle-right			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-angle-up			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-angle-down			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-desktop			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-laptop			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-tablet			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-mobile-phone			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-mobile		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-circle-o			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-quote-left			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-quote-right			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-spinner			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-circle			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-mail-reply		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-reply			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-github-alt		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-folder-o		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-folder-open-o	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-expand-o		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-collapse-o		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-smile-o			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-frown-o			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-meh-o			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-gamepad			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-keyboard-o		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-flag-o			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-flag-checkered	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-terminal		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-code			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-reply-all			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-mail-reply-all		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-star-half-empty			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-star-half-f" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-location-arrow			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-crop			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-code-fork			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-unlink			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-chain-broken		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-question			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-info			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-exclamation		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-superscript		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-subscript		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-eraser			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-puzzle-piece	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-microphone		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-microphone-slash" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-shield			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-calendar-o		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-fire-extinguisher" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-rocket			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-maxcdn			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-chevron-circle-left		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-chevron-circle-right	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-chevron-circle-up		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-chevron-circle-down		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-html5			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-css3			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-anchor			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-unlock-o		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-bullseye		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-ellipsis-horizontal		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-ellipsis-vertical		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-rss-square		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-play-circle		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-ticket			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-minus-square	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-minus-square-o	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-level-up		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-level-down		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-check-square	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-pencil-square	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-external-link-square	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-share-square			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-compass			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-toggle-down			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-caret-square-o-" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-toggle-up			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-caret-square-o-" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-toggle-right			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-caret-squar" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-euro			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-eur			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-gbp			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-dollar		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-usd			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-rupee		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-inr			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-cny			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-rmb			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-ruble			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-rouble			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-won			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-krw			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-bitcoin		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-btc			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-file		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-file-text			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-sort-alpha-asc		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-sort-alpha-desc		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-sort-amount-asc		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-sort-amount-desc	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-sort-numeric-asc	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-sort-numeric-desc	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-thumbs-up			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-thumbs-down			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-youtube-square		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-youtube			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-xing			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-xing-square		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-youtube-play	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-dropbox			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-stack-overflow	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-instagram		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-flickr			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-adn			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-bitbucket			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-bitbucket-square	" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-tumblr			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-tumblr-square		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-long-arrow-down		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-long-arrow-up		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-long-arrow-left		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-long-arrow-right		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-apple			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-windows			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-android			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-linux			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-dribbble		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-skype			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-foursquare		" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-trello			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-female			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-male			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-gittip			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-sun-o			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-moon-o			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-archive			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-bug			" />
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-vk			" />
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-weibo			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-renren			" />
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-pagelines			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-stack-exchange			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-arrow-circle-o-right			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-arrow-circle-o-left			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-toggle-left			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-caret-square-o-" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-dot-circle-o			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-wheelchair			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-vimeo-square		" /> 
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-turkish-lira			" /> 
+                
+                <button style="width:80px;height:80px; font-size: 40px;" iconSclass="z-icon-try		" /> 
+                
+                
+    </window>
+
+</zk>

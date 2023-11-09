@@ -46,8 +46,8 @@ public class Empresa implements Serializable {
     private String empCorreo;
     @Column(name = "emp_estado")
     private Boolean empEstado;
-//    @OneToMany(mappedBy = "idEmpresa")
-//    private Collection<Pregunta> preguntaCollection;
+    @OneToMany(mappedBy = "idEmpresa")
+    private Collection<Test> testCollection;
     @OneToMany(mappedBy = "idEmpresa")
     private Collection<Vacante> vacanteCollection;
     @OneToMany(mappedBy = "idEmpresa")
@@ -58,8 +58,6 @@ public class Empresa implements Serializable {
     @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
     @ManyToOne
     private Usuario idUsuario;
-    @OneToMany(mappedBy = "idEmpresa")
-    private Collection<Test> testCollection;
 
     public Empresa() {
     }
@@ -116,13 +114,13 @@ public class Empresa implements Serializable {
         this.empEstado = empEstado;
     }
 
-//    public Collection<Pregunta> getPreguntaCollection() {
-//        return preguntaCollection;
-//    }
-//
-//    public void setPreguntaCollection(Collection<Pregunta> preguntaCollection) {
-//        this.preguntaCollection = preguntaCollection;
-//    }
+    public Collection<Test> getTestCollection() {
+        return testCollection;
+    }
+
+    public void setTestCollection(Collection<Test> testCollection) {
+        this.testCollection = testCollection;
+    }
 
     public Collection<Vacante> getVacanteCollection() {
         return vacanteCollection;
@@ -156,14 +154,6 @@ public class Empresa implements Serializable {
         this.idUsuario = idUsuario;
     }
 
-    public Collection<Test> getTestCollection() {
-        return testCollection;
-    }
-
-    public void setTestCollection(Collection<Test> testCollection) {
-        this.testCollection = testCollection;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -188,5 +178,5 @@ public class Empresa implements Serializable {
     public String toString() {
         return "com.ec.entidad.Empresa[ idEmpresa=" + idEmpresa + " ]";
     }
-
+    
 }

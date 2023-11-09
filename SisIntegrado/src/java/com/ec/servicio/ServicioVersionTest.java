@@ -6,7 +6,9 @@ package com.ec.servicio;
 
 import com.ec.entidad.Empresa;
 import com.ec.entidad.Test;
+import com.ec.entidad.VersionTest;
 import com.ec.entidad.Usuario;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -16,7 +18,7 @@ import javax.persistence.Query;
  *
  * @author gato
  */
-public class ServicioTest {
+public class ServicioVersionTest {
 
     private EntityManager em;
 
@@ -28,11 +30,15 @@ public class ServicioTest {
         this.em = em;
     }
 
-    public void crear(Test test) {
+    public void crear() {
 
         try {
+            VersionTest test = new VersionTest();
             em = HelperPersistencia.getEMF();
             em.getTransaction().begin();
+            Query query = em.createNativeQuery("select nextval('version_test')");
+            Long key = ((BigInteger) query.getResultList()).longValue();
+            test.setVerNombre("VERSION-" + key);
             em.persist(test);
             em.getTransaction().commit();
         } catch (Exception e) {
@@ -46,7 +52,7 @@ public class ServicioTest {
 
     }
 
-    public void eliminar(Test test) {
+    public void eliminar(VersionTest test) {
 
         try {
             em = HelperPersistencia.getEMF();
@@ -65,7 +71,7 @@ public class ServicioTest {
 
     }
 
-    public void modificar(Test test) {
+    public void modificar(VersionTest test) {
 
         try {
             em = HelperPersistencia.getEMF();
@@ -83,23 +89,23 @@ public class ServicioTest {
 
     }
 
-    public List<Test> findAll() {
+    public List<Integer> findVersionTest(Test test) {
 
-        List<Test> listaDatos = new ArrayList<Test>();
-        Test test = null;
+        List<Integer> listaDatos = new ArrayList<Integer>();
+
         try {
             //Connection connection = em.unwrap(Connection.class);
 
             em = HelperPersistencia.getEMF();
             em.getTransaction().begin();
-            Query query = em.createQuery("SELECT u FROM Test u ");
-//            query.setParameter("opcDescripcion", "%" + valor + "%");
-            listaDatos = (List<Test>) query.getResultList();
+            Query query = em.createQuery("SELECT max(u.versionTest) FROM Evaluacion u WHERE u.idPregunta.idTest=:idTest GROUP BY u.evaVersion ORDER BY u.evaVersion ASC ");
+            query.setParameter("idTest", test);
+            listaDatos = (List<Integer>) query.getResultList();
 
             em.getTransaction().commit();
         } catch (Exception e) {
 
-            System.out.println("Error en lsa consulta test  findAll  " + e.getMessage());
+            System.out.println("Error en lsa consulta test  findVersionTest  " + e.getMessage());
         } finally {
             em.close();
         }
@@ -107,18 +113,18 @@ public class ServicioTest {
         return listaDatos;
     }
 
-    public List<Test> findByUsuario(Usuario idUsuario) {
+    public List<VersionTest> findByUsuario(Usuario idUsuario) {
 
-        List<Test> listaDatos = new ArrayList<Test>();
-        Test test = null;
+        List<VersionTest> listaDatos = new ArrayList<VersionTest>();
+        VersionTest test = null;
         try {
             //Connection connection = em.unwrap(Connection.class);
 
             em = HelperPersistencia.getEMF();
             em.getTransaction().begin();
-            Query query = em.createQuery("SELECT u FROM Test u WHERE u.idEmpresa.idUsuario=:idUsuario ");
+            Query query = em.createQuery("SELECT u FROM VersionTest u WHERE u.idEmpresa.idUsuario=:idUsuario ");
             query.setParameter("idUsuario", idUsuario);
-            listaDatos = (List<Test>) query.getResultList();
+            listaDatos = (List<VersionTest>) query.getResultList();
 
             em.getTransaction().commit();
         } catch (Exception e) {
@@ -131,19 +137,19 @@ public class ServicioTest {
         return listaDatos;
     }
 
-    public List<Test> findByUsuarioTestNombre(Usuario idUsuario, String valor) {
+    public List<VersionTest> findByUsuarioVersionTestNombre(Usuario idUsuario, String valor) {
 
-        List<Test> listaDatos = new ArrayList<Test>();
-        Test test = null;
+        List<VersionTest> listaDatos = new ArrayList<VersionTest>();
+        VersionTest test = null;
         try {
             //Connection connection = em.unwrap(Connection.class);
 
             em = HelperPersistencia.getEMF();
             em.getTransaction().begin();
-            Query query = em.createQuery("SELECT u FROM Test u WHERE u.idEmpresa.idUsuario=:idUsuario AND u.testNombre like :valor ");
+            Query query = em.createQuery("SELECT u FROM VersionTest u WHERE u.idEmpresa.idUsuario=:idUsuario AND u.testNombre like :valor ");
             query.setParameter("idUsuario", idUsuario);
             query.setParameter("valor", "%" + valor + "%");
-            listaDatos = (List<Test>) query.getResultList();
+            listaDatos = (List<VersionTest>) query.getResultList();
 
             em.getTransaction().commit();
         } catch (Exception e) {

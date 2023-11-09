@@ -45,7 +45,7 @@ public class Respuesta implements Serializable {
     private Boolean resCorrecta;
     @Column(name = "res_opcion_multiple")
     private Boolean resOpcionMultiple;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "respuesta")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idRespuesta")
     private Collection<Evaluacion> evaluacionCollection;
     @JoinColumn(name = "id_pregunta", referencedColumnName = "id_pregunta")
     @ManyToOne
@@ -82,6 +82,22 @@ public class Respuesta implements Serializable {
         this.resEstado = resEstado;
     }
 
+    public Boolean getResCorrecta() {
+        return resCorrecta;
+    }
+
+    public void setResCorrecta(Boolean resCorrecta) {
+        this.resCorrecta = resCorrecta;
+    }
+
+    public Boolean getResOpcionMultiple() {
+        return resOpcionMultiple;
+    }
+
+    public void setResOpcionMultiple(Boolean resOpcionMultiple) {
+        this.resOpcionMultiple = resOpcionMultiple;
+    }
+
     public Collection<Evaluacion> getEvaluacionCollection() {
         return evaluacionCollection;
     }
@@ -96,22 +112,6 @@ public class Respuesta implements Serializable {
 
     public void setIdPregunta(Pregunta idPregunta) {
         this.idPregunta = idPregunta;
-    }
-
-    public Boolean getResCorrecta() {
-        return resCorrecta;
-    }
-
-    public void setResCorrecta(Boolean resCorrecta) {
-        this.resCorrecta = resCorrecta;
-    }
-
-    public Boolean getResOpcionMultiple() {
-        return resOpcionMultiple==null?Boolean.FALSE:resOpcionMultiple;
-    }
-
-    public void setResOpcionMultiple(Boolean resOpcionMultiple) {
-        this.resOpcionMultiple = resOpcionMultiple;
     }
 
     @Override

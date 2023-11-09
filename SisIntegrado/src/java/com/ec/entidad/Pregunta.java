@@ -43,11 +43,11 @@ public class Pregunta implements Serializable {
     private String preDescripcion;
     @Column(name = "pre_estado")
     private Boolean preEstado;
-   @JoinColumn(name = "id_test", referencedColumnName = "id_test")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPregunta")
+    private Collection<Evaluacion> evaluacionCollection;
+    @JoinColumn(name = "id_test", referencedColumnName = "id_test")
     @ManyToOne
     private Test idTest;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pregunta")
-    private Collection<Evaluacion> evaluacionCollection;
     @OneToMany(mappedBy = "idPregunta")
     private Collection<Respuesta> respuestaCollection;
 
@@ -90,23 +90,20 @@ public class Pregunta implements Serializable {
         this.preEstado = preEstado;
     }
 
-    public Test getIdTest() {
-        return idTest;
-    }
-
-    public void setIdTest(Test idTest) {
-        this.idTest = idTest;
-    }
-
-  
-   
-
     public Collection<Evaluacion> getEvaluacionCollection() {
         return evaluacionCollection;
     }
 
     public void setEvaluacionCollection(Collection<Evaluacion> evaluacionCollection) {
         this.evaluacionCollection = evaluacionCollection;
+    }
+
+    public Test getIdTest() {
+        return idTest;
+    }
+
+    public void setIdTest(Test idTest) {
+        this.idTest = idTest;
     }
 
     public Collection<Respuesta> getRespuestaCollection() {

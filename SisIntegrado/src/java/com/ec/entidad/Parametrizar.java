@@ -42,10 +42,10 @@ public class Parametrizar implements Serializable {
     private Integer parPuerto;
     @Column(name = "para_protocolo")
     private String paraProtocolo;
-    @Column(name = "par_base")
-    private String parBase;
     @Column(name = "par_imagenes")
     private String parImagenes;
+    @Column(name = "par_base")
+    private String parBase;
     @Column(name = "par_activo")
     private Boolean parActivo;
 
@@ -104,6 +104,30 @@ public class Parametrizar implements Serializable {
         this.paraProtocolo = paraProtocolo;
     }
 
+    public String getParImagenes() {
+        return parImagenes;
+    }
+
+    public void setParImagenes(String parImagenes) {
+        this.parImagenes = parImagenes;
+    }
+
+    public String getParBase() {
+        return parBase;
+    }
+
+    public void setParBase(String parBase) {
+        this.parBase = parBase;
+    }
+
+    public Boolean getParActivo() {
+        return parActivo;
+    }
+
+    public void setParActivo(Boolean parActivo) {
+        this.parActivo = parActivo;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -128,29 +152,5 @@ public class Parametrizar implements Serializable {
     public String toString() {
         return "com.ec.entidad.Parametrizar[ idParametrizar=" + idParametrizar + " ]";
     }
-
-    public String getParBase() {
-        return parBase;
-    }
-
-    public void setParBase(String parBase) {
-        this.parBase = parBase;
-    }
-
-    public String getParImagenes() {
-        return parImagenes;
-    }
-
-    public void setParImagenes(String parImagenes) {
-        this.parImagenes = parImagenes;
-    }
-
-    public Boolean getParActivo() {
-        return parActivo;
-    }
-
-    public void setParActivo(Boolean parActivo) {
-        this.parActivo = parActivo;
-    }
-
+    
 }

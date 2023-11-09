@@ -62,6 +62,13 @@ public class Candidato implements Serializable {
     public Candidato() {
     }
 
+    public Candidato(Integer idCandidato, String canDireccion, Usuario idUsuario) {
+        this.idCandidato = idCandidato;
+        this.canDireccion = canDireccion;
+        this.idUsuario = idUsuario;
+    }
+    
+
     public Candidato(Integer idCandidato) {
         this.idCandidato = idCandidato;
     }
